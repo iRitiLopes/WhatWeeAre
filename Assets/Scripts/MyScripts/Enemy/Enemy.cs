@@ -10,20 +10,14 @@ public class Enemy : MonoBehaviour {
 
     GameControl game;
 
-    PlayerColliderHelper bottomHelper;
-    PlayerColliderHelper rightHelper;
-    PlayerColliderHelper leftHelper;
-
     public float Velocity = 1f;
-    public float jumpForce;
-
     public float limitWalk = 0.5f;
 
-    public bool isRightWalking = true;
+    public bool isKnocked = false;
 
     Vector2 initialPosition;
 
-    bool jumpKeyHeld;
+    Vector2 dir = Vector2.zero;
 
     // Use this for initialization
     void Start() {
@@ -33,62 +27,41 @@ public class Enemy : MonoBehaviour {
         an = GetComponent<Animator>();
         render = GetComponent<SpriteRenderer>();
 
-        bottomHelper = GetComponentsInChildren<PlayerColliderHelper>()[0];
-        rightHelper = GetComponentsInChildren<PlayerColliderHelper>()[1];
-        leftHelper = GetComponentsInChildren<PlayerColliderHelper>()[2];
-
-        jumpForce = CalculateJumpForce(Physics2D.gravity.magnitude, 2.5f);
-
         this.initialPosition = new Vector2(transform.position.x, transform.position.y);
+
+        dir = Vector2.right;
     }
 
     private void Update() {
-        Vector2 dir = Vector2.zero;
-        if(rightHelper.isColliding || transform.position.x >= this.initialPosition.x * (1 + limitWalk)){
-            isRightWalking = false;
-        }
-        if(leftHelper.isColliding || transform.position.x <= this.initialPosition.x * (limitWalk)){
-            if(leftHelper.isColliding){
-                Debug.Log("COLIDI NA ESQUERDA");
-            }
-            isRightWalking = true;
-        }
+        an.SetBool("isKnocked", isKnocked);
+    }
 
-        if (isRightWalking) {
-            dir.x = 1;
-            render.flipX = false;
-        } else {
-            dir.x = -1;
-            render.flipX = true;
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Platform")) {
+            flip();
         }
-
-        Vector2 vel = rb.velocity;
-        vel.x = dir.x * Velocity;
-        rb.velocity = vel;
     }
 
     private void FixedUpdate() {
+        if (transform.position.x >= this.initialPosition.x * (1 + limitWalk)) {
+            flip();
+        }
+        if (transform.position.x <= this.initialPosition.x * (limitWalk)) {
+            flip();
+        }
+
+        if (!isKnocked) {
+            Vector2 vel = rb.velocity;
+            vel.x = dir.x * Velocity;
+            rb.velocity = vel;
+        }else{
+        }
 
     }
 
-
-    public float GetAbsRunVelocity() {
-        return Mathf.Abs(rb.velocity.x);
-    }
-
-    public bool isOnFloor() {
-        return bottomHelper.isColliding;
-    }
-
-    public bool isDead() {
-        return false;
-    }
-
-    public static float CalculateJumpForce(float gravityStrength, float jumpHeight) {
-        //h = v^2/2g
-        //2gh = v^2
-        //sqrt(2gh) = v
-        return Mathf.Sqrt(2 * gravityStrength * jumpHeight);
+    public void flip() {
+        dir = dir * -1;
+        render.flipX = !render.flipX;
     }
 
 }

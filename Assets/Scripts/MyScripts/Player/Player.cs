@@ -15,9 +15,7 @@ public class Player : MonoBehaviour {
     PlayerColliderHelper leftHelper;
 
     public float Velocity = 1f;
-    public float jumpForce;
 
-    bool jumpKeyHeld;
 
     // Use this for initialization
     void Start() {
@@ -31,14 +29,13 @@ public class Player : MonoBehaviour {
         rightHelper = GetComponentsInChildren<PlayerColliderHelper>()[1];
         leftHelper = GetComponentsInChildren<PlayerColliderHelper>()[2];
 
-        jumpForce = CalculateJumpForce(Physics2D.gravity.magnitude, 2.5f);
     }
 
     private void Update() {
         Vector2 dir = Vector2.zero;
-        if (Input.GetKey(KeyCode.A) == true && leftHelper.isColliding == false) {
+        if (Input.GetKey(KeyCode.A)) {
             dir.x = -1;
-        } else if (Input.GetKey(KeyCode.D) == true && rightHelper.isColliding == false) {
+        } else if (Input.GetKey(KeyCode.D)) {
             dir.x = 1;
         }
 
@@ -54,26 +51,7 @@ public class Player : MonoBehaviour {
             render.flipX = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            jumpKeyHeld = true;
-            if (isOnFloor()) {
-                an.SetBool("Jump", true);
-                rb.AddForce(Vector2.up * jumpForce * rb.mass, ForceMode2D.Impulse);
-            }
-        }else if(Input.GetKeyUp(KeyCode.Space)){
-            jumpKeyHeld = false;
-        }
 
-        if(!isOnFloor()){
-            //an.SetBool("Walk", false);
-            an.SetBool("Jump", true);
-            if(!jumpKeyHeld && Vector2.Dot(rb.velocity, Vector2.up) > 0){
-                rb.AddForce(Vector2.down * rb.mass * Physics2D.gravity.magnitude);
-            }
-        }else{
-            an.SetBool("Walk", true);
-            an.SetBool("Jump", false);
-        }
     }
 
     private void FixedUpdate() {
@@ -82,29 +60,16 @@ public class Player : MonoBehaviour {
             an.SetFloat("Velocity", 0);
             return;
         }
-
-        
     }
-
 
     public float GetAbsRunVelocity() {
         return Mathf.Abs(rb.velocity.x);
-    }
-
-    public bool isOnFloor() {
-        return bottomHelper.isColliding;
     }
 
     public bool isDead() {
         return false;
     }
 
-    public static float CalculateJumpForce(float gravityStrength, float jumpHeight)
- {
-     //h = v^2/2g
-     //2gh = v^2
-     //sqrt(2gh) = v
-     return Mathf.Sqrt(2 * gravityStrength * jumpHeight);
- }
+
 
 }
