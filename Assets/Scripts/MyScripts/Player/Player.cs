@@ -15,6 +15,8 @@ public class Player : MonoBehaviour {
     PlayerColliderHelper leftHelper;
 
     public float Velocity = 1f;
+    public int lifes = 3;
+    public bool isKnocked = false;
 
 
     // Use this for initialization
@@ -39,9 +41,12 @@ public class Player : MonoBehaviour {
             dir.x = 1;
         }
 
-        Vector2 vel = rb.velocity;
-        vel.x = dir.x * Velocity;
-        rb.velocity = vel;
+        if (!isKnocked) {
+            Vector2 vel = rb.velocity;
+            vel.x = dir.x * Velocity;
+            rb.velocity = vel;
+        }else{
+        }
 
         an.SetFloat("Velocity", GetAbsRunVelocity());
 
