@@ -652,6 +652,7 @@ GameObject:
   - component: {fileID: 219741451}
   - component: {fileID: 219741455}
   - component: {fileID: 219741456}
+  - component: {fileID: 219741457}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -760,6 +761,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   Offset: {x: 0, y: 1.6}
+--- !u!114 &219741457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219741450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05290aedc37f7a34eb6b089b5889f2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadDelay: 3
+  actualTime: 0
+  scene:
+    m_Handle: 0
 --- !u!1 &244679140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +1022,7 @@ GameObject:
   - component: {fileID: 361307601}
   m_Layer: 0
   m_Name: BottomCollider
-  m_TagString: Player
+  m_TagString: PlayerColliderBottom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

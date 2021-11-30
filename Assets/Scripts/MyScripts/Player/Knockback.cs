@@ -22,14 +22,22 @@ public class Knockback : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Enemy")){
             var playerRigidBody = GetComponentInParent<Rigidbody2D>();
+            var player = GetComponentInParent<Player>();
+
+            if(player.isDead()){
+                return;
+            }
+
             playerRigidBody.isKinematic = false;
             Vector2 difference = playerRigidBody.transform.position - transform.position;
 
             Vector2 direction;
             if(left){
                 direction = Vector2.right.normalized + Vector2.up.normalized;
+                player.decreaseLife();
             }else if(right){
                 direction = Vector2.left.normalized + Vector2.up.normalized;
+                player.decreaseLife();
             }else if(bottom){
                 direction = Vector2.up.normalized;
             }else{

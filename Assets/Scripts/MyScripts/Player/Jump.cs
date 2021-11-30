@@ -25,30 +25,32 @@ public class Jump : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            jumpKeyHeld = true;
-            if (isOnFloor()) {
-                an.SetBool("Jump", true);
-                rb.AddForce(Vector2.up * jump() * rb.mass, ForceMode2D.Impulse);
-            }
-        } else if (Input.GetKeyUp(KeyCode.Space)) {
-            jumpKeyHeld = false;
+
+        if (GetComponent<Player>().isDead()) {
+            return;
         }
 
-        if (!isOnFloor()) {
-            //an.SetBool("Walk", false);
+        if (isOnFloor()) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                jumpKeyHeld = true;
+                rb.AddForce(Vector2.up * jump() * rb.mass, ForceMode2D.Impulse);
+            } else if (Input.GetKeyUp(KeyCode.Space)) {
+                jumpKeyHeld = false;
+            } else {
+                an.SetBool("Jump", false);
+                an.SetBool("Walk", true);
+            }
+        } else {
             an.SetBool("Jump", true);
+            an.SetBool("Walk", false);
             if (!jumpKeyHeld && Vector2.Dot(rb.velocity, Vector2.up) > 0) {
                 rb.AddForce(Vector2.down * rb.mass * Physics2D.gravity.magnitude);
             }
-        } else {
-            an.SetBool("Walk", true);
-            an.SetBool("Jump", false);
         }
     }
 
     public bool isOnFloor() {
-        return rb.velocity.y < 1;
+        return GameObject.FindGameObjectWithTag("PlayerColliderBottom").GetComponent<PlayerColliderHelper>().isColliding;
     }
 
 }

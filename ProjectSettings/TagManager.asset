@@ -9,6 +9,7 @@ TagManager:
   - Itens
   - Enemy
   - PlayerLife
+  - PlayerColliderBottom
   layers:
   - Default
   - TransparentFX
