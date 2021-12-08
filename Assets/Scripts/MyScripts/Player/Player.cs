@@ -18,7 +18,6 @@ public class Player : MonoBehaviour {
     public int lifes = 3;
     public bool isKnocked = false;
 
-
     // Use this for initialization
     void Start() {
         game = GameObject.Find("Main Camera").GetComponent<GameControl>();

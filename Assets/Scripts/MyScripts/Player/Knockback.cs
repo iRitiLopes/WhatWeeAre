@@ -33,9 +33,11 @@ public class Knockback : MonoBehaviour {
 
             Vector2 direction;
             if(left){
+                StartCoroutine(GetComponentInParent<Invulnerable>().invulnerable());
                 direction = Vector2.right.normalized + Vector2.up.normalized;
                 player.decreaseLife();
             }else if(right){
+                StartCoroutine(GetComponentInParent<Invulnerable>().invulnerable());
                 direction = Vector2.left.normalized + Vector2.up.normalized;
                 player.decreaseLife();
             }else if(bottom){
