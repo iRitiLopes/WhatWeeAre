@@ -34,6 +34,7 @@ public class Jump : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Space)) {
                 jumpKeyHeld = true;
                 rb.AddForce(Vector2.up * jump() * rb.mass, ForceMode2D.Impulse);
+                an.SetBool("Jump", true);
             } else if (Input.GetKeyUp(KeyCode.Space)) {
                 jumpKeyHeld = false;
             } else {

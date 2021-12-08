@@ -7,10 +7,16 @@ public class PlayerColliderHelper : MonoBehaviour {
     public bool isColliding = false;
 
     private void OnTriggerEnter2D(Collider2D coll) {
-        isColliding = coll.CompareTag("Platform");
+        Debug.Log("to no chao");
+        if(coll.CompareTag("Platform")){
+            isColliding = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D coll) {
-        isColliding = !coll.CompareTag("Platform");
+        Debug.Log("sai do chao");
+        if(coll.CompareTag("Platform")){
+            isColliding = false;
+        }
     }
 }

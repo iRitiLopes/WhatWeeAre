@@ -111,7 +111,7 @@ TextureImporter:
       213: 21300070
     second: Ant_normal2_35
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -131,6 +131,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -139,9 +141,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -162,9 +164,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -959,6 +965,43 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Ant_normal2_7: 21300014
+      Ant_normal2_11: 21300022
+      Ant_normal2_13: 21300026
+      Ant_normal2_17: 21300034
+      Ant_normal2_19: 21300038
+      Ant_normal2_5: 21300010
+      Ant_normal2_23: 21300046
+      Ant_normal2_21: 21300042
+      Ant_normal2_30: 21300060
+      Ant_normal2_33: 21300066
+      Ant_normal2_16: 21300032
+      Ant_normal2_18: 21300036
+      Ant_normal2_24: 21300048
+      Ant_normal2_12: 21300024
+      Ant_normal2_15: 21300030
+      Ant_normal2_4: 21300008
+      Ant_normal2_1: 21300002
+      Ant_normal2_3: 21300006
+      Ant_normal2_0: 21300000
+      Ant_normal2_20: 21300040
+      Ant_normal2_2: 21300004
+      Ant_normal2_22: 21300044
+      Ant_normal2_31: 21300062
+      Ant_normal2_26: 21300052
+      Ant_normal2_9: 21300018
+      Ant_normal2_6: 21300012
+      Ant_normal2_10: 21300020
+      Ant_normal2_34: 21300068
+      Ant_normal2_27: 21300054
+      Ant_normal2_32: 21300064
+      Ant_normal2_8: 21300016
+      Ant_normal2_25: 21300050
+      Ant_normal2_29: 21300058
+      Ant_normal2_35: 21300070
+      Ant_normal2_28: 21300056
+      Ant_normal2_14: 21300028
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
