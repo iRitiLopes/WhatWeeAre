@@ -23,16 +23,12 @@ public class EnemyKnockback : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Player")) {
+    private void OnCollisionEnter2D(Collision2D other)  {
+        if (other.collider.CompareTag("Player")) {
             Debug.Log("Bati no personagem!");
             var enemyRigidBody = GetComponent<Rigidbody2D>();
             enemyRigidBody.isKinematic = false;
-            if (render.flipX) {
-                direction = Vector2.right * thrust;
-            } else {
-                direction = Vector2.left * thrust;
-            }
+            direction = other.GetContact(0).normal * other.GetContact(0).normalImpulse;
             enemyRigidBody.AddForce(direction, ForceMode2D.Impulse);
             StartCoroutine(knockCo(enemyRigidBody));
         }

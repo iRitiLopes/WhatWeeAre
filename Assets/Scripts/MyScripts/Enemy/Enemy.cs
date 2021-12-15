@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour {
 
     Vector2 dir = Vector2.zero;
 
+    public bool toLeft = true;
+
     // Use this for initialization
     void Start() {
         game = GameObject.Find("Main Camera").GetComponent<GameControl>();
@@ -30,23 +32,22 @@ public class Enemy : MonoBehaviour {
         this.initialPosition = new Vector2(transform.position.x, transform.position.y);
 
         dir = Vector2.right;
+
     }
 
     private void Update() {
         an.SetBool("isKnocked", isKnocked);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Platform")) {
-            flip();
-        }
+    private void OnCollisionEnter2D(Collision2D other) {
+        toLeft = !toLeft;
     }
 
     private void FixedUpdate() {
-        if (transform.position.x >= this.initialPosition.x * (1 + limitWalk)) {
+        if (transform.position.x >= (this.initialPosition.x * (1 + limitWalk))) {
             flip();
         }
-        if (transform.position.x <= this.initialPosition.x * (limitWalk)) {
+        if (transform.position.x <= (this.initialPosition.x - this.initialPosition.x * limitWalk)) {
             flip();
         }
 
@@ -54,7 +55,7 @@ public class Enemy : MonoBehaviour {
             Vector2 vel = rb.velocity;
             vel.x = dir.x * Velocity;
             rb.velocity = vel;
-        }else{
+        } else {
         }
 
     }

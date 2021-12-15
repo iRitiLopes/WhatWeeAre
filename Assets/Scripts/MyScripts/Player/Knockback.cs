@@ -9,6 +9,9 @@ public class Knockback : MonoBehaviour {
     public bool left;
     public bool right;
     public bool bottom;
+
+    public AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start() {
 
@@ -19,8 +22,10 @@ public class Knockback : MonoBehaviour {
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Enemy")){
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.collider.CompareTag("Enemy")){
+            audioSource.Play();
             var playerRigidBody = GetComponentInParent<Rigidbody2D>();
             var player = GetComponentInParent<Player>();
 
@@ -29,27 +34,19 @@ public class Knockback : MonoBehaviour {
             }
 
             playerRigidBody.isKinematic = false;
-            Vector2 difference = playerRigidBody.transform.position - transform.position;
 
             Vector2 direction;
             if(left){
                 StartCoroutine(GetComponentInParent<Invulnerable>().invulnerable());
-                direction = Vector2.right.normalized + Vector2.up.normalized;
                 player.decreaseLife();
             }else if(right){
                 StartCoroutine(GetComponentInParent<Invulnerable>().invulnerable());
-                direction = Vector2.left.normalized + Vector2.up.normalized;
                 player.decreaseLife();
-            }else if(bottom){
-                direction = Vector2.up.normalized;
-            }else{
-                direction = Vector2.zero.normalized;
             }
 
-            difference = direction * thrust;
+            direction = other.GetContact(0).normal * other.GetContact(0).normalImpulse ;
 
-
-            playerRigidBody.AddForce(difference, ForceMode2D.Impulse);
+            playerRigidBody.AddForce(direction, ForceMode2D.Impulse);
             StartCoroutine(knockCo(playerRigidBody));
         }
     }

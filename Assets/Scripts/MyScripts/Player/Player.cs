@@ -34,11 +34,11 @@ public class Player : MonoBehaviour {
 
     private void Update() {
 
-        if(isDead()){
-            an.SetBool("Dead",true);
+        if (isDead()) {
+            an.SetBool("Dead", true);
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameController>().reloadLevel();
             return;
-        }else{
+        } else {
             an.SetBool("Dead", false);
         }
 
@@ -53,7 +53,7 @@ public class Player : MonoBehaviour {
             Vector2 vel = rb.velocity;
             vel.x = dir.x * Velocity;
             rb.velocity = vel;
-        }else{
+        } else {
         }
 
         an.SetFloat("Velocity", GetAbsRunVelocity());
@@ -75,8 +75,8 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public void decreaseLife(){
-        if(lifes >= 0)
+    public void decreaseLife() {
+        if (lifes >= 0)
             lifes--;
     }
 
