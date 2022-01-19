@@ -18,8 +18,13 @@ public class Player : MonoBehaviour {
     public int lifes = 3;
     public bool isKnocked = false;
 
+    bool showInventory = false;
+    GameObject inventoryUI;
+
     // Use this for initialization
     void Start() {
+        inventoryUI = GameObject.Find("Inventory");
+        inventoryUI.SetActive(false);
         game = GameObject.Find("Main Camera").GetComponent<GameControl>();
 
         rb = GetComponent<Rigidbody2D>();
@@ -40,6 +45,19 @@ public class Player : MonoBehaviour {
             return;
         } else {
             an.SetBool("Dead", false);
+        }
+
+
+        if (showInventory) {
+            inventoryUI.SetActive(true);
+        } else {
+            inventoryUI.SetActive(true);
+         }
+
+        if (Input.GetKey(KeyCode.I)) {
+            showInventory = true;
+        } else {
+            showInventory = false;
         }
 
         Vector2 dir = Vector2.zero;

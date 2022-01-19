@@ -25,7 +25,6 @@ public class EnemyKnockback : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D other)  {
         if (other.collider.CompareTag("Player")) {
-            Debug.Log("Bati no personagem!");
             var enemyRigidBody = GetComponent<Rigidbody2D>();
             enemyRigidBody.isKinematic = false;
             direction = other.GetContact(0).normal * other.GetContact(0).normalImpulse;

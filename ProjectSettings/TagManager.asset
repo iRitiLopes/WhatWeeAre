@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - PlayerLife
   - PlayerColliderBottom
+  - Inventory
   layers:
   - Default
   - TransparentFX
