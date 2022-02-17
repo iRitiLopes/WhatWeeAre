@@ -1,8 +1,13 @@
 [
     {
         "id": "13e35ade-ef05-4143-b5a7-82b87823b83a",
-        "name": "cable",
-        "description": "A cable",
+        "name": "board",
+        "description": "A board",
+        "isRaw": true
+    },{
+        "id": "f73b3eb2-22af-4aba-879c-9c65d93cec59",
+        "name": "gear",
+        "description": "A gear",
         "isRaw": true
     }
 ]

@@ -1,15 +1,15 @@
 using UnityEngine;
 using System;
-
+using Inventory;
 
 namespace Inventory {
-    class Item {
+    public class Item {
 
         static string basePath = "./Assets/Sprites/items/";
-        Guid id;
-        string name;
-        string description;
-        Sprite icon;
+        public Guid id;
+        public string name;
+        public string description;
+        public Sprite icon; 
         bool isRaw;
 
 
@@ -18,7 +18,7 @@ namespace Inventory {
             this.name = name;
             this.description = description;
             this.isRaw = isRaw;
-            this.icon = Resources.Load<Sprite>(basePath + name);
+            this.icon = Resources.Load<Sprite>(basePath + name + ".png");
         }
 
         public Item(Guid id, string name, string description, bool isRaw) {
@@ -26,14 +26,14 @@ namespace Inventory {
             this.name = name;
             this.description = description;
             this.isRaw = isRaw;
-            this.icon = Resources.Load<Sprite>(basePath + name);
+            this.icon = Img2Sprite.LoadNewSprite(basePath + name + ".png");
         }
 
         public Item(Item item) {
             this.id = item.id;
             this.name = item.name;
             this.description = item.description;
-            this.icon = Resources.Load<Sprite>(basePath + item.name);
+            this.icon = Resources.Load<Sprite>(basePath + item.name + ".png");
         }
 
     }
