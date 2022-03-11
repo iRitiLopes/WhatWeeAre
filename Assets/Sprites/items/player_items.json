@@ -1,9 +1,15 @@
 [
     {
         "id": "13e35ade-ef05-4143-b5a7-82b87823b83a",
-        "quantity": 12
+        "quantity": 20
     },{
         "id": "f73b3eb2-22af-4aba-879c-9c65d93cec59",
-        "quantity": 3
+        "quantity": 15
+    },{
+        "id": "f73b3eb2-22af-4aba-879c-9c65d93cec69",
+        "quantity": 2
+    },{
+        "id": "67638d7f-14f8-4b31-9ac1-19284d1c1beb",
+        "quantity": 2
     }
 ]

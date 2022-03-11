@@ -36,7 +36,6 @@ namespace Inventory {
         public void loadItems() {
             int i = 0;
             foreach (var item in this.items) {
-                Debug.Log(item);
                 var children = Instantiate(slot, transform, false);
                 children.name = "InfinityItemSlot_" + i++;
                 children.transform.Find("ItemSlot").GetComponent<Image>().sprite = item.Item1.icon;

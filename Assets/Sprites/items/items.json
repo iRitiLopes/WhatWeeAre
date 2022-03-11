@@ -9,5 +9,25 @@
         "name": "gear",
         "description": "A gear",
         "isRaw": true
+    },{
+        "id": "f73b3eb2-22af-4aba-879c-9c65d93cec69",
+        "name": "iron",
+        "description": "A iron",
+        "isRaw": true
+    },{
+        "id": "67638d7f-14f8-4b31-9ac1-19284d1c1beb",
+        "name": "Gold",
+        "description": "A gold ingot",
+        "isRaw": true
+    },{
+        "id": "eb9911dc-bf7e-45b1-a817-0b6efdff081f",
+        "name": "Silver",
+        "description": "A silver ingot",
+        "isRaw": true
+    },{
+        "id": "55db358c-3cad-4779-b0a3-35bb6bb9a509",
+        "name": "Copper",
+        "description": "A copper ingot",
+        "isRaw": true
     }
 ]
