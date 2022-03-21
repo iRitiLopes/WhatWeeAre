@@ -13,6 +13,10 @@ public class PlayerTooltip : Tooltip {
 
 
     private void Update() {
+        
+    }
+
+    private void FixedUpdate() {
         Vector3 playerPosition = player.transform.position;
         playerPosition.y = playerPosition.y + yOffset;
         playerPosition.x = playerPosition.x + xOffset;

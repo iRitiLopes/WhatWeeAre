@@ -22,7 +22,15 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 
     public void OnPointerEnter(PointerEventData eventData) {
-        Tooltip.show(item.name + " - " + item.description);
+        string message = item.name + " - " + item.description;
+        if (!item.IsRaw){
+            message = message + "\n" + "Disassemble in: ";
+            foreach(RawItem rawItem in item.RawItems){
+                Item item = ItemDatabase.findItem(rawItem.id);
+                message = message + "\n - " + item.name + ", quantity: " + rawItem.quantity;
+            }
+        }
+        Tooltip.show(message);
     }
 
     public void OnPointerExit(PointerEventData eventData){

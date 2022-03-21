@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7959496123604545076}
   - component: {fileID: 2170910083520481525}
   - component: {fileID: 8597390560251793786}
+  - component: {fileID: -2649262689280084188}
   m_Layer: 5
   m_Name: InfinityItemSlot
   m_TagString: Untagged
@@ -91,6 +92,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf7fdad107c372458c5ae549b90c2d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &-2649262689280084188
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5714334516296901890}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5747973212151913836
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,7 +3,17 @@
         "id": "13e35ade-ef05-4143-b5a7-82b87823b83a",
         "name": "board",
         "description": "A board",
-        "isRaw": true
+        "isRaw": false,
+        "rawItems": [
+            {
+                "id": "67638d7f-14f8-4b31-9ac1-19284d1c1beb",
+                "quantity": 4
+            },
+            {
+                "id": "f73b3eb2-22af-4aba-879c-9c65d93cec69",
+                "quantity": 5
+            }
+        ]
     },{
         "id": "f73b3eb2-22af-4aba-879c-9c65d93cec59",
         "name": "gear",

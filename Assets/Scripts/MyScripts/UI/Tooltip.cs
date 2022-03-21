@@ -17,7 +17,7 @@ public class Tooltip : MonoBehaviour {
         HideTooltip();
     }
 
-    private void Update() {
+    private void FixedUpdate() {
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponent<RectTransform>(), Input.mousePosition, uiCamera, out localPoint);
         transform.localPosition = localPoint;

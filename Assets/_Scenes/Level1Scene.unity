@@ -2310,7 +2310,7 @@ GameObject:
   - component: {fileID: 557309356}
   - component: {fileID: 557309360}
   m_Layer: 0
-  m_Name: Radio sprite 1_0
+  m_Name: Radio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11410,7 +11410,7 @@ GameObject:
   - component: {fileID: 1038212519}
   - component: {fileID: 1038212518}
   m_Layer: 0
-  m_Name: workshop_door_0
+  m_Name: WorkshopDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13390,7 +13390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1935092641
 RectTransform:
   m_ObjectHideFlags: 0

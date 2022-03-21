@@ -1,7 +1,8 @@
 using UnityEngine;
 using System;
 using Inventory;
-
+using System.Collections;
+using System.Collections.Generic;
 namespace Inventory {
     public class Item {
 
@@ -12,6 +13,10 @@ namespace Inventory {
         public Sprite icon; 
         bool isRaw;
 
+        List<RawItem> rawItems;
+
+        public List<RawItem> RawItems { get => rawItems; set => rawItems = value; }
+        public bool IsRaw { get => isRaw; }
 
         public Item(string name, string description, bool isRaw) {
             this.id = Guid.NewGuid();
