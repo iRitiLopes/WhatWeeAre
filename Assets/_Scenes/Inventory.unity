@@ -210,6 +210,25 @@ Canvas:
     type: 3}
   m_PrefabInstance: {fileID: 7914782285092466388}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &714856424 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1263471405082190955, guid: b20b70d4f395b14488f659d2fe18a414,
+    type: 3}
+  m_PrefabInstance: {fileID: 7914782285092466388}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &714856429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714856424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e579e589ae79c8429a65afb90cccb97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropInside: {fileID: 117690664}
 --- !u!1 &1227629620 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7914782285494863023, guid: b20b70d4f395b14488f659d2fe18a414,
@@ -392,7 +411,7 @@ PrefabInstance:
     - target: {fileID: 6514363865185339200, guid: b20b70d4f395b14488f659d2fe18a414,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.000003993511
       objectReference: {fileID: 0}
     - target: {fileID: 6514363865185339200, guid: b20b70d4f395b14488f659d2fe18a414,
         type: 3}
@@ -564,5 +583,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5922747149112176746, guid: b20b70d4f395b14488f659d2fe18a414, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b20b70d4f395b14488f659d2fe18a414, type: 3}

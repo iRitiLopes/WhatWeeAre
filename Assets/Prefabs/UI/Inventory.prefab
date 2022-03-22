@@ -711,6 +711,7 @@ GameObject:
   - component: {fileID: 465961580046213392}
   - component: {fileID: 7081169522912856984}
   - component: {fileID: 7687036681640051078}
+  - component: {fileID: 2010181637932652053}
   m_Layer: 5
   m_Name: Viewport
   m_TagString: Untagged
@@ -790,6 +791,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!114 &2010181637932652053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7518366034051344030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e579e589ae79c8429a65afb90cccb97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropInside: {fileID: 2914162835290928885}
 --- !u!1 &8110987447545806239
 GameObject:
   m_ObjectHideFlags: 0

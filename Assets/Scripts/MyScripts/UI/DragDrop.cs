@@ -13,11 +13,22 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     Vector2 originalPos;
 
+    private Transform lastParent;
+
     public Canvas Canvas { get => canvas; set => canvas = value; }
 
     private void Awake() {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+        lastParent = transform.parent;
+    }
+
+    public void changeParent(Transform newParent){
+        lastParent = newParent;
+    }
+
+    public void revertParent(){
+        transform.parent = lastParent;
     }
     public void OnBeginDrag(PointerEventData eventData) {
         transform.parent = canvas.transform;
@@ -33,6 +44,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnEndDrag(PointerEventData eventData) {
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
+        if(transform.parent.gameObject.name == "Canvas"){
+            revertParent();
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData) {
