@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     public Item item;
+
+    public int quantity = 0;
     // Start is called before the first frame update
     void Start() {
 
@@ -14,6 +16,11 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // Update is called once per frame
     void Update() {
 
+    }
+
+    private void FixedUpdate() {
+        var qt = transform.Find("Quantity");
+        qt.GetComponent<TMPro.TextMeshProUGUI>().text = quantity.ToString();
     }
 
 

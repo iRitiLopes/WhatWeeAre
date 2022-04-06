@@ -8,7 +8,6 @@ public class Dropable : MonoBehaviour, IDropHandler {
     [SerializeField]
     public bool canBeDroped = true;
     public void OnDrop(PointerEventData eventData) {
-        Debug.Log("OnDrop");
         if (eventData.pointerDrag != null) {
             if(!canBeDroped){
                 eventData.pointerDrag.GetComponent<DragDrop>().revertParent();
@@ -23,7 +22,7 @@ public class Dropable : MonoBehaviour, IDropHandler {
     }
 
     private void FixedUpdate() {
-        if(transform.childCount < 1){
+        if(!ChildFinder.existChildWithName(transform, "InfinityItemSlotWrapper")){
             canBeDroped = true;
         }
     }

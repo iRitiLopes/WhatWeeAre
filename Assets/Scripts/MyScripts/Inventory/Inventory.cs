@@ -8,7 +8,7 @@ using System;
 using UnityEditor;
 
 public class Inventory : MonoBehaviour {
-    List<Tuple<Item, int>> items = new List<Tuple<Item, int>>();
+    List<PlayerItem> items = new List<PlayerItem>();
 
     public GameObject slot;
 
@@ -16,6 +16,12 @@ public class Inventory : MonoBehaviour {
 
     [SerializeField]
     private Canvas canvas;
+
+    public static Inventory instance;
+
+    private void Awake() {
+        instance = this;
+    }
 
     private void Start() {
         buildInventory();
@@ -31,7 +37,7 @@ public class Inventory : MonoBehaviour {
             Item it = ItemDatabase.findItem(id);
 
             if (it != null)
-                items.Add(new Tuple<Item, int>(it, quantity));
+                items.Add(new PlayerItem(it, quantity));
         }
     }
 
@@ -43,13 +49,87 @@ public class Inventory : MonoBehaviour {
             var children = PrefabUtility.InstantiatePrefab(slot, wrapper.transform) as GameObject;
 
             wrapper.name = "InfinityItemSlotWrapper_" + i++;
-            children.transform.Find("ItemSlot").GetComponent<Image>().sprite = item.Item1.icon;
-            children.GetComponent<ItemSlot>().item = item.Item1;
+            children.transform.Find("ItemSlot").GetComponent<Image>().sprite = item.Item.icon;
+            children.GetComponent<ItemSlot>().item = item.Item;
+            children.GetComponent<ItemSlot>().quantity = item.Quantity;
 
             var qt = children.transform.Find("Quantity");
-            qt.GetComponent<TMPro.TextMeshProUGUI>().text = item.Item2.ToString();
+            qt.GetComponent<TMPro.TextMeshProUGUI>().text = item.Quantity.ToString();
         }
 
+    }
+
+    public void clearInventory(){
+        foreach(Transform child in transform){
+            GameObject.Destroy(child.gameObject);
+        }
+    }
+
+    private void refresh(){
+        clearInventory();
+        loadItems();
+    }
+
+    private void _removeItem(Guid id, int quantity){
+        var idx = items.FindIndex(x => x.Item.id.Equals(id));
+        var item = items[idx];
+        if(quantity < item.Quantity){
+            item.Quantity = item.Quantity - quantity;
+            items[idx] = item;
+        }else if(quantity == item.Quantity){
+            items.RemoveAt(idx);
+        }else{
+            Debug.Log("Cannot consume item!");
+        }
+        refresh();
+    }
+
+    private void _removeItem(Guid id){
+        var idx = items.FindIndex(x => x.Item.id.Equals(id));
+        if(idx == -1){
+            return;
+        }
+        items.RemoveAt(idx);
+        refresh();
+    }
+
+    private void _addItem(Guid id, int quantity){
+        var idx = items.FindIndex(x => x.Item.id.Equals(id));
+        if(idx == -1){
+            Item it = ItemDatabase.findItem(id);
+            items.Add(new PlayerItem(it, quantity));
+            refresh();
+            return;
+        }
+        var item = items[idx];
+        item.Quantity = item.Quantity + quantity;
+        items[idx] = item;
+        refresh();
+    }
+
+    public static void removeItem(Guid id, int quantity){
+        instance._removeItem(id, quantity);
+    }
+
+    public static void removeItem(Guid id){
+        instance._removeItem(id);
+    }
+
+    public static void addItem(Guid id, int quantity){
+        instance._addItem(id, quantity);
+    }
+
+    internal static void putItem(Guid id, int quantity) {
+        instance._putItem(id, quantity);
+    }
+
+    private void _putItem(Guid id, int quantity) {
+        var idx = items.FindIndex(x => x.Item.id.Equals(id));
+        if(idx == -1){
+            Item it = ItemDatabase.findItem(id);
+            items.Add(new PlayerItem(it, quantity));
+            return;
+        }
     }
 }
 

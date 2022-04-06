@@ -1,10 +1,11 @@
 using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Disassembly : MonoBehaviour {
-
+public class Disassembly : MonoBehaviour
+{
     [SerializeField]
     GameObject disassembleSlot;
 
@@ -23,88 +24,192 @@ public class Disassembly : MonoBehaviour {
     [SerializeField]
     GameObject slot;
 
+    private static Disassembly instance;
+
+    ItemSlot actualItem = null;
+
+    List<RawItem> outputItems;
+
+    private void Awake()
+    {
+        instance = this;
+        outputItems = new List<RawItem>();
+    }
+
     bool isLoaded = false;
-    private void FixedUpdate() {
-        if (!disassembleSlot.GetComponent<Dropable>().canBeDroped) {
-            if(disassembleSlot.transform.childCount < 1){
+
+    private void FixedUpdate()
+    {
+        if (!disassembleSlot.GetComponent<Dropable>().canBeDroped)
+        {
+            if (
+                !ChildFinder
+                    .existChildWithName(disassembleSlot.transform,
+                    "InfinityItemSlotWrapper")
+            )
+            {
                 CleanOutputItems();
                 return;
             }
-            var itemSlot = disassembleSlot.transform.GetChild(0).transform.GetChild(0).GetComponent<ItemSlot>();
-            if (!itemSlot.item.IsRaw) {
-                if (itemSlot.item.RawItems.Count > 3) {
-                    return;
-                }
+            var itemSlot =
+                ChildFinder
+                    .findWithStartName(disassembleSlot.transform,
+                    "InfinityItemSlotWrapper")
+                    .GetChild(0)
+                    .GetComponent<ItemSlot>();
 
-                if(isLoaded){
+            actualItem = itemSlot;
+            if (!itemSlot.item.IsRaw)
+            {
+                if (isLoaded)
+                {
                     return;
                 }
+                Inventory.removeItem(actualItem.item.id);
                 int slotNumber = 1;
-                Debug.Log(itemSlot.item.RawItems.Count);
-                foreach (RawItem rawItem in itemSlot.item.RawItems) {
-                    AddOutputItem(ItemDatabase.findItem(rawItem.id), slotNumber, rawItem.quantity);
+                foreach (RawItem rawItem in itemSlot.item.RawItems)
+                {
+                    outputItems.Add (rawItem);
+                    AddOutputItem(ItemDatabase.findItem(rawItem.id),
+                    slotNumber,
+                    rawItem.quantity);
                     slotNumber++;
                 }
                 isLoaded = true;
             }
-        } else {
+        }
+        else
+        {
             CleanOutputItems();
         }
     }
 
-    private void CleanOutputItems() {
+    private void CleanDisassemble()
+    {
+        if (isLoaded || actualItem != null)
+        {
+            var itemSlot =
+                ChildFinder
+                    .findWithStartName(disassembleSlot.transform,
+                    "InfinityItemSlotWrapper");
+            Destroy(itemSlot.gameObject);
+            actualItem = null;
+            CleanOutputItems();
+        }
+    }
 
-        foreach(Transform child in output1.transform){
+    private void CleanOutputItems()
+    {
+        foreach (Transform child in output1.transform)
+        {
             Destroy(child.gameObject);
         }
 
-        foreach(Transform child in output2.transform){
+        foreach (Transform child in output2.transform)
+        {
             Destroy(child.gameObject);
         }
 
-        foreach(Transform child in output3.transform){
+        foreach (Transform child in output3.transform)
+        {
             Destroy(child.gameObject);
         }
+        outputItems = new List<RawItem>();
         isLoaded = false;
     }
 
-
-    private void AddOutputItem(Item item, int outputSlot, int quantity) {
+    private void AddOutputItem(Item item, int outputSlot, int quantity)
+    {
         GameObject wrapper;
-        switch (outputSlot) {
+        switch (outputSlot)
+        {
             case 1:
-                wrapper = CreateDragDropObject.createWrapper(output1.transform, canvas);
-                putItem(wrapper, outputSlot, item, quantity);
-                wrapper.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0.5f);
-                wrapper.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0.5f);
-                wrapper.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
+                wrapper =
+                    CreateDragDropObject
+                        .createWrapper(output1.transform, canvas, false);
+                putItem (wrapper, outputSlot, item, quantity);
+                wrapper.GetComponent<RectTransform>().anchorMax =
+                    new Vector2(0.5f, 0.5f);
+                wrapper.GetComponent<RectTransform>().anchorMin =
+                    new Vector2(0.5f, 0.5f);
+                wrapper.GetComponent<RectTransform>().anchoredPosition3D =
+                    Vector3.zero;
                 break;
             case 2:
-                wrapper = CreateDragDropObject.createWrapper(output2.transform, canvas);
-                putItem(wrapper, outputSlot, item, quantity);
-                wrapper.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0.5f);
-                wrapper.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0.5f);
-                wrapper.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
+                wrapper =
+                    CreateDragDropObject
+                        .createWrapper(output2.transform, canvas, false);
+                putItem (wrapper, outputSlot, item, quantity);
+                wrapper.GetComponent<RectTransform>().anchorMax =
+                    new Vector2(0.5f, 0.5f);
+                wrapper.GetComponent<RectTransform>().anchorMin =
+                    new Vector2(0.5f, 0.5f);
+                wrapper.GetComponent<RectTransform>().anchoredPosition3D =
+                    Vector3.zero;
                 break;
             case 3:
-                wrapper = CreateDragDropObject.createWrapper(output3.transform, canvas);
-                putItem(wrapper, outputSlot, item, quantity);
-                wrapper.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0.5f);
-                wrapper.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0.5f);
-                wrapper.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
+                wrapper =
+                    CreateDragDropObject
+                        .createWrapper(output3.transform, canvas, false);
+                putItem (wrapper, outputSlot, item, quantity);
+                wrapper.GetComponent<RectTransform>().anchorMax =
+                    new Vector2(0.5f, 0.5f);
+                wrapper.GetComponent<RectTransform>().anchorMin =
+                    new Vector2(0.5f, 0.5f);
+                wrapper.GetComponent<RectTransform>().anchoredPosition3D =
+                    Vector3.zero;
                 break;
             default:
                 break;
         }
-        
     }
 
-    private void putItem(GameObject wrapper, int outputSlot, Item item, int quantity){
-        var children = PrefabUtility.InstantiatePrefab(slot, wrapper.transform) as GameObject;
+    private void putItem(
+        GameObject wrapper,
+        int outputSlot,
+        Item item,
+        int quantity
+    )
+    {
+        var children =
+            PrefabUtility.InstantiatePrefab(slot, wrapper.transform) as
+            GameObject;
         wrapper.name = "InfinityItemSlotWrapper_" + outputSlot;
-        children.transform.Find("ItemSlot").GetComponent<Image>().sprite = item.icon;
+        children.transform.Find("ItemSlot").GetComponent<Image>().sprite =
+            item.icon;
         children.GetComponent<ItemSlot>().item = item;
-        var qt = children.transform.Find("Quantity");
-        qt.GetComponent<TMPro.TextMeshProUGUI>().text = quantity.ToString();
+        children.GetComponent<ItemSlot>().quantity = quantity;
     }
-}   
+
+    public static void disassemble()
+    {
+        if (instance.outputItems.Count < 1 || instance.actualItem == null){
+            Debug.Log("This item doesnt provide");
+            return;
+        }
+
+        if(instance.actualItem.quantity == 1){
+            instance._disassemble();
+            instance.CleanDisassemble();
+            return;
+        }
+
+        instance._disassemble();
+    }
+
+    private void _disassemble(){
+        actualItem.quantity = actualItem.quantity - 1;
+        var itemSlot =
+            ChildFinder
+                .findWithStartName(disassembleSlot.transform,
+                "InfinityItemSlotWrapper")
+                .GetChild(0)
+                .GetComponent<ItemSlot>();
+        itemSlot.quantity = actualItem.quantity;
+
+        foreach (var item in outputItems)
+        {
+            Inventory.addItem(item.id, item.quantity);
+        }
+    }
+}
