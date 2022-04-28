@@ -8,6 +8,7 @@ using System;
 using UnityEditor;
 
 public class Inventory : MonoBehaviour {
+    [SerializeField]
     List<PlayerItem> items = new List<PlayerItem>();
 
     public GameObject slot;
@@ -67,7 +68,20 @@ public class Inventory : MonoBehaviour {
 
     private void refresh(){
         clearInventory();
+        storeItems();
         loadItems();
+    }
+
+    private void storeItems() {
+        Debug.Log(JsonUtility.ToJson(items));
+        Debug.Log(items[0].ToJson());
+        List<String> jsonElements = new List<String>();
+        foreach(PlayerItem playerItem in items){
+            jsonElements.Add(playerItem.ToJson());
+        }
+        String json = String.Join(",", jsonElements);
+        json = "[" + json + "]";
+        File.WriteAllText("./Assets/Sprites/items/player_items.json", json);
     }
 
     private void _removeItem(Guid id, int quantity){
@@ -128,6 +142,7 @@ public class Inventory : MonoBehaviour {
         if(idx == -1){
             Item it = ItemDatabase.findItem(id);
             items.Add(new PlayerItem(it, quantity));
+            refresh();
             return;
         }
     }
