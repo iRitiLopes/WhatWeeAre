@@ -41,6 +41,10 @@ public class Player : MonoBehaviour {
             an.SetBool("Dead", false);
         }
 
+        if(Input.GetKey(KeyCode.I)){
+            SceneHistory.LoadScene("Inventory");
+        }
+
         Vector2 dir = Vector2.zero;
         if (Input.GetKey(KeyCode.A)) {
             dir.x = -1;

@@ -26,6 +26,7 @@ public class Inventory : MonoBehaviour {
     }
 
     private void Start() {
+        DontDestroyOnLoad(this.gameObject);
         buildInventory();
         loadItems();
     }
