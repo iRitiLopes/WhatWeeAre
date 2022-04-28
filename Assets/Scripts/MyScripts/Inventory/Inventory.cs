@@ -13,12 +13,13 @@ public class Inventory : MonoBehaviour {
 
     public GameObject slot;
 
-    public String path;
-
     [SerializeField]
     private Canvas canvas;
 
     public static Inventory instance;
+
+    [SerializeField]
+    String INVENTORY_PATH = "./Assets/Sprites/items/player_items.json";
 
     private void Awake() {
         instance = this;
@@ -31,7 +32,7 @@ public class Inventory : MonoBehaviour {
 
     public void buildInventory() {
 
-        JArray data = JArray.Parse(File.ReadAllText("./Assets/Sprites/items/player_items.json"));
+        JArray data = JArray.Parse(File.ReadAllText(INVENTORY_PATH));
         foreach (JObject item in data) {
             Guid id = Guid.Parse((string?)item.GetValue("id"));
             int quantity = ((int)item.GetValue("quantity"));
@@ -73,15 +74,13 @@ public class Inventory : MonoBehaviour {
     }
 
     private void storeItems() {
-        Debug.Log(JsonUtility.ToJson(items));
-        Debug.Log(items[0].ToJson());
         List<String> jsonElements = new List<String>();
         foreach(PlayerItem playerItem in items){
             jsonElements.Add(playerItem.ToJson());
         }
         String json = String.Join(",", jsonElements);
         json = "[" + json + "]";
-        File.WriteAllText("./Assets/Sprites/items/player_items.json", json);
+        File.WriteAllText(INVENTORY_PATH, json);
     }
 
     private void _removeItem(Guid id, int quantity){
@@ -131,20 +130,6 @@ public class Inventory : MonoBehaviour {
 
     public static void addItem(Guid id, int quantity){
         instance._addItem(id, quantity);
-    }
-
-    internal static void putItem(Guid id, int quantity) {
-        instance._putItem(id, quantity);
-    }
-
-    private void _putItem(Guid id, int quantity) {
-        var idx = items.FindIndex(x => x.Item.id.Equals(id));
-        if(idx == -1){
-            Item it = ItemDatabase.findItem(id);
-            items.Add(new PlayerItem(it, quantity));
-            refresh();
-            return;
-        }
     }
 }
 

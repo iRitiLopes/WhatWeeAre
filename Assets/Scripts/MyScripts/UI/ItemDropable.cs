@@ -9,7 +9,7 @@ public class ItemDropable : Dropable, IDropHandler
         {
             base.OnDrop(eventData);            
             var itemSlot = eventData.pointerDrag.transform.GetChild(0).GetComponent<ItemSlot>();
-            Inventory.putItem(itemSlot.item.id, itemSlot.quantity);
+            Inventory.addItem(itemSlot.item.id, itemSlot.quantity);
         }
     }
 }

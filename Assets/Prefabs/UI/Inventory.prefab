@@ -510,9 +510,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6766706acf3c3a04ebc67469b839e74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  items: []
   slot: {fileID: 5714334516296901890, guid: 5787e3f5d793f4144b161d2fdf8c0876, type: 3}
-  path: 
   canvas: {fileID: 0}
+  INVENTORY_PATH: ./Assets/Sprites/items/player_items.json
 --- !u!1 &5052244024644993589
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropInside: {fileID: 2914162835290928885}
+  canBeDroped: 1
 --- !u!1 &8110987447545806239
 GameObject:
   m_ObjectHideFlags: 0
