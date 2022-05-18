@@ -10,6 +10,7 @@ using UnityEditor;
 public class Inventory : MonoBehaviour {
     [SerializeField]
     List<PlayerItem> items = new List<PlayerItem>();
+    public Dictionary<Guid, PlayerItem> playerItems = new Dictionary<Guid, PlayerItem>();
 
     public GameObject slot;
 
@@ -41,6 +42,7 @@ public class Inventory : MonoBehaviour {
 
             if (it != null)
                 items.Add(new PlayerItem(it, quantity));
+                playerItems[it.id] = new PlayerItem(it, quantity);
         }
     }
 

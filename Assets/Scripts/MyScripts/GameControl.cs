@@ -2,30 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class GameControl : MonoBehaviour {
 
+public class GameControl : MonoBehaviour
+{
     // Use this for initialization
     public bool IsGameRuning = true;
 
     public bool[] ItensLevel1 = new bool[2];
 
-	GameObject gameData;
+    GameObject gameData;
 
-	void Start () {
+    void Start()
+    {
+        gameData = GameObject.Find("GameData");
 
-		gameData = GameObject.Find ("GameData");
+        gameData.GetComponent<DataControl>().Load();
 
-		gameData.GetComponent<DataControl> ().Load ();
-
-        
         GameObject startPoint = GameObject.Find("StartPoint");
-        if(startPoint == null)
+        if (startPoint == null)
         {
             throw new UnityException("Start point do not exists!");
         }
 
         GameObject player = GameObject.Find("Player");
-        if(player == null)
+        if (player == null)
         {
             throw new UnityException("Player do not exists!");
         }
@@ -36,28 +36,34 @@ public class GameControl : MonoBehaviour {
             throw new UnityException("Exit Point do not exists!");
         }
 
-        player.transform.position = new Vector3(startPoint.transform.position.x, startPoint.transform.position.y -1,0);
+        player.transform.position =
+            new Vector3(startPoint.transform.position.x,
+                startPoint.transform.position.y - 1,
+                0);
 
-		for (int i = 0; i < ItensLevel1.Length; i++) {
-			ItensLevel1[i] = gameData.GetComponent<DataControl> ().GetLevel1Itens (i);
-		}
-        
-        for(int i = 0; i< ItensLevel1.Length; i++)
+        for (int i = 0; i < ItensLevel1.Length; i++)
         {
-            if(ItensLevel1[i] == true)
+            ItensLevel1[i] =
+                gameData.GetComponent<DataControl>().GetLevel1Itens(i);
+        }
+
+        for (int i = 0; i < ItensLevel1.Length; i++)
+        {
+            if (ItensLevel1[i] == true)
             {
-                Destroy(GameObject.Find("Item"+i));
+                Destroy(GameObject.Find("Item" + i));
             }
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		for (int i = 0; i < ItensLevel1.Length; i++) {
-			gameData.GetComponent<DataControl> ().SetLevel1Itens (ItensLevel1 [i], i);
-		}
-    
-	}
 
-    
+    // Update is called once per frame
+    void Update()
+    {
+        for (int i = 0; i < ItensLevel1.Length; i++)
+        {
+            gameData
+                .GetComponent<DataControl>()
+                .SetLevel1Itens(ItensLevel1[i], i);
+        }
+    }
 }
