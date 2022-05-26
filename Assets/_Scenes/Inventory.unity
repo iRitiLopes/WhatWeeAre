@@ -948,6 +948,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7231335731088054719, guid: b20b70d4f395b14488f659d2fe18a414,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 425678749}
     - target: {fileID: 7914782284935526729, guid: b20b70d4f395b14488f659d2fe18a414,
         type: 3}
       propertyPath: m_Camera

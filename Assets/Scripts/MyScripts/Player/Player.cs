@@ -25,8 +25,9 @@ public class Player : MonoBehaviour
     public bool isKnocked = false;
 
     // Use this for initialization
-    void Start()
+    private IEnumerator Start()
     {
+        Debug.Log("Start");
         game = GameObject.Find("Main Camera").GetComponent<GameControl>();
 
         rb = GetComponent<Rigidbody2D>();
@@ -37,7 +38,14 @@ public class Player : MonoBehaviour
         rightHelper = GetComponentsInChildren<PlayerColliderHelper>()[1];
         leftHelper = GetComponentsInChildren<PlayerColliderHelper>()[2];
 
+        yield return new WaitUntil(() =>
+                    GameManager.gameManagerInstance != null);
         loadPlayerPosition();
+    }
+
+    private void Awake()
+    {
+        //loadPlayerPosition();
     }
 
     void savePlayerPosition()
@@ -54,6 +62,7 @@ public class Player : MonoBehaviour
         var z = PlayerPrefs.GetFloat("playerZ", -1);
         if (x != -1 && y != -1 && z != -1)
         {
+            Debug.Log(string.Format("{0} {1} {2}", x, y, z));
             transform.position = new Vector3(x, y, z);
         }
     }
@@ -135,5 +144,16 @@ public class Player : MonoBehaviour
     public bool isDead()
     {
         return lifes <= 0;
+    }
+
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.CompareTag("Itens"))
+        {
+            ItemDisplay itemDisplay =
+                coll.gameObject.GetComponent<ItemDisplay>();
+            Inventory.addItem(itemDisplay.item.id, 1);
+            itemDisplay.collect();
+        }
     }
 }

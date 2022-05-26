@@ -60,7 +60,6 @@ public class ItemDatabase : MonoBehaviour
 
     public static Item findItem(Guid id)
     {
-        Debug.Log (instance);
         return instance.items.Find(i => i.id.Equals(id));
     }
 }

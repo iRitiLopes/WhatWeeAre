@@ -16,7 +16,6 @@ public class SceneHistory: MonoBehaviour
     }
     void Start()
     {
-        Debug.Log(SceneManager.GetActiveScene().name);
         sceneHistory.Add(SceneManager.GetActiveScene().name);
     }
  

@@ -11,9 +11,11 @@ public class ItemDisplay : MonoBehaviour {
     {
         yield return new WaitUntil(() => ItemDatabase.isInitialized);
         item = ItemDatabase.findItem(Guid.Parse(collectableItem.id));
-
-        Debug.Log(gameObject.GetComponent<SpriteRenderer>().sprite);
         
         gameObject.GetComponent<SpriteRenderer>().sprite = item.spriteInGame;
+    }
+
+    internal void collect() {
+        Destroy(this.gameObject);
     }
 }

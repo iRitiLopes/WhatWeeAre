@@ -9,15 +9,12 @@ using UnityEditor;
 
 public class Inventory : MonoBehaviour {
     [SerializeField]
-    List<PlayerItem> items = new List<PlayerItem>();
+    public List<PlayerItem> items = new List<PlayerItem>();
     public Dictionary<Guid, PlayerItem> playerItems = new Dictionary<Guid, PlayerItem>();
 
-    public GameObject slot;
-
-    [SerializeField]
-    private Canvas canvas;
-
     public static Inventory instance;
+
+    InventoryDisplay inventoryDisplay = null;
 
     [SerializeField]
     String INVENTORY_PATH = "./Assets/Sprites/items/player_items.json";
@@ -27,9 +24,12 @@ public class Inventory : MonoBehaviour {
     }
 
     private void Start() {
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
         buildInventory();
-        loadItems();
+        inventoryDisplay = FindObjectOfType<InventoryDisplay>(true);
+        if(inventoryDisplay != null){
+            inventoryDisplay.loadItems(this.items);
+        }
     }
 
     public void buildInventory() {
@@ -46,24 +46,6 @@ public class Inventory : MonoBehaviour {
         }
     }
 
-    public void loadItems() {
-        int i = 0;
-        foreach (var item in this.items) {
-            var wrapper = CreateDragDropObject.createWrapper(transform, canvas);
-
-            var children = PrefabUtility.InstantiatePrefab(slot, wrapper.transform) as GameObject;
-
-            wrapper.name = "InfinityItemSlotWrapper_" + i++;
-            children.transform.Find("ItemSlot").GetComponent<Image>().sprite = item.Item.icon;
-            children.GetComponent<ItemSlot>().item = item.Item;
-            children.GetComponent<ItemSlot>().quantity = item.Quantity;
-
-            var qt = children.transform.Find("Quantity");
-            qt.GetComponent<TMPro.TextMeshProUGUI>().text = item.Quantity.ToString();
-        }
-
-    }
-
     public void clearInventory(){
         foreach(Transform child in transform){
             GameObject.Destroy(child.gameObject);
@@ -73,7 +55,9 @@ public class Inventory : MonoBehaviour {
     private void refresh(){
         clearInventory();
         storeItems();
-        loadItems();
+        if(inventoryDisplay != null){
+            inventoryDisplay.loadItems(this.items);
+        }
     }
 
     private void storeItems() {
