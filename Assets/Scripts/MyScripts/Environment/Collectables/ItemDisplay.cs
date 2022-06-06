@@ -20,9 +20,4 @@ public class ItemDisplay : MonoBehaviour {
         Destroy(this.gameObject);
     }
 
-    public static void create(Vector3 position, GameObject collectableItem){
-        var x = PrefabUtility.InstantiatePrefab(collectableItem) as GameObject;
-        x.name = "DropableItem_";
-        x.transform.position = position;
-    }
 }

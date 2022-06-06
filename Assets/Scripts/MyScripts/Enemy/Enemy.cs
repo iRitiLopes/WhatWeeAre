@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour {
             if(drop){
                 drop.drop(transform.position);
             }
-            Instantiate(particle, transform.position, transform.rotation);
+            Instantiate(particle, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
             Destroy(this.gameObject);
         }
         if (transform.position.x >= (this.initialPosition.x * (1 + limitWalk))) {

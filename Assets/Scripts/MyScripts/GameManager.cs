@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -55,5 +56,14 @@ public class GameManager : MonoBehaviour
             return;
         }
         player.loadPlayerPosition(this.playerPosition);
+    }
+
+    public static void createItem(Vector3 position, GameObject collectableItem){
+        var collectable = PrefabUtility.InstantiatePrefab(
+            collectableItem, 
+            parent: GameObject.FindGameObjectWithTag("ItemWrapper").transform) as GameObject;
+        collectable.name = "DropableItem_";
+        collectable.tag = "Itens";
+        collectable.transform.position = position;
     }
 }

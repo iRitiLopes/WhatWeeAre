@@ -537,6 +537,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedAnt (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4430448089300856790, guid: e3378bc78b540f341b7285344438c039,
+        type: 3}
+      propertyPath: odds
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3378bc78b540f341b7285344438c039, type: 3}
 --- !u!1 &160354192
@@ -11364,7 +11369,7 @@ GameObject:
   - component: {fileID: 1364901937}
   m_Layer: 0
   m_Name: items
-  m_TagString: Untagged
+  m_TagString: ItemWrapper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

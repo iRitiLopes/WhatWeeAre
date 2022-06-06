@@ -11,6 +11,7 @@ TagManager:
   - PlayerLife
   - PlayerColliderBottom
   - Inventory
+  - ItemWrapper
   layers:
   - Default
   - TransparentFX
