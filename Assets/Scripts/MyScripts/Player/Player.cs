@@ -24,10 +24,11 @@ public class Player : MonoBehaviour
 
     public bool isKnocked = false;
 
+    public Vector3 playerPosition;
+
     // Use this for initialization
     private IEnumerator Start()
     {
-        Debug.Log("Start");
         game = GameObject.Find("Main Camera").GetComponent<GameControl>();
 
         rb = GetComponent<Rigidbody2D>();
@@ -40,7 +41,8 @@ public class Player : MonoBehaviour
 
         yield return new WaitUntil(() =>
                     GameManager.gameManagerInstance != null);
-        loadPlayerPosition();
+
+        GameManager.load();
     }
 
     private void Awake()
@@ -50,27 +52,20 @@ public class Player : MonoBehaviour
 
     void savePlayerPosition()
     {
-        PlayerPrefs.SetFloat("playerX", transform.position.x);
-        PlayerPrefs.SetFloat("playerY", transform.position.y);
-        PlayerPrefs.SetFloat("playerZ", transform.position.z);
+        playerPosition = new Vector3(
+                transform.position.x,
+                transform.position.y,
+                transform.position.z);
     }
 
-    void loadPlayerPosition()
+    public void loadPlayerPosition(Vector3 playerPosition)
     {
-        var x = PlayerPrefs.GetFloat("playerX", -1);
-        var y = PlayerPrefs.GetFloat("playerY", -1);
-        var z = PlayerPrefs.GetFloat("playerZ", -1);
-        if (x != -1 && y != -1 && z != -1)
-        {
-            Debug.Log(string.Format("{0} {1} {2}", x, y, z));
-            transform.position = new Vector3(x, y, z);
-        }
+        transform.position = playerPosition;
     }
 
     private void Update()
     {
         savePlayerPosition();
-
         if (isDead())
         {
             an.SetBool("Dead", true);

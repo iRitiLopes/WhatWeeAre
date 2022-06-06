@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,10 @@ public class Enemy : MonoBehaviour {
 
     public bool toLeft = true;
 
+    public int lifes = 1;
+
+    public GameObject particle;
+
     // Use this for initialization
     void Start() {
         game = GameObject.Find("Main Camera").GetComponent<GameControl>();
@@ -39,11 +44,23 @@ public class Enemy : MonoBehaviour {
         an.SetBool("isKnocked", isKnocked);
     }
 
+    internal void decreaseLife() {
+        lifes--;
+    }
+
     private void OnCollisionEnter2D(Collision2D other) {
         toLeft = !toLeft;
     }
 
     private void FixedUpdate() {
+        if(isDead()){
+            var drop = GetComponent<DropItem>();
+            if(drop){
+                drop.drop(transform.position);
+            }
+            Instantiate(particle, transform.position, transform.rotation);
+            Destroy(this.gameObject);
+        }
         if (transform.position.x >= (this.initialPosition.x * (1 + limitWalk))) {
             flip();
         }
@@ -58,6 +75,10 @@ public class Enemy : MonoBehaviour {
         } else {
         }
 
+    }
+
+    private bool isDead(){
+        return lifes == 0;
     }
 
     public void flip() {

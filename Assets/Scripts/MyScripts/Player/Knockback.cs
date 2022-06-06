@@ -45,7 +45,7 @@ public class Knockback : MonoBehaviour {
             }
 
             direction = other.GetContact(0).normal * other.GetContact(0).normalImpulse ;
-
+            Debug.Log(direction);
             playerRigidBody.AddForce(direction, ForceMode2D.Impulse);
             StartCoroutine(knockCo(playerRigidBody));
         }

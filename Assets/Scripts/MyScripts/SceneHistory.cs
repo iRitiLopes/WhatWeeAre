@@ -23,6 +23,7 @@ public class SceneHistory: MonoBehaviour
     //It will add the new scene to the sceneHistory list
     public void __LoadScene(string newScene)
     {
+        GameManager.save();
         sceneHistory.Add(newScene);
         SceneManager.LoadScene(newScene);
     }

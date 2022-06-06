@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 2016143567827094574}
   - component: {fileID: 2016143567827094573}
   - component: {fileID: 2016143567827094560}
+  - component: {fileID: 1634995174898270338}
+  - component: {fileID: 4430448089300856790}
   m_Layer: 9
   m_Name: RedAnt
   m_TagString: Enemy
@@ -171,6 +173,9 @@ MonoBehaviour:
   Velocity: 3
   limitWalk: 0.5
   isKnocked: 0
+  toLeft: 1
+  lifes: 1
+  particle: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!114 &2016143567827094560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,3 +191,34 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   thrust: 5
   knockTime: 0.75
+  render: {fileID: 0}
+--- !u!114 &1634995174898270338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016143567827094575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f84f4bb13416df47a200dcb8e370339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invulnerabilityTime: 3
+  isInvulnerable: 0
+  blinkRatio: 5
+--- !u!114 &4430448089300856790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016143567827094575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4052f3bb57865648b5ccca9b7678daa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectableItem: {fileID: 2177502802241436502, guid: 5456aba564b027d4c949a6b7f721742a,
+    type: 3}
+  odds: 1

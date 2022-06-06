@@ -46,7 +46,6 @@ public class Invulnerable : MonoBehaviour {
             yield return new WaitForSeconds(ratio);
 
             elapsedTime += 2*ratio;
-            Debug.LogWarning($"Tempo passado: {elapsedTime}");
         }
     }
 }
