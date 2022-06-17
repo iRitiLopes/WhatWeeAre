@@ -18,9 +18,12 @@ public class InventoryDisplay : MonoBehaviour {
     public void loadItems(List<PlayerItem> items) {
         int i = 0;
         foreach (var item in items) {
+            if(!item.show){
+                continue;
+            }
             var wrapper = CreateDragDropObject.createWrapper(transform, canvas);
 
-            var children = PrefabUtility.InstantiatePrefab(slot, wrapper.transform) as GameObject;
+            var children = UnityEngine.Object.Instantiate(slot, wrapper.transform) as GameObject;
 
             wrapper.name = "InfinityItemSlotWrapper_" + i++;
             children.transform.Find("ItemSlot").GetComponent<Image>().sprite = item.Item.icon;

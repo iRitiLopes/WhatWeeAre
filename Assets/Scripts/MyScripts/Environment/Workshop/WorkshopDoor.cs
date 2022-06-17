@@ -1,10 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
-using UnityEditor.SceneManagement;
-using UnityEditor;
 
 public class WorkshopDoor : MonoBehaviour
 {
@@ -13,7 +7,7 @@ public class WorkshopDoor : MonoBehaviour
     bool isOnTheDoor = false;
 
     [SerializeField]
-    SceneAsset scene;
+    string scene;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,19 +15,26 @@ public class WorkshopDoor : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (this.isOnTheDoor && Input.GetKey(KeyCode.W)) {
-            SceneHistory.LoadScene(scene.name);
+            Debug.Log(scene);
+            SceneHistory.LoadScene(scene);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        if(!other.CompareTag("Player")){
+            return;
+        }
         PlayerTooltip.show("Press W to enter");
         this.isOnTheDoor = true;
     }
 
     private void OnTriggerExit2D(Collider2D other) {
+        if(!other.CompareTag("Player")){
+            return;
+        }
         PlayerTooltip.hide();
         this.isOnTheDoor = false;
     }

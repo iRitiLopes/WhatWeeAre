@@ -10,6 +10,9 @@ public class PlayerItem {
     [SerializeField]
     public int quantity;
 
+    [NonSerialized]
+    public bool show = true;
+
     public PlayerItem(Item item, int qt){
         this.Item = item;
         this.quantity = qt;
@@ -21,5 +24,13 @@ public class PlayerItem {
 
     public String ToJson(){
         return JsonUtility.ToJson(this);
+    }
+
+    public void notShow(){
+        this.show = false;
+    }
+
+    public void showItem(){
+        this.show = true;
     }
 }
