@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,7 +22,7 @@ public class ItemDatabase : MonoBehaviour
         foreach (JObject item in data)
         {
             string name = ((string?) item.GetValue("name"));
-            Guid id = Guid.Parse((string?) item.GetValue("id"));
+            Guid id = Guid.Parse((string) item.GetValue("id"));
             bool isRaw = (bool) item.GetValue("isRaw");
             string description = (string?) item.GetValue("description");
             Item it = new Item(id, name, description, isRaw);
@@ -39,8 +40,41 @@ public class ItemDatabase : MonoBehaviour
                 }
                 it.RawItems = rawItems;
             }
-            items.Add(it);
+            items.Add (it);
         }
+    }
+
+    internal static Item findItemByComponents(List<ItemSlot> components)
+    {
+        return instance._findItemByComponents(components);
+    }
+
+    private Item _findItemByComponents(List<ItemSlot> components)
+    {
+        Dictionary<Guid, ItemSlot> componentsDict =
+            new Dictionary<Guid, ItemSlot>();
+        foreach (var component in components)
+        {
+            componentsDict.Add(component.item.id, component);
+        }
+
+        foreach (var item in items)
+        {
+            if (item.IsRaw)
+            {
+                continue;
+            }
+            var allMatch = false;
+            allMatch = item.RawItems.All(x =>
+                        componentsDict.ContainsKey(x.id) &&
+                        componentsDict[x.id].quantity >= x.quantity);
+
+            if (allMatch)
+            {
+                return item;
+            }
+        }
+        return null;
     }
 
     private void Awake()

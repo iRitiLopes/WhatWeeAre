@@ -65,7 +65,7 @@ public class Disassembly : MonoBehaviour
                 {
                     return;
                 }
-                Inventory.removeItem(actualItem.item.id);
+                Inventory.notShowItem(actualItem.item.id);
                 int slotNumber = 1;
                 foreach (RawItem rawItem in itemSlot.item.RawItems)
                 {
@@ -172,7 +172,7 @@ public class Disassembly : MonoBehaviour
     )
     {
         var children =
-            PrefabUtility.InstantiatePrefab(slot, wrapper.transform) as
+            UnityEngine.Object.Instantiate(slot, wrapper.transform) as
             GameObject;
         wrapper.name = "InfinityItemSlotWrapper_" + outputSlot;
         children.transform.Find("ItemSlot").GetComponent<Image>().sprite =
@@ -183,12 +183,14 @@ public class Disassembly : MonoBehaviour
 
     public static void disassemble()
     {
-        if (instance.outputItems.Count < 1 || instance.actualItem == null){
+        if (instance.outputItems.Count < 1 || instance.actualItem == null)
+        {
             Debug.Log("This item doesnt provide");
             return;
         }
 
-        if(instance.actualItem.quantity == 1){
+        if (instance.actualItem.quantity == 1)
+        {
             instance._disassemble();
             instance.CleanDisassemble();
             return;
@@ -197,7 +199,9 @@ public class Disassembly : MonoBehaviour
         instance._disassemble();
     }
 
-    private void _disassemble(){
+    private void _disassemble()
+    {
+        Inventory.removeItem(actualItem.item.id, 1);
         actualItem.quantity = actualItem.quantity - 1;
         var itemSlot =
             ChildFinder

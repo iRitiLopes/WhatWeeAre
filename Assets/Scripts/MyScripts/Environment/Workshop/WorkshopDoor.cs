@@ -1,10 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
-using UnityEditor.SceneManagement;
-using UnityEditor;
 
 public class WorkshopDoor : MonoBehaviour
 {
@@ -13,7 +7,7 @@ public class WorkshopDoor : MonoBehaviour
     bool isOnTheDoor = false;
 
     [SerializeField]
-    SceneAsset scene;
+    string scene;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +18,7 @@ public class WorkshopDoor : MonoBehaviour
     void Update()
     {
         if (this.isOnTheDoor && Input.GetKey(KeyCode.W)) {
-            SceneHistory.LoadScene(scene.name);
+            SceneHistory.LoadScene(scene);
         }
     }
 

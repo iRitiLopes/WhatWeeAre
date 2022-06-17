@@ -115,6 +115,34 @@ public class Inventory : MonoBehaviour {
         instance._removeItem(id);
     }
 
+    public static void notShowItem(Guid id){
+        instance._notShowItem(id);
+    }
+
+    public static void showItem(Guid id){
+        instance._showItem(id);
+    }
+
+    private void _showItem(Guid id) {
+        var idx = items.FindIndex(x => x.Item.id.Equals(id));
+        if(idx == -1){
+            return;
+        }
+        var item = items[idx];
+        item.showItem();
+        refresh();
+    }
+
+    private void _notShowItem(Guid id) {
+        var idx = items.FindIndex(x => x.Item.id.Equals(id));
+        if(idx == -1){
+            return;
+        }
+        var item = items[idx];
+        item.notShow();
+        refresh();
+    }
+
     public static void addItem(Guid id, int quantity){
         instance._addItem(id, quantity);
     }

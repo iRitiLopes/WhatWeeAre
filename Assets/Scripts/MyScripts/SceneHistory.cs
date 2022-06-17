@@ -8,11 +8,21 @@ public class SceneHistory: MonoBehaviour
  
  
     public static SceneHistory instance;
+    [SerializeField]
     private List<string> sceneHistory = new List<string>();  //running history of scenes
     //The last string in the list is always the current scene running
  
     private void Awake() {
-        instance = this;
+         DontDestroyOnLoad(this);
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Object.Destroy (gameObject);
+        }
     }
     void Start()
     {

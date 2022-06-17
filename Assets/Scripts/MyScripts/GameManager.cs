@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     }
 
     public static void createItem(Vector3 position, GameObject collectableItem){
-        var collectable = PrefabUtility.InstantiatePrefab(
+        var collectable = UnityEngine.Object.Instantiate(
             collectableItem, 
             parent: GameObject.FindGameObjectWithTag("ItemWrapper").transform) as GameObject;
         collectable.name = "DropableItem_";
