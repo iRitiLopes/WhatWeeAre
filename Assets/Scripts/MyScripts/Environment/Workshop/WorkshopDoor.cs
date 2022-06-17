@@ -18,7 +18,6 @@ public class WorkshopDoor : MonoBehaviour
     void FixedUpdate()
     {
         if (this.isOnTheDoor && Input.GetKey(KeyCode.W)) {
-            Debug.Log(scene);
             SceneHistory.LoadScene(scene);
         }
     }
