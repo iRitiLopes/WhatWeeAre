@@ -2,8 +2,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
     public static GameManager gameManagerInstance;
 
     public bool firstRun = true;
@@ -15,52 +14,47 @@ public class GameManager : MonoBehaviour
 
     public Dictionary<GameObject, GameObject> items2 = new Dictionary<GameObject, GameObject>();
 
-    private void Start()
-    {
+    private void Start() {
 
     }
 
-    private void Awake()
-    {
+    private void Awake() {
         DontDestroyOnLoad(this);
 
-        if (gameManagerInstance == null)
-        {
+        if (gameManagerInstance == null) {
             gameManagerInstance = this;
-        }
-        else
-        {
-            Object.Destroy (gameObject);
+        } else {
+            Object.Destroy(gameObject);
         }
     }
 
-    public static void save(){
+    public static void save() {
         gameManagerInstance.savePlayerPosition();
     }
 
-    public void savePlayerPosition(){
-        var player  = FindObjectOfType<Player>();
-        if(player == null){
+    public void savePlayerPosition() {
+        var player = FindObjectOfType<Player>();
+        if (player == null) {
             return;
         }
         playerPosition = player.playerPosition;
     }
 
-    public static void load(){
+    public static void load() {
         gameManagerInstance.loadPlayerPosition();
     }
 
-    public void loadPlayerPosition(){
-        var player  = FindObjectOfType<Player>();
-        if(player == null){
+    public void loadPlayerPosition() {
+        var player = FindObjectOfType<Player>();
+        if (player == null) {
             return;
         }
         player.loadPlayerPosition(this.playerPosition);
     }
 
-    public static void createItem(Vector3 position, GameObject collectableItem){
+    public static void createItem(Vector3 position, GameObject collectableItem) {
         var collectable = UnityEngine.Object.Instantiate(
-            collectableItem, 
+            collectableItem,
             parent: GameObject.FindGameObjectWithTag("ItemWrapper").transform) as GameObject;
         collectable.name = "DropableItem_";
         collectable.tag = "Itens";

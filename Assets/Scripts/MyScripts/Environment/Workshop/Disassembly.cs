@@ -4,8 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Disassembly : MonoBehaviour
-{
+public class Disassembly : MonoBehaviour {
     [SerializeField]
     GameObject disassembleSlot;
 
@@ -30,24 +29,20 @@ public class Disassembly : MonoBehaviour
 
     List<RawItem> outputItems;
 
-    private void Awake()
-    {
+    private void Awake() {
         instance = this;
         outputItems = new List<RawItem>();
     }
 
     bool isLoaded = false;
 
-    private void FixedUpdate()
-    {
-        if (!disassembleSlot.GetComponent<Dropable>().canBeDroped)
-        {
+    private void FixedUpdate() {
+        if (!disassembleSlot.GetComponent<Dropable>().canBeDroped) {
             if (
                 !ChildFinder
                     .existChildWithName(disassembleSlot.transform,
                     "InfinityItemSlotWrapper")
-            )
-            {
+            ) {
                 CleanOutputItems();
                 return;
             }
@@ -59,17 +54,14 @@ public class Disassembly : MonoBehaviour
                     .GetComponent<ItemSlot>();
 
             actualItem = itemSlot;
-            if (!itemSlot.item.IsRaw)
-            {
-                if (isLoaded)
-                {
+            if (!itemSlot.item.IsRaw) {
+                if (isLoaded) {
                     return;
                 }
                 Inventory.notShowItem(actualItem.item.id);
                 int slotNumber = 1;
-                foreach (RawItem rawItem in itemSlot.item.RawItems)
-                {
-                    outputItems.Add (rawItem);
+                foreach (RawItem rawItem in itemSlot.item.RawItems) {
+                    outputItems.Add(rawItem);
                     AddOutputItem(ItemDatabase.findItem(rawItem.id),
                     slotNumber,
                     rawItem.quantity);
@@ -77,17 +69,13 @@ public class Disassembly : MonoBehaviour
                 }
                 isLoaded = true;
             }
-        }
-        else
-        {
+        } else {
             CleanOutputItems();
         }
     }
 
-    private void CleanDisassemble()
-    {
-        if (isLoaded || actualItem != null)
-        {
+    private void CleanDisassemble() {
+        if (isLoaded || actualItem != null) {
             var itemSlot =
                 ChildFinder
                     .findWithStartName(disassembleSlot.transform,
@@ -98,36 +86,30 @@ public class Disassembly : MonoBehaviour
         }
     }
 
-    private void CleanOutputItems()
-    {
-        foreach (Transform child in output1.transform)
-        {
+    private void CleanOutputItems() {
+        foreach (Transform child in output1.transform) {
             Destroy(child.gameObject);
         }
 
-        foreach (Transform child in output2.transform)
-        {
+        foreach (Transform child in output2.transform) {
             Destroy(child.gameObject);
         }
 
-        foreach (Transform child in output3.transform)
-        {
+        foreach (Transform child in output3.transform) {
             Destroy(child.gameObject);
         }
         outputItems = new List<RawItem>();
         isLoaded = false;
     }
 
-    private void AddOutputItem(Item item, int outputSlot, int quantity)
-    {
+    private void AddOutputItem(Item item, int outputSlot, int quantity) {
         GameObject wrapper;
-        switch (outputSlot)
-        {
+        switch (outputSlot) {
             case 1:
                 wrapper =
                     CreateDragDropObject
                         .createWrapper(output1.transform, canvas, false);
-                putItem (wrapper, outputSlot, item, quantity);
+                putItem(wrapper, outputSlot, item, quantity);
                 wrapper.GetComponent<RectTransform>().anchorMax =
                     new Vector2(0.5f, 0.5f);
                 wrapper.GetComponent<RectTransform>().anchorMin =
@@ -139,7 +121,7 @@ public class Disassembly : MonoBehaviour
                 wrapper =
                     CreateDragDropObject
                         .createWrapper(output2.transform, canvas, false);
-                putItem (wrapper, outputSlot, item, quantity);
+                putItem(wrapper, outputSlot, item, quantity);
                 wrapper.GetComponent<RectTransform>().anchorMax =
                     new Vector2(0.5f, 0.5f);
                 wrapper.GetComponent<RectTransform>().anchorMin =
@@ -151,7 +133,7 @@ public class Disassembly : MonoBehaviour
                 wrapper =
                     CreateDragDropObject
                         .createWrapper(output3.transform, canvas, false);
-                putItem (wrapper, outputSlot, item, quantity);
+                putItem(wrapper, outputSlot, item, quantity);
                 wrapper.GetComponent<RectTransform>().anchorMax =
                     new Vector2(0.5f, 0.5f);
                 wrapper.GetComponent<RectTransform>().anchorMin =
@@ -169,8 +151,7 @@ public class Disassembly : MonoBehaviour
         int outputSlot,
         Item item,
         int quantity
-    )
-    {
+    ) {
         var children =
             UnityEngine.Object.Instantiate(slot, wrapper.transform) as
             GameObject;
@@ -181,16 +162,13 @@ public class Disassembly : MonoBehaviour
         children.GetComponent<ItemSlot>().quantity = quantity;
     }
 
-    public static void disassemble()
-    {
-        if (instance.outputItems.Count < 1 || instance.actualItem == null)
-        {
+    public static void disassemble() {
+        if (instance.outputItems.Count < 1 || instance.actualItem == null) {
             Debug.Log("This item doesnt provide");
             return;
         }
 
-        if (instance.actualItem.quantity == 1)
-        {
+        if (instance.actualItem.quantity == 1) {
             instance._disassemble();
             instance.CleanDisassemble();
             return;
@@ -199,8 +177,7 @@ public class Disassembly : MonoBehaviour
         instance._disassemble();
     }
 
-    private void _disassemble()
-    {
+    private void _disassemble() {
         Inventory.removeItem(actualItem.item.id, 1);
         actualItem.quantity = actualItem.quantity - 1;
         var itemSlot =
@@ -211,8 +188,7 @@ public class Disassembly : MonoBehaviour
                 .GetComponent<ItemSlot>();
         itemSlot.quantity = actualItem.quantity;
 
-        foreach (var item in outputItems)
-        {
+        foreach (var item in outputItems) {
             Inventory.addItem(item.id, item.quantity);
         }
     }

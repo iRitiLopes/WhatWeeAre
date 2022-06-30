@@ -1,5 +1,7 @@
-<<<<<<< HEAD
-[{"id":"f73b3eb2-22af-4aba-879c-9c65d93cec69","quantity":15},{"id":"67638d7f-14f8-4b31-9ac1-19284d1c1beb","quantity":27},{"id":"eb9911dc-bf7e-45b1-a817-0b6efdff081f","quantity":55},{"id":"13e35ade-ef05-4143-b5a7-82b87823b83a","quantity":11},{"id":"f73b3eb2-22af-4aba-879c-9c65d93cec59","quantity":21}]
-=======
-[{"id":"f73b3eb2-22af-4aba-879c-9c65d93cec69","quantity":15},{"id":"67638d7f-14f8-4b31-9ac1-19284d1c1beb","quantity":22},{"id":"eb9911dc-bf7e-45b1-a817-0b6efdff081f","quantity":55},{"id":"13e35ade-ef05-4143-b5a7-82b87823b83a","quantity":9},{"id":"f73b3eb2-22af-4aba-879c-9c65d93cec59","quantity":19}]
->>>>>>> 46f35719b3e0131bf7b3a1c3cfc51e5248430b3e
+[
+  { "id": "f73b3eb2-22af-4aba-879c-9c65d93cec69", "quantity": 15 },
+  { "id": "67638d7f-14f8-4b31-9ac1-19284d1c1beb", "quantity": 27 },
+  { "id": "eb9911dc-bf7e-45b1-a817-0b6efdff081f", "quantity": 55 },
+  { "id": "13e35ade-ef05-4143-b5a7-82b87823b83a", "quantity": 11 },
+  { "id": "f73b3eb2-22af-4aba-879c-9c65d93cec59", "quantity": 21 }
+]

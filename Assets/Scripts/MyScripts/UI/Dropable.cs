@@ -13,7 +13,7 @@ public class Dropable : MonoBehaviour, IDropHandler {
     List<Notificable> notificables = new List<Notificable>();
     public void OnDrop(PointerEventData eventData) {
         if (eventData.pointerDrag != null) {
-            if(!canBeDroped){
+            if (!canBeDroped) {
                 eventData.pointerDrag.GetComponent<DragDrop>().revertParent();
                 return;
             }
@@ -28,19 +28,18 @@ public class Dropable : MonoBehaviour, IDropHandler {
     }
 
     private void notifyAll(GameObject go) {
-        foreach (var item in notificables)
-        {
+        foreach (var item in notificables) {
             item.notify(go);
         }
     }
 
     private void FixedUpdate() {
-        if(!ChildFinder.existChildWithName(transform, "InfinityItemSlotWrapper")){
+        if (!ChildFinder.existChildWithName(transform, "InfinityItemSlotWrapper")) {
             canBeDroped = true;
         }
     }
 
-    public void subscribe(Notificable notificable){
+    public void subscribe(Notificable notificable) {
         notificables.Add(notificable);
     }
 }

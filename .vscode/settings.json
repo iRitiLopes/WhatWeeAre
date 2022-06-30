@@ -53,5 +53,11 @@
         "temp/":true,
         "Temp/":true
     },
-    "csharp.format.enable": true
+    "csharp.format.enable": true,
+    "[csharp]": {
+        "editor.defaultFormatter": "ms-dotnettools.csharp"
+     },
+    "omnisharp.enableMsBuildLoadProjectsOnDemand": true,
+    "omnisharp.enableEditorConfigSupport": true,
+    "omnisharp.enableRoslynAnalyzers": true,
 }
