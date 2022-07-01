@@ -9,16 +9,15 @@ public class InventoryDisplay : MonoBehaviour {
 
     [SerializeField]
     private Canvas canvas;
-    
-    private IEnumerator Start()
-    {
+
+    private IEnumerator Start() {
         yield return new WaitUntil(() => Inventory.instance != null);
     }
 
     public void loadItems(List<PlayerItem> items) {
         int i = 0;
         foreach (var item in items) {
-            if(!item.show){
+            if (!item.show) {
                 continue;
             }
             var wrapper = CreateDragDropObject.createWrapper(transform, canvas);

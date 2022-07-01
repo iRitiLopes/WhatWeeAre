@@ -8,9 +8,8 @@ public class GameManager : MonoBehaviour {
     public bool firstRun = true;
 
     public Vector3 playerPosition;
-
-    List<GameObject> enemies;
-    List<GameObject> items;
+    readonly List<GameObject> enemies;
+    readonly List<GameObject> items;
 
     public Dictionary<GameObject, GameObject> items2 = new Dictionary<GameObject, GameObject>();
 

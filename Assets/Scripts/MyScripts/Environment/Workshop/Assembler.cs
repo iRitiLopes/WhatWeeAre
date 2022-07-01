@@ -6,8 +6,7 @@ using UnityEngine;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Assembler : MonoBehaviour, Notificable
-{
+public class Assembler : MonoBehaviour, Notificable {
     [SerializeField]
     GameObject outputSlot;
 
@@ -32,39 +31,34 @@ public class Assembler : MonoBehaviour, Notificable
 
     List<ItemSlot> inputItens = new List<ItemSlot>();
 
-    private void Awake()
-    {
+    private void Awake() {
         instance = this;
         input1.GetComponent<Dropable>().subscribe(this);
         input2.GetComponent<Dropable>().subscribe(this);
         input3.GetComponent<Dropable>().subscribe(this);
     }
 
-    public void notify(GameObject go)
-    {
+    public void notify(GameObject go) {
         Debug.Log("Notified");
         inputItens.Add(go.transform.GetChild(0).GetComponent<ItemSlot>());
         var found = ItemDatabase.findItemByComponents(inputItens);
-        if (found != null)
-        {
-            AddOutputItem (found);
+        if (found != null) {
+            AddOutputItem(found);
             Debug.Log("Achei");
             Debug.Log(found.name);
         }
     }
 
-    private void AddOutputItem(Item item)
-    {
+    private void AddOutputItem(Item item) {
         GameObject wrapper;
         wrapper = CreateDragDropObject.createWrapper(outputSlot.transform, canvas, false);
-        putItem (wrapper, item, 1);
-        wrapper.GetComponent<RectTransform>().anchorMax =new Vector2(0.5f, 0.5f);
-        wrapper.GetComponent<RectTransform>().anchorMin =new Vector2(0.5f, 0.5f);
+        putItem(wrapper, item, 1);
+        wrapper.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0.5f);
+        wrapper.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0.5f);
         wrapper.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
     }
 
-     private void putItem(GameObject wrapper, Item item, int quantity)
-    {
+    private void putItem(GameObject wrapper, Item item, int quantity) {
         var children = UnityEngine.Object.Instantiate(slot, wrapper.transform) as GameObject;
         wrapper.name = "InfinityItemSlotWrapper_" + outputSlot;
         children.transform.Find("ItemSlot").GetComponent<Image>().sprite = item.icon;
@@ -73,10 +67,8 @@ public class Assembler : MonoBehaviour, Notificable
         actualItem = children.GetComponent<ItemSlot>();
     }
 
-    public static void assemble()
-    {
-        if (instance.actualItem == null)
-        {
+    public static void assemble() {
+        if (instance.actualItem == null) {
             Debug.Log("This item doesnt provide");
             return;
         }
@@ -85,43 +77,36 @@ public class Assembler : MonoBehaviour, Notificable
         instance.CleanDisassemble();
     }
 
-    private void _assemble()
-    {
+    private void _assemble() {
         Inventory.addItem(actualItem.item.id, 1);
-        foreach(var inputItem in inputItens){
+        foreach (var inputItem in inputItens) {
             Inventory.removeItem(inputItem.item.id, actualItem.item.RawItems.Find(x => x.id.Equals(inputItem.item.id)).quantity);
             inputItem.quantity = actualItem.item.RawItems.Find(x => x.id.Equals(inputItem.item.id)).quantity;
         }
     }
 
-     private void CleanDisassemble()
-    {
-        if (actualItem != null)
-        {
-            var itemSlot = ChildFinder.findWithStartName(outputSlot.transform,"InfinityItemSlotWrapper");
+    private void CleanDisassemble() {
+        if (actualItem != null) {
+            var itemSlot = ChildFinder.findWithStartName(outputSlot.transform, "InfinityItemSlotWrapper");
             Destroy(itemSlot.gameObject);
             actualItem = null;
             CleanInputItems();
         }
     }
 
-        private void CleanInputItems()
-    {
-        foreach (Transform child in input1.transform)
-        {
+    private void CleanInputItems() {
+        foreach (Transform child in input1.transform) {
             Destroy(child.gameObject);
         }
 
-        foreach (Transform child in input2.transform)
-        {
+        foreach (Transform child in input2.transform) {
             Destroy(child.gameObject);
         }
 
-        foreach (Transform child in input3.transform)
-        {
+        foreach (Transform child in input3.transform) {
             Destroy(child.gameObject);
         }
         inputItens = new List<ItemSlot>();
     }
-       
+
 }

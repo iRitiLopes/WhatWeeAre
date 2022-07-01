@@ -5,11 +5,7 @@ public class WorkshopDoor : MonoBehaviour {
     bool isOnTheDoor = false;
 
     [SerializeField]
-    string scene;
-
-    // Start is called before the first frame update
-    void Start() {
-    }
+    readonly string scene;
 
     // Update is called once per frame
     void FixedUpdate() {

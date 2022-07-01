@@ -5,12 +5,11 @@ using UnityEngine.EventSystems;
 public class Dropable : MonoBehaviour, IDropHandler {
 
     [SerializeField]
-    GameObject dropInside;
+    readonly GameObject dropInside;
 
     [SerializeField]
     public bool canBeDroped = true;
-
-    List<Notificable> notificables = new List<Notificable>();
+    readonly List<Notificable> notificables = new();
     public void OnDrop(PointerEventData eventData) {
         if (eventData.pointerDrag != null) {
             if (!canBeDroped) {

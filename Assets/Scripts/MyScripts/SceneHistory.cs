@@ -8,7 +8,7 @@ public class SceneHistory : MonoBehaviour {
 
     public static SceneHistory instance;
     [SerializeField]
-    private List<string> sceneHistory = new List<string>();  //running history of scenes
+    private readonly List<string> sceneHistory = new();  //running history of scenes
                                                              //The last string in the list is always the current scene running
 
     private void Awake() {
