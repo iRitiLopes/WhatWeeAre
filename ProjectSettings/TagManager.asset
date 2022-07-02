@@ -12,6 +12,7 @@ TagManager:
   - PlayerColliderBottom
   - Inventory
   - ItemWrapper
+  - AudioController
   layers:
   - Default
   - TransparentFX

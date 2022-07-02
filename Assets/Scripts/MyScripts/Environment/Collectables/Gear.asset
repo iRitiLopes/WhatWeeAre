@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Gear
   m_EditorClassIdentifier: 
   id: f73b3eb2-22af-4aba-879c-9c65d93cec59
+  audioClip: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}

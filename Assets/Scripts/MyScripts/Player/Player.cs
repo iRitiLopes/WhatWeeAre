@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour {
     private Rigidbody2D rb;
 
@@ -118,14 +119,6 @@ public class Player : MonoBehaviour {
 
     public bool isDead() {
         return lifes <= 0;
-    }
-
-    private void OnTriggerEnter2D(Collider2D coll) {
-        if (coll.CompareTag("Itens")) {
-            ItemDisplay itemDisplay = coll.gameObject.GetComponent<ItemDisplay>();
-            Inventory.addItem(itemDisplay.item.id, 1);
-            itemDisplay.collect();
-        }
     }
 
     internal void increaseLife(int amount) {

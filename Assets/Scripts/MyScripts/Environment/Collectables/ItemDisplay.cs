@@ -17,12 +17,10 @@ public class ItemDisplay : MonoBehaviour {
         gameObject.GetComponent<SpriteRenderer>().sprite = item.spriteInGame;
     }
 
-    internal void collect() {
-    }
-
     private void OnTriggerEnter2D(Collider2D coll) {
         if (coll.CompareTag("Player")) {
-            Debug.Log(coll.gameObject.name);
+            Inventory.addItem(item.id, 1);
+            coll.gameObject.GetComponent<AudioSource>().PlayOneShot(collectableItem.audioClip);
             if(powerUpEffect != null){
                 Debug.Log("aplicando");
                 powerUpEffect.Apply(coll.gameObject);

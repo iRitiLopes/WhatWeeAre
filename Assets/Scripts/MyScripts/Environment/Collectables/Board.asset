@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Board
   m_EditorClassIdentifier: 
   id: 13e35ade-ef05-4143-b5a7-82b87823b83a
+  audioClip: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}

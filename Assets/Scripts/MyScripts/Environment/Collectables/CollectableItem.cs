@@ -7,4 +7,6 @@ using System.Collections.Generic;
 public class CollectableItem : ScriptableObject {
 
     public String id;
+
+    public AudioClip audioClip;
 }

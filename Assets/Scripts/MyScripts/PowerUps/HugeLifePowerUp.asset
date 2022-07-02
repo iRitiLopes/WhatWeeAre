@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: HugeLifePowerUp
   m_EditorClassIdentifier: 
   amount: 5
+  audioClip: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}

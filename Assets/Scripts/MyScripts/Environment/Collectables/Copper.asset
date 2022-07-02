@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15358f0620a11764e8c1cb06882ce26e, type: 3}
   m_Name: Copper
   m_EditorClassIdentifier: 
-  id: 
+  id: 55db358c-3cad-4779-b0a3-35bb6bb9a509
+  audioClip: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
