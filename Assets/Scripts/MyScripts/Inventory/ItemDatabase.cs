@@ -9,8 +9,7 @@ using UnityEngine.UI;
 
 public class ItemDatabase : MonoBehaviour {
     private static ItemDatabase instance;
-
-    List<Item> items = new List<Item>();
+    readonly List<Item> items = new();
 
     public static bool isInitialized = false;
 
@@ -18,19 +17,19 @@ public class ItemDatabase : MonoBehaviour {
         JArray data =
             JArray.Parse(File.ReadAllText("./Assets/Sprites/items/items.json"));
         foreach (JObject item in data) {
-            string name = ((string?)item.GetValue("name"));
+            string name = (string?)item.GetValue("name");
             Guid id = Guid.Parse((string)item.GetValue("id"));
             bool isRaw = (bool)item.GetValue("isRaw");
             string description = (string?)item.GetValue("description");
-            Item it = new Item(id, name, description, isRaw);
+            Item it = new(id, name, description, isRaw);
             if (!isRaw) {
                 JArray rawItemJArray =
                     JArray.Parse(item.GetValue("rawItems").ToString());
-                List<RawItem> rawItems = new List<RawItem>();
+                List<RawItem> rawItems = new();
                 foreach (JObject rawItem in rawItemJArray) {
                     Guid rawId = Guid.Parse((string?)rawItem.GetValue("id"));
                     int quantity = (int)rawItem.GetValue("quantity");
-                    RawItem r = new RawItem(rawId, quantity);
+                    RawItem r = new(rawId, quantity);
                     rawItems.Add(r);
                 }
                 it.RawItems = rawItems;
@@ -44,8 +43,7 @@ public class ItemDatabase : MonoBehaviour {
     }
 
     private Item _findItemByComponents(List<ItemSlot> components) {
-        Dictionary<Guid, ItemSlot> componentsDict =
-            new Dictionary<Guid, ItemSlot>();
+        Dictionary<Guid, ItemSlot> componentsDict = new();
         foreach (var component in components) {
             componentsDict.Add(component.item.id, component);
         }

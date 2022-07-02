@@ -1,9 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour {
     private Rigidbody2D rb;
 
     Animator an;
@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
 
     PlayerColliderHelper leftHelper;
 
+    
+
     public float Velocity = 1f;
 
     public int lifes = 3;
@@ -27,8 +29,7 @@ public class Player : MonoBehaviour
     public Vector3 playerPosition;
 
     // Use this for initialization
-    private IEnumerator Start()
-    {
+    private IEnumerator Start() {
         game = GameObject.Find("Main Camera").GetComponent<GameControl>();
 
         rb = GetComponent<Rigidbody2D>();
@@ -45,110 +46,89 @@ public class Player : MonoBehaviour
         GameManager.load();
     }
 
-    private void Awake()
-    {
+    private void Awake() {
         //loadPlayerPosition();
     }
 
-    void savePlayerPosition()
-    {
+    void savePlayerPosition() {
         playerPosition = new Vector3(
                 transform.position.x,
                 transform.position.y,
                 transform.position.z);
     }
 
-    public void loadPlayerPosition(Vector3 playerPosition)
-    {
+    public void loadPlayerPosition(Vector3 playerPosition) {
         transform.position = playerPosition;
     }
 
-    private void Update()
-    {
+    private void Update() {
         savePlayerPosition();
-        if (isDead())
-        {
+        if (isDead()) {
             an.SetBool("Dead", true);
             GameObject
                 .FindGameObjectWithTag("MainCamera")
                 .GetComponent<GameController>()
                 .reloadLevel();
             return;
-        }
-        else
-        {
+        } else {
             an.SetBool("Dead", false);
         }
 
-        if (Input.GetKey(KeyCode.I))
-        {
+        if (Input.GetKey(KeyCode.I)) {
             SceneHistory.LoadScene("Inventory");
         }
 
         Vector2 dir = Vector2.zero;
-        if (Input.GetKey(KeyCode.A))
-        {
+        if (Input.GetKey(KeyCode.A)) {
             dir.x = -1;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
+        } else if (Input.GetKey(KeyCode.D)) {
             dir.x = 1;
         }
 
-        if (!isKnocked)
-        {
+        if (!isKnocked) {
             Vector2 vel = rb.velocity;
             vel.x = dir.x * Velocity;
             rb.velocity = vel;
-        }
-        else
-        {
+        } else {
         }
 
         an.SetFloat("Velocity", GetAbsRunVelocity());
 
-        if (rb.velocity.x > 0)
-        {
+        if (rb.velocity.x > 0) {
             render.flipX = false;
-        }
-        else if (rb.velocity.x < 0)
-        {
+        } else if (rb.velocity.x < 0) {
             render.flipX = true;
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (game.IsGameRuning == false)
-        {
+    private void FixedUpdate() {
+        if (game.IsGameRuning == false) {
             an.SetFloat("Velocity", 0);
             return;
         }
     }
 
-    public void decreaseLife()
-    {
+    public void decreaseLife() {
         if (lifes >= 0) lifes--;
     }
 
-    public float GetAbsRunVelocity()
-    {
+    public float GetAbsRunVelocity() {
         return Mathf.Abs(rb.velocity.x);
     }
 
-    public bool isDead()
-    {
+    public bool isDead() {
         return lifes <= 0;
     }
 
-    private void OnTriggerEnter2D(Collider2D coll)
-    {
-        if (coll.CompareTag("Itens"))
-        {
-            ItemDisplay itemDisplay =
-                coll.gameObject.GetComponent<ItemDisplay>();
+    private void OnTriggerEnter2D(Collider2D coll) {
+        if (coll.CompareTag("Itens")) {
+            ItemDisplay itemDisplay = coll.gameObject.GetComponent<ItemDisplay>();
             Inventory.addItem(itemDisplay.item.id, 1);
             itemDisplay.collect();
         }
+    }
+
+    internal void increaseLife(int amount) {
+        this.lifes += amount;
     }
 }

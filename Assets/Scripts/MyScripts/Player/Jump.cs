@@ -1,13 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jump : MonoBehaviour {
+public class Jump : MonoBehaviour, Notificable {
     public float jumpForce = 2.5f;
 
     public Rigidbody2D rb { get; private set; }
     public Animator an { get; private set; }
     public SpriteRenderer render { get; private set; }
+
+    [SerializeField]
+    bool doubleJump = false;
+
+    [SerializeField]
+    int jumpCount = 0;
+
+    internal void enableDoubleJump() {
+        this.doubleJump = true;
+    }
+
     public PlayerColliderHelper bottomHelper { get; private set; }
 
     bool jumpKeyHeld;
@@ -16,7 +28,8 @@ public class Jump : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         an = GetComponent<Animator>();
         render = GetComponent<SpriteRenderer>();
-        bottomHelper = GetComponentsInChildren<PlayerColliderHelper>()[0];
+        bottomHelper = GameObject.FindGameObjectWithTag("PlayerColliderBottom").GetComponent<PlayerColliderHelper>();
+        bottomHelper.subscribe(this);
     }
 
     private float jump() {
@@ -30,8 +43,9 @@ public class Jump : MonoBehaviour {
             return;
         }
 
-        if (isOnFloor()) {
+        if (isOnFloor() || (doubleJump && jumpCount < 2)) {
             if (Input.GetKeyDown(KeyCode.Space)) {
+                ++jumpCount;
                 jumpKeyHeld = true;
                 rb.AddForce(Vector2.up * jump() * rb.mass, ForceMode2D.Impulse);
                 an.SetBool("Jump", true);
@@ -51,7 +65,17 @@ public class Jump : MonoBehaviour {
     }
 
     public bool isOnFloor() {
-        return GameObject.FindGameObjectWithTag("PlayerColliderBottom").GetComponent<PlayerColliderHelper>().isColliding;
+        return bottomHelper.isColliding;
     }
 
+    public void notify(GameObject go) {
+        var isOnFloor = go.GetComponent<PlayerColliderHelper>().isColliding;
+        if(isOnFloor){
+            resetJumps();
+        }
+    }
+
+    void resetJumps(){
+        jumpCount = 0;
+    }
 }
