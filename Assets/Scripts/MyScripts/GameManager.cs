@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour {
         if (player == null) {
             return;
         }
-        player.loadPlayerPosition(this.playerPosition);
+        player.LoadPlayerPosition(playerPosition);
     }
 
     public static void createItem(Vector3 position, GameObject collectableItem) {

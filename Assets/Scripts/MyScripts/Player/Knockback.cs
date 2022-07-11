@@ -29,7 +29,7 @@ public class Knockback : MonoBehaviour {
             var playerRigidBody = GetComponentInParent<Rigidbody2D>();
             var player = GetComponentInParent<Player>();
 
-            if(player.isDead()){
+            if(player.IsDead()){
                 return;
             }
 
@@ -38,10 +38,10 @@ public class Knockback : MonoBehaviour {
             Vector2 direction;
             if(left){
                 StartCoroutine(GetComponentInParent<Invulnerable>().invulnerable());
-                player.decreaseLife();
+                player.DecreaseLife();
             }else if(right){
                 StartCoroutine(GetComponentInParent<Invulnerable>().invulnerable());
-                player.decreaseLife();
+                player.DecreaseLife();
             }
 
             direction = other.GetContact(0).normal * other.GetContact(0).normalImpulse ;

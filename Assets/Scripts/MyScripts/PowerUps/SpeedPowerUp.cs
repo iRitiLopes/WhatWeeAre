@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "powerUps/LifePowerUp")]
-public class LifePowerUp : PowerUpEffect
-{
+[CreateAssetMenu(menuName = "powerUps/SpeedPowerUp")]
+public class SpeedPowerUp : PowerUpEffect {
     [SerializeField]
-    public int amount = 3;
+    public float amount = 1.0f;
 
     [SerializeField]
     public AudioClip audioClip;
 
+    [SerializeField]
+    public float effectSeconds = 10;
+
     public override void Apply(GameObject target) {
-        target.GetComponent<Player>().IncreaseLife(amount);
+        target.GetComponent<Movement>().IncreaseSpeed(amount, effectSeconds);
         target.GetComponent<AudioSource>().PlayOneShot(audioClip);
     }
+
 }

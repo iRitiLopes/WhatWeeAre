@@ -9,8 +9,6 @@ public class Player : MonoBehaviour {
 
     Animator an;
 
-    SpriteRenderer render;
-
     GameControl game;
 
     PlayerColliderHelper bottomHelper;
@@ -18,10 +16,6 @@ public class Player : MonoBehaviour {
     PlayerColliderHelper rightHelper;
 
     PlayerColliderHelper leftHelper;
-
-    
-
-    public float Velocity = 1f;
 
     public int lifes = 3;
 
@@ -35,7 +29,6 @@ public class Player : MonoBehaviour {
 
         rb = GetComponent<Rigidbody2D>();
         an = GetComponent<Animator>();
-        render = GetComponent<SpriteRenderer>();
 
         bottomHelper = GetComponentsInChildren<PlayerColliderHelper>()[0];
         rightHelper = GetComponentsInChildren<PlayerColliderHelper>()[1];
@@ -51,20 +44,20 @@ public class Player : MonoBehaviour {
         //loadPlayerPosition();
     }
 
-    void savePlayerPosition() {
+    void SavePlayerPosition() {
         playerPosition = new Vector3(
                 transform.position.x,
                 transform.position.y,
                 transform.position.z);
     }
 
-    public void loadPlayerPosition(Vector3 playerPosition) {
+    public void LoadPlayerPosition(Vector3 playerPosition) {
         transform.position = playerPosition;
     }
 
     private void Update() {
-        savePlayerPosition();
-        if (isDead()) {
+        SavePlayerPosition();
+        if (IsDead()) {
             an.SetBool("Dead", true);
             GameObject
                 .FindGameObjectWithTag("MainCamera")
@@ -78,28 +71,6 @@ public class Player : MonoBehaviour {
         if (Input.GetKey(KeyCode.I)) {
             SceneHistory.LoadScene("Inventory");
         }
-
-        Vector2 dir = Vector2.zero;
-        if (Input.GetKey(KeyCode.A)) {
-            dir.x = -1;
-        } else if (Input.GetKey(KeyCode.D)) {
-            dir.x = 1;
-        }
-
-        if (!isKnocked) {
-            Vector2 vel = rb.velocity;
-            vel.x = dir.x * Velocity;
-            rb.velocity = vel;
-        } else {
-        }
-
-        an.SetFloat("Velocity", GetAbsRunVelocity());
-
-        if (rb.velocity.x > 0) {
-            render.flipX = false;
-        } else if (rb.velocity.x < 0) {
-            render.flipX = true;
-        }
     }
 
     private void FixedUpdate() {
@@ -109,7 +80,7 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public void decreaseLife() {
+    public void DecreaseLife() {
         if (lifes >= 0) lifes--;
     }
 
@@ -117,11 +88,11 @@ public class Player : MonoBehaviour {
         return Mathf.Abs(rb.velocity.x);
     }
 
-    public bool isDead() {
+    public bool IsDead() {
         return lifes <= 0;
     }
 
-    internal void increaseLife(int amount) {
+    internal void IncreaseLife(int amount) {
         this.lifes += amount;
     }
 }

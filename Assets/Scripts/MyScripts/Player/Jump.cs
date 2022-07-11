@@ -39,7 +39,7 @@ public class Jump : MonoBehaviour, Notificable {
     // Update is called once per frame
     void Update() {
 
-        if (GetComponent<Player>().isDead()) {
+        if (GetComponent<Player>().IsDead()) {
             return;
         }
 
