@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -14,10 +15,10 @@ public class InventoryDisplay : MonoBehaviour {
         yield return new WaitUntil(() => Inventory.instance != null);
     }
 
-    public void loadItems(List<PlayerItem> items) {
+    public void loadItems(Dictionary<Guid, PlayerItem> items) {
         int i = 0;
-        foreach (var item in items) {
-            if (!item.show) {
+        foreach (var item in items.Keys) {
+            if (!items[item].show) {
                 continue;
             }
             var wrapper = CreateDragDropObject.createWrapper(transform, canvas);
@@ -25,12 +26,12 @@ public class InventoryDisplay : MonoBehaviour {
             var children = UnityEngine.Object.Instantiate(slot, wrapper.transform) as GameObject;
 
             wrapper.name = "InfinityItemSlotWrapper_" + i++;
-            children.transform.Find("ItemSlot").GetComponent<Image>().sprite = item.Item.icon;
-            children.GetComponent<ItemSlot>().item = item.Item;
-            children.GetComponent<ItemSlot>().quantity = item.Quantity;
+            children.transform.Find("ItemSlot").GetComponent<Image>().sprite = items[item].Item.icon;
+            children.GetComponent<ItemSlot>().item = items[item].Item;
+            children.GetComponent<ItemSlot>().quantity = items[item].Quantity;
 
             var qt = children.transform.Find("Quantity");
-            qt.GetComponent<TMPro.TextMeshProUGUI>().text = item.Quantity.ToString();
+            qt.GetComponent<TMPro.TextMeshProUGUI>().text = items[item].Quantity.ToString();
         }
 
     }

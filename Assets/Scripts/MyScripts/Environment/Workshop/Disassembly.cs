@@ -189,7 +189,7 @@ public class Disassembly : MonoBehaviour {
         itemSlot.quantity = actualItem.quantity;
 
         foreach (var item in outputItems) {
-            Inventory.addItem(item.id, item.quantity);
+            Inventory.AddItem(item.id, item.quantity);
         }
     }
 }

@@ -77,7 +77,7 @@ public class Assembler : MonoBehaviour, Notificable {
     }
 
     private void _assemble() {
-        Inventory.addItem(actualItem.item.id, 1);
+        Inventory.AddItem(actualItem.item.id, 1);
         foreach (var inputItem in inputItens) {
             Inventory.removeItem(inputItem.item.id, actualItem.item.RawItems.Find(x => x.id.Equals(inputItem.item.id)).quantity);
             inputItem.quantity = actualItem.item.RawItems.Find(x => x.id.Equals(inputItem.item.id)).quantity;

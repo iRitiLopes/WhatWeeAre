@@ -19,7 +19,7 @@ public class ItemDisplay : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D coll) {
         if (coll.CompareTag("Player")) {
-            Inventory.addItem(item.id, 1);
+            Inventory.AddItem(item.id, 1);
             coll.gameObject.GetComponent<AudioSource>().PlayOneShot(collectableItem.audioClip);
             if(powerUpEffect != null){
                 Debug.Log("aplicando");

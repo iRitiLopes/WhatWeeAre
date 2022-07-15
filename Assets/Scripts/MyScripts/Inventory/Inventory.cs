@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -9,26 +10,25 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
     [SerializeField]
-    public List<PlayerItem> items = new List<PlayerItem>();
-    public Dictionary<Guid, PlayerItem> playerItems = new Dictionary<Guid, PlayerItem>();
-
+    public Dictionary<Guid, PlayerItem> playerItems = new();
     public static Inventory instance;
 
     InventoryDisplay inventoryDisplay = null;
 
     [SerializeField]
-    String INVENTORY_PATH = "./Assets/Sprites/items/player_items.json";
+    readonly string INVENTORY_PATH = "./Assets/Sprites/items/player_items.json";
 
     private void Awake() {
         instance = this;
     }
+
 
     private void Start() {
         //DontDestroyOnLoad(this.gameObject);
         buildInventory();
         inventoryDisplay = FindObjectOfType<InventoryDisplay>(true);
         if (inventoryDisplay != null) {
-            inventoryDisplay.loadItems(this.items);
+            inventoryDisplay.loadItems(playerItems);
         }
     }
 
@@ -39,9 +39,6 @@ public class Inventory : MonoBehaviour {
             Guid id = Guid.Parse((string?)item.GetValue("id"));
             int quantity = ((int)item.GetValue("quantity"));
             Item it = ItemDatabase.findItem(id);
-
-            if (it != null)
-                items.Add(new PlayerItem(it, quantity));
             playerItems[it.id] = new PlayerItem(it, quantity);
         }
     }
@@ -56,14 +53,14 @@ public class Inventory : MonoBehaviour {
         clearInventory();
         storeItems();
         if (inventoryDisplay != null) {
-            inventoryDisplay.loadItems(this.items);
+            inventoryDisplay.loadItems(playerItems);
         }
     }
 
     private void storeItems() {
-        List<String> jsonElements = new List<String>();
-        foreach (PlayerItem playerItem in items) {
-            jsonElements.Add(playerItem.ToJson());
+        List<string> jsonElements = new();
+        foreach (var item in playerItems.Keys) {
+            jsonElements.Add(playerItems[item].ToJson());
         }
         String json = String.Join(",", jsonElements);
         json = "[" + json + "]";
@@ -71,48 +68,57 @@ public class Inventory : MonoBehaviour {
     }
 
     private void _removeItem(Guid id, int quantity) {
-        var idx = items.FindIndex(x => x.Item.id.Equals(id));
-        var item = items[idx];
+        var item = playerItems.GetValueOrDefault(id, null);
+        if (item == null) {
+            return;
+        }
         if (quantity < item.Quantity) {
-            item.Quantity = item.Quantity - quantity;
-            items[idx] = item;
+            item.Quantity -= quantity;
+            playerItems[id] = item;
         } else if (quantity == item.Quantity) {
-            items.RemoveAt(idx);
+            playerItems.Remove(id);
         } else {
             Debug.Log("Cannot consume item!");
         }
         refresh();
     }
 
-    private void _removeItem(Guid id) {
-        var idx = items.FindIndex(x => x.Item.id.Equals(id));
-        if (idx == -1) {
-            return;
+    private void _addItem(Guid id, int quantity) {
+        if (playerItems.ContainsKey(id)) {
+            var item = playerItems[id];
+            item.Quantity += quantity;
+            playerItems[id] = item;
+        } else {
+            Item it = ItemDatabase.findItem(id);
+            playerItems[id] = new PlayerItem(it, quantity);
         }
-        items.RemoveAt(idx);
         refresh();
     }
 
-    private void _addItem(Guid id, int quantity) {
-        var idx = items.FindIndex(x => x.Item.id.Equals(id));
-        if (idx == -1) {
-            Item it = ItemDatabase.findItem(id);
-            items.Add(new PlayerItem(it, quantity));
-            refresh();
+    private void _showItem(Guid id) {
+        var item = playerItems.GetValueOrDefault(id, null);
+        if (item == null) {
             return;
         }
-        var item = items[idx];
-        item.Quantity = item.Quantity + quantity;
-        items[idx] = item;
+        item.showItem();
         refresh();
+    }
+
+    private void _notShowItem(Guid id) {
+        var item = playerItems.GetValueOrDefault(id, null);
+        if (item == null) {
+            return;
+        }
+        item.notShow();
+        refresh();
+    }
+
+    public static void AddItem(Guid id, int quantity) {
+        instance._addItem(id, quantity);
     }
 
     public static void removeItem(Guid id, int quantity) {
         instance._removeItem(id, quantity);
-    }
-
-    public static void removeItem(Guid id) {
-        instance._removeItem(id);
     }
 
     public static void notShowItem(Guid id) {
@@ -121,30 +127,6 @@ public class Inventory : MonoBehaviour {
 
     public static void showItem(Guid id) {
         instance._showItem(id);
-    }
-
-    private void _showItem(Guid id) {
-        var idx = items.FindIndex(x => x.Item.id.Equals(id));
-        if (idx == -1) {
-            return;
-        }
-        var item = items[idx];
-        item.showItem();
-        refresh();
-    }
-
-    private void _notShowItem(Guid id) {
-        var idx = items.FindIndex(x => x.Item.id.Equals(id));
-        if (idx == -1) {
-            return;
-        }
-        var item = items[idx];
-        item.notShow();
-        refresh();
-    }
-
-    public static void addItem(Guid id, int quantity) {
-        instance._addItem(id, quantity);
     }
 }
 

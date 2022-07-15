@@ -11,15 +11,9 @@ public class Enemy : MonoBehaviour
 
     SpriteRenderer render;
 
-    GameControl game;
-
     public float Velocity = 1f;
 
-    public float limitWalk = 0.5f;
-
     public bool isKnocked = false;
-
-    Vector2 initialPosition;
 
     Vector2 dir = Vector2.zero;
 
@@ -29,17 +23,20 @@ public class Enemy : MonoBehaviour
 
     public GameObject particle;
 
+    public float limitWalkingTimeInSeconds = 3.0f;
+    float walkingTimeInSeconds = 0;
+
+    Vector3 lastPosition = new();
+
+    public float magnitude = 50;
+
     // Use this for initialization
     void Start()
     {
-        game = GameObject.Find("Main Camera").GetComponent<GameControl>();
 
         rb = GetComponent<Rigidbody2D>();
         an = GetComponent<Animator>();
         render = GetComponent<SpriteRenderer>();
-
-        this.initialPosition =
-            new Vector2(transform.position.x, transform.position.y);
 
         dir = Vector2.right;
     }
@@ -61,6 +58,8 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
+        walkingTimeInSeconds += Time.fixedDeltaTime;
+
         if (isDead())
         {
             var drop = GetComponent<DropItem>();
@@ -73,15 +72,12 @@ public class Enemy : MonoBehaviour
             transform.rotation);
             Destroy(this.gameObject);
         }
-        if (transform.position.x >= (this.initialPosition.x * (1 + limitWalk)))
+        if (limitWalkingTimeInSeconds < walkingTimeInSeconds)
         {
             flip();
         }
-        if (
-            transform.position.x <=
-            (this.initialPosition.x - this.initialPosition.x * limitWalk)
-        )
-        {
+
+        if(Math.Abs(lastPosition.magnitude - transform.position.magnitude) < 1e-10){
             flip();
         }
 
@@ -91,6 +87,7 @@ public class Enemy : MonoBehaviour
             vel.x = dir.x * Velocity;
             rb.velocity = vel;
         }
+        lastPosition = transform.position;
     }
 
     private bool isDead()
@@ -102,5 +99,6 @@ public class Enemy : MonoBehaviour
     {
         dir = dir * -1;
         render.flipX = !render.flipX;
+        walkingTimeInSeconds = 0;
     }
 }
