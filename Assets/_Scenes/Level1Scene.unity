@@ -848,6 +848,11 @@ PrefabInstance:
       propertyPath: m_UseAutoMass
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016143567827094573, guid: e3378bc78b540f341b7285344438c039,
+        type: 3}
+      propertyPath: lifes
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2016143567827094575, guid: e3378bc78b540f341b7285344438c039,
         type: 3}
       propertyPath: m_Name
@@ -1181,6 +1186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstRun: 1
+  isPaused: 0
   playerPosition: {x: -6, y: 0, z: 0}
 --- !u!4 &193306863
 Transform:

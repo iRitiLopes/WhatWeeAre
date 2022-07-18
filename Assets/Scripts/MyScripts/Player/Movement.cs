@@ -28,6 +28,9 @@ public class Movement : MonoBehaviour {
 
 
     private void Update() {
+        if(FindObjectOfType<GameManager>().isPaused){
+            return;
+        }
         Vector2 dir = Vector2.zero;
         if (Input.GetKey(KeyCode.A)) {
             dir.x = -1;

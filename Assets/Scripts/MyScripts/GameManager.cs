@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
 
     public bool firstRun = true;
 
+    public bool isPaused = false;
+
     public Vector3 playerPosition;
     readonly List<GameObject> enemies;
     readonly List<GameObject> items;
@@ -25,6 +27,14 @@ public class GameManager : MonoBehaviour {
         } else {
             Object.Destroy(gameObject);
         }
+    }
+
+    public void Pause(){
+        isPaused = true;
+    }
+
+    public void Unpause(){
+        isPaused = false;
     }
 
     public static void save() {

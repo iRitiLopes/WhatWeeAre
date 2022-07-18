@@ -31,6 +31,8 @@ public class DialogueManager : MonoBehaviour {
     }
 
     public void StartDialogue(Dialogue dialogue, Action action) {
+        FindObjectOfType<GameManager>().Pause();
+
         animator.SetBool("isOpen", true);
         nameTextTMP.text = dialogue.name;
         atFinish = action;
@@ -66,6 +68,7 @@ public class DialogueManager : MonoBehaviour {
     private void EndDialogue() {
         Debug.Log("End of conversation");
         animator.SetBool("isOpen", false);
+        FindObjectOfType<GameManager>().Unpause();
         atFinish?.Invoke();
     }
 

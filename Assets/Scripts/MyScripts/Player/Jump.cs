@@ -38,6 +38,9 @@ public class Jump : MonoBehaviour, Notificable {
 
     // Update is called once per frame
     void Update() {
+        if(FindObjectOfType<GameManager>().isPaused){
+            return;
+        }
 
         if (GetComponent<Player>().IsDead()) {
             return;

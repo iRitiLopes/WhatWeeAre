@@ -23,7 +23,7 @@ public class Invulnerable : MonoBehaviour {
     }
 
     public IEnumerator invulnerable(){
-        this.isInvulnerable = true;
+        isInvulnerable = true;
         Physics2D.IgnoreLayerCollision(8, 9, true);
         var coroutine = blinkCharacter();
 
@@ -31,14 +31,14 @@ public class Invulnerable : MonoBehaviour {
 
         yield return new WaitForSecondsRealtime(this.invulnerabilityTime);
         
-        this.isInvulnerable = false;
+        isInvulnerable = false;
         Physics2D.IgnoreLayerCollision(8, 9, false);
     }
 
     public IEnumerator blinkCharacter(){
         var ratio = invulnerabilityTime / blinkRatio;
         var elapsedTime = 0f;
-        while(elapsedTime < this.invulnerabilityTime){
+        while(elapsedTime < invulnerabilityTime){
             r.material.color = new Color(255, 255, 255, 1);
             yield return new WaitForSeconds(ratio);
 
