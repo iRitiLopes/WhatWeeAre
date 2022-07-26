@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour {
@@ -10,6 +11,9 @@ public class Player : MonoBehaviour {
     Animator an;
 
     GameControl game;
+
+    [SerializeField]
+    PlayerLife playerLife;
 
     PlayerColliderHelper bottomHelper;
 
@@ -41,7 +45,8 @@ public class Player : MonoBehaviour {
     }
 
     private void Awake() {
-        //loadPlayerPosition();
+        lifes = FindObjectOfType<GameManager>().GetLifes();
+        playerLife.updateLife(lifes);
     }
 
     void SavePlayerPosition() {
@@ -94,5 +99,7 @@ public class Player : MonoBehaviour {
 
     internal void IncreaseLife(int amount) {
         this.lifes += amount;
+        FindObjectOfType<GameManager>().SetLife(lifes);
+        playerLife.updateLife(lifes);
     }
 }

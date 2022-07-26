@@ -41,6 +41,12 @@ public class Enemy : MonoBehaviour
         dir = Vector2.right;
     }
 
+    private void Awake() {
+        if(FindObjectOfType<GameManager>().EnemyAlreadyDead(this)){
+            Destroy(gameObject);
+        }
+    }
+
     private void Update()
     {
         an.SetBool("isKnocked", isKnocked);
@@ -66,6 +72,7 @@ public class Enemy : MonoBehaviour
             if (drop)
             {
                 drop.drop(transform.position);
+                FindObjectOfType<GameManager>().KillEnemy(this);
             }
             Instantiate(particle,
             new Vector3(transform.position.x, transform.position.y, 0),
@@ -100,5 +107,9 @@ public class Enemy : MonoBehaviour
         dir = dir * -1;
         render.flipX = !render.flipX;
         walkingTimeInSeconds = 0;
+    }
+
+    public string hash() {
+        return gameObject.name;
     }
 }

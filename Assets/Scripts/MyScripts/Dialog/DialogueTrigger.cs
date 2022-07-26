@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -8,24 +9,29 @@ public class DialogueTrigger : MonoBehaviour {
     private DialogueManager dialogueManager;
     public Dialogue dialogue;
 
+    public bool alreadyDone = false;
+
+
     private string path = "./Assets/Persistance/Dialogues/";
     // Start is called before the first frame update
 
     private void Start() {
-        path = path + dialogue.name.Replace(" ", "_") + ".json";
+        path = path + dialogue.name.Replace(" ", "_") + dialogue.GetHash() + ".json";
 
-        JObject data = JObject.Parse(File.ReadAllText(path));
-        var alreadyDone = (bool) data.GetValue("isDone");
-        if (alreadyDone || dialogue.isDone) {
-            return;
+        try{
+            JObject data = JObject.Parse(File.ReadAllText(path));
+            var alreadyDone = (bool) data.GetValue("isDone");
+            this.alreadyDone = alreadyDone || dialogue.isDone;
+        } catch (Exception e) {
+            Debug.Log(e.Message);
         }
-
-        TriggerDialogue();
     }
 
     public void TriggerDialogue() {
+        if(alreadyDone){
+            return;
+        }
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue, Finish);
-
     }
 
     void Finish() {
@@ -36,6 +42,5 @@ public class DialogueTrigger : MonoBehaviour {
     private void Persist() {
         var data = JsonUtility.ToJson(dialogue);
         File.WriteAllText(path, data);
-        Debug.Log(data);
     }
 }

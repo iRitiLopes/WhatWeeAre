@@ -15,6 +15,10 @@ public class ItemDisplay : MonoBehaviour {
         item = ItemDatabase.findItem(Guid.Parse(collectableItem.id));
 
         gameObject.GetComponent<SpriteRenderer>().sprite = item.spriteInGame;
+
+        if(FindObjectOfType<GameManager>().AlreadyCollected(this)){
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D coll) {
@@ -22,11 +26,14 @@ public class ItemDisplay : MonoBehaviour {
             Inventory.AddItem(item.id, 1);
             coll.gameObject.GetComponent<AudioSource>().PlayOneShot(collectableItem.audioClip);
             if(powerUpEffect != null){
-                Debug.Log("aplicando");
                 powerUpEffect.Apply(coll.gameObject);
             }
+            FindObjectOfType<GameManager>().CollectItem(this);
             Destroy(gameObject);
         }
     }
 
+    public string hash() {
+        return item.name + "_" + transform.position.x.ToString() + "_" + transform.position.y.ToString();
+    }
 }

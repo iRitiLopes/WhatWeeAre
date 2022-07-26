@@ -10,9 +10,7 @@ public class PlayerLife : MonoBehaviour {
         text = GetComponent<Text>();
     }
 
-    // Update is called once per frame
-    private void FixedUpdate() {
-        var player = FindObjectOfType<Player>();
-        text.text = $"{player.lifes}x";
+    public void updateLife(int lifes){
+        text.text = $"{lifes}❤";
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
@@ -21,13 +22,18 @@ public class DialogueManager : MonoBehaviour {
 
     Action atFinish;
 
-    public bool isDone = false;
+    public static bool isInitialized = false;
     private Queue<string> sentences;
+
+    private string actualSentence;
+    private Coroutine actualRoutine;
+    
     // Start is called before the first frame update
     void Start() {
         sentences = new();
         nameTextTMP = nameText.GetComponent<TextMeshProUGUI>();
         dialogueTextTMP = dialogueText.GetComponent<TextMeshProUGUI>();
+        isInitialized = true;
     }
 
     public void StartDialogue(Dialogue dialogue, Action action) {
@@ -51,24 +57,38 @@ public class DialogueManager : MonoBehaviour {
             return;
         }
 
-        string sentence = sentences.Dequeue();
-        StartCoroutine(TypeSentence(sentence));
+        actualSentence = sentences.Dequeue();
+        actualRoutine = StartCoroutine(TypeSentence());
     }
 
-    IEnumerator TypeSentence(string sentence) {
+    IEnumerator TypeSentence() {
+        GameEvents.current.OnActionPressed -= DisplayNextSentence;
+        GameEvents.current.OnActionPressed += CompleteSentence;
         dialogueTextTMP.text = "";
-        foreach (var letter in sentence.ToCharArray()) {
+        foreach (var letter in actualSentence.ToCharArray()) {
             dialogueTextTMP.text += letter;
             yield return new WaitForSecondsRealtime(textSpeed);
         }
         yield return new WaitForSecondsRealtime(3.0f);
+        GameEvents.current.OnActionPressed -= CompleteSentence;
+        GameEvents.current.OnActionPressed += DisplayNextSentence;
         DisplayNextSentence();
     }
 
+    private void CompleteSentence(){
+        dialogueTextTMP.text = actualSentence;
+        StopCoroutine(actualRoutine);
+        GameEvents.current.OnActionPressed -= CompleteSentence;
+        GameEvents.current.OnActionPressed += DisplayNextSentence;
+    }
+
     private void EndDialogue() {
-        Debug.Log("End of conversation");
+        actualSentence = "";
         animator.SetBool("isOpen", false);
         FindObjectOfType<GameManager>().Unpause();
+
+        GameEvents.current.OnActionPressed -= CompleteSentence;
+        GameEvents.current.OnActionPressed -= DisplayNextSentence;
         atFinish?.Invoke();
     }
 

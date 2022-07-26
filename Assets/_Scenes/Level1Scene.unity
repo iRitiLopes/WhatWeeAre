@@ -466,7 +466,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812030}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 933e58ed482956c4e84d68e4c63a1cd4, type: 3}
   m_Name: 
@@ -875,6 +875,7 @@ GameObject:
   m_Component:
   - component: {fileID: 90050757}
   - component: {fileID: 90050756}
+  - component: {fileID: 90050758}
   m_Layer: 0
   m_Name: TalkingCricket
   m_TagString: Untagged
@@ -896,6 +897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Talking Cricket
+    language: ptbr/eng/ita
     sentences:
     - "Hi there WEEE Cutter Ant! You better be ready for the ultimate challenge...\r"
     - "There is something fishy happening in town lately. Levels of toxicity have
@@ -934,6 +936,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &90050758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90050755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573267033af336843bc54b679a0f896b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &146131517
 GameObject:
   m_ObjectHideFlags: 0
@@ -15153,7 +15167,6 @@ MonoBehaviour:
   dialogueText: {fileID: 274687171}
   animator: {fileID: 4089511}
   textSpeed: 0.02
-  isDone: 0
 --- !u!4 &1368401494
 Transform:
   m_ObjectHideFlags: 0
@@ -15229,19 +15242,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 51fe1579d5b28844990b55f2ee929c10, type: 3}
+    m_Font: {fileID: 12800000, guid: 2cf75bc72ab576145b51dee94cc0b8dd, type: 3}
     m_FontSize: 25
     m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3x
+  m_Text: "3\u2764"
 --- !u!222 &1373050028
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17009,6 +17022,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8d42ac56ee82774491208e818533ba6, type: 3}
+--- !u!1 &2111566355 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2177502802241436502, guid: df022dfad4af97b4e8deffd525270ea4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1128341612}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2111566359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111566355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b31c26155512a4bad5691ed66bfed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Talking Cricket
+    language: ptbr/eng/ita
+    sentences:
+    - Congratz to take the DoubleJump
+    isDone: 0
 --- !u!1 &2117674663
 GameObject:
   m_ObjectHideFlags: 0
