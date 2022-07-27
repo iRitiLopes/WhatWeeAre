@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -13,7 +14,6 @@ public class GameManager : MonoBehaviour {
     readonly Dictionary<string, bool> enemies = new();
     public Dictionary<string, bool> items = new();
 
-    public Dictionary<GameObject, GameObject> items2 = new Dictionary<GameObject, GameObject>();
     public int playerLife = 3;
 
     private void Start() {
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
         if (gameManagerInstance == null) {
             gameManagerInstance = this;
         } else {
-            Object.Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 

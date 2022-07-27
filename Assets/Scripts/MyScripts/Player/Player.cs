@@ -68,6 +68,8 @@ public class Player : MonoBehaviour {
                 .FindGameObjectWithTag("MainCamera")
                 .GetComponent<GameController>()
                 .reloadLevel();
+
+            FindObjectOfType<GameManager>().SetLife(3);
             return;
         } else {
             an.SetBool("Dead", false);
@@ -87,6 +89,8 @@ public class Player : MonoBehaviour {
 
     public void DecreaseLife() {
         if (lifes >= 0) lifes--;
+        FindObjectOfType<GameManager>().SetLife(lifes);
+        playerLife.updateLife(lifes);
     }
 
     public float GetAbsRunVelocity() {

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyKnockback : MonoBehaviour {
-    public Vector2 direction;
 
     // Start is called before the first frame update
     public float thrust = 12f;
@@ -18,12 +17,9 @@ public class EnemyKnockback : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
-        if (this.render.flipX) {
-            direction = Vector2.right * thrust;
-        } else {
-            direction = Vector2.left * thrust;
-        }
+    void FixedUpdate() {
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
@@ -40,21 +36,23 @@ public class EnemyKnockback : MonoBehaviour {
     void ApplyEffects(Collision2D other) {
         var enemyRigidBody = GetComponent<Rigidbody2D>();
 
-        enemyRigidBody.isKinematic = false;
-        direction = other.GetContact(0).normal * other.GetContact(0).normalImpulse;
-        enemyRigidBody.AddForce(direction, ForceMode2D.Impulse);
+        enemyRigidBody.inertia = 0;
+        enemyRigidBody.velocity = new Vector2(0, 0);
+
+        Vector2 position = transform.position;
+        Vector2 direction = other.GetContact(0).point - position;
+        direction = -direction.normalized;
+        enemyRigidBody.AddForce(direction * thrust, ForceMode2D.Impulse);
         StartCoroutine(knockCo(enemyRigidBody));
     }
 
     private IEnumerator knockCo(Rigidbody2D enemy) {
-        if (enemy != null) {
-            var e = GetComponent<Enemy>();
-            e.isKnocked = true;
-            yield return new WaitForSeconds(knockTime);
-            enemy.isKinematic = true;
-            enemy.bodyType = RigidbodyType2D.Dynamic;
-            e.isKnocked = false;
-            
-        }
+        Debug.Log("Hit");
+        var e = GetComponent<Enemy>();
+        e.isKnocked = true;
+        gameObject.GetComponent<AIPatrol>().mustPatrol = false;
+        yield return new WaitForSeconds(knockTime);
+        e.isKnocked = false;
+        gameObject.GetComponent<AIPatrol>().mustPatrol = true;
     }
 }

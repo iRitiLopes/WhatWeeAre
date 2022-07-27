@@ -14,6 +14,7 @@ public class GameEvents : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.J)){
             ActionPressed();
         }
+        
     }
 
     public event Action OnActionPressed;

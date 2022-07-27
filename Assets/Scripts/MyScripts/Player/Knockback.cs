@@ -24,38 +24,36 @@ public class Knockback : MonoBehaviour {
 
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.collider.CompareTag("Enemy")){
+        if (other.collider.CompareTag("Enemy")) {
             audioSource.Play();
             var playerRigidBody = GetComponentInParent<Rigidbody2D>();
             var player = GetComponentInParent<Player>();
 
-            if(player.IsDead()){
+            if (player.IsDead()) {
                 return;
             }
 
-            playerRigidBody.isKinematic = false;
-
             Vector2 direction;
-            if(left){
-                StartCoroutine(GetComponentInParent<Invulnerable>().invulnerable());
-                player.DecreaseLife();
-            }else if(right){
+            if (left || right) {
                 StartCoroutine(GetComponentInParent<Invulnerable>().invulnerable());
                 player.DecreaseLife();
             }
 
-            direction = other.GetContact(0).normal * other.GetContact(0).normalImpulse ;
-            playerRigidBody.AddForce(direction, ForceMode2D.Impulse);
+            direction = other.GetContact(0).normal * other.GetContact(0).normalImpulse;
+            
+            playerRigidBody.inertia = 0;
+            playerRigidBody.velocity = new Vector2(0, 0);
+            var force = direction * thrust;
+            playerRigidBody.AddForce(force, ForceMode2D.Impulse);
             StartCoroutine(knockCo(playerRigidBody));
         }
     }
 
-    private IEnumerator knockCo(Rigidbody2D player){
-        if(player != null){
+    private IEnumerator knockCo(Rigidbody2D player) {
+        if (player != null) {
             var e = GetComponentInParent<Player>();
             e.isKnocked = true;
             yield return new WaitForSeconds(knockTime);
-            player.isKinematic = false;
             e.isKnocked = false;
         }
     }
