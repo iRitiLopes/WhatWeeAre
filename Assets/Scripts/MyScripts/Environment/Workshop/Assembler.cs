@@ -28,7 +28,7 @@ public class Assembler : MonoBehaviour, Notificable {
 
     ItemSlot actualItem = null;
 
-    List<ItemSlot> inputItens = new List<ItemSlot>();
+    Dictionary<string, ItemSlot> inputItens = new();
 
     private void Awake() {
         instance = this;
@@ -39,13 +39,39 @@ public class Assembler : MonoBehaviour, Notificable {
 
     public void notify(GameObject go) {
         Debug.Log("Notified");
-        inputItens.Add(go.transform.GetChild(0).GetComponent<ItemSlot>());
-        var found = ItemDatabase.findItemByComponents(inputItens);
+
+        
+        var i1 = input1.transform.childCount > 0 ? input1.transform.GetChild(0).GetChild(0)?.GetComponent<ItemSlot>() : null;
+        var n1 = input1.name;
+        
+        var i2 = input2.transform.childCount > 0 ? input2.transform.GetChild(0).GetChild(0)?.GetComponent<ItemSlot>() : null;
+        var n2 = input2.name;
+
+        var i3 = input3.transform.childCount > 0 ? input3.transform.GetChild(0).GetChild(0)?.GetComponent<ItemSlot>() : null;
+        var n3 = input3.name;
+
+        AddInputItem(i1, n1);
+        AddInputItem(i2, n2);
+        AddInputItem(i3, n3);
+
+        Debug.Log(inputItens.Keys.Select(x => x).Aggregate((x, y) => x + " " + y));
+
+        var found = ItemDatabase.findItemByComponents(inputItens.Values.ToList());
+        Debug.Log(found);
         if (found != null) {
             AddOutputItem(found);
-            Debug.Log("Achei");
-            Debug.Log(found.name);
+        } else {
+            CleanDisassemble();
         }
+    }
+
+    private void AddInputItem(ItemSlot item, string name){
+        if(item == null){
+            inputItens.Remove(name);
+            return;
+        }
+        inputItens.Remove(name);
+        inputItens.Add(name, item);
     }
 
     private void AddOutputItem(Item item) {
@@ -78,7 +104,7 @@ public class Assembler : MonoBehaviour, Notificable {
 
     private void _assemble() {
         Inventory.AddItem(actualItem.item.id, 1);
-        foreach (var inputItem in inputItens) {
+        foreach (var inputItem in inputItens.Values) {
             Inventory.removeItem(inputItem.item.id, actualItem.item.RawItems.Find(x => x.id.Equals(inputItem.item.id)).quantity);
             inputItem.quantity = actualItem.item.RawItems.Find(x => x.id.Equals(inputItem.item.id)).quantity;
         }
@@ -87,6 +113,7 @@ public class Assembler : MonoBehaviour, Notificable {
     private void CleanDisassemble() {
         if (actualItem != null) {
             var itemSlot = ChildFinder.findWithStartName(outputSlot.transform, "InfinityItemSlotWrapper");
+            inputItens = new();
             Destroy(itemSlot.gameObject);
             actualItem = null;
             CleanInputItems();
@@ -105,7 +132,7 @@ public class Assembler : MonoBehaviour, Notificable {
         foreach (Transform child in input3.transform) {
             Destroy(child.gameObject);
         }
-        inputItens = new List<ItemSlot>();
+        inputItens = new();
     }
 
 }

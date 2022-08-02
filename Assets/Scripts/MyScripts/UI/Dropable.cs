@@ -22,7 +22,6 @@ public class Dropable : MonoBehaviour, IDropHandler {
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
             canBeDroped = !canBeDroped;
             notifyAll(eventData.pointerDrag);
-            Debug.Log(eventData.pointerDrag.name);
         }
     }
 

@@ -10,18 +10,6 @@ public class EnemyKnockback : MonoBehaviour {
     public float knockTime = 0.5f;
 
 
-    public SpriteRenderer render;
-
-    void Start() {
-        render = GetComponent<SpriteRenderer>();
-    }
-
-    // Update is called once per frame
-    void FixedUpdate() {
-
-
-    }
-
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.collider.CompareTag("Player")) {
             ApplyEffects(other);

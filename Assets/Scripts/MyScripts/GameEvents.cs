@@ -19,6 +19,9 @@ public class GameEvents : MonoBehaviour {
 
     public event Action OnActionPressed;
     public void ActionPressed(){
+        if(OnActionPressed == null){
+            Debug.Log("Tem nada");
+        }
         OnActionPressed?.Invoke();
     }
 }

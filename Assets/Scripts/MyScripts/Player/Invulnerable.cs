@@ -16,6 +16,7 @@ public class Invulnerable : MonoBehaviour {
 
     private void Start() {
         r = GetComponent<SpriteRenderer>();
+        Physics2D.IgnoreLayerCollision(8, 9, false);
     }
 
     private void Update() {
