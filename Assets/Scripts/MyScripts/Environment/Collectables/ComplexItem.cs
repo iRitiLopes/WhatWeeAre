@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ComplexItem : ScriptableObject {
+[CreateAssetMenu(fileName = "ComplexRadio", menuName = "New Wee/ComplexItem", order = 0)]
+public class ComplexItem : ScriptableObject {
     public string itemName;
     public GameObject[] dismantableItems;
     
