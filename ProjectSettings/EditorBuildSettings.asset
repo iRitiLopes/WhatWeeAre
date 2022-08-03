@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Refinery.unity
     guid: fc1a7e227f1d70649b0c0fa4f1caaed5
+  - enabled: 1
+    path: Assets/_Scenes/Level2Scene.unity
+    guid: 698b0fba97e6b044b8f2fd2822c0237f
   m_configObjects: {}

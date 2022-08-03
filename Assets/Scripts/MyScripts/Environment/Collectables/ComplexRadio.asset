@@ -9,14 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3aa735e81eb1dc4b82f2f5c4562b286, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b8e188c9e67b084ea256fc961be9bf8, type: 3}
   m_Name: ComplexRadio
   m_EditorClassIdentifier: 
   itemName: Radio
   dismantableItems:
-  - {fileID: 2177502802241436502, guid: 051804c644931274886e406707f23b58, type: 3}
+  - {fileID: 2177502802241436502, guid: 5456aba564b027d4c949a6b7f721742a, type: 3}
+  - {fileID: 2177502802241436502, guid: 5456aba564b027d4c949a6b7f721742a, type: 3}
   - {fileID: 2177502802241436502, guid: c8ac90f47b958c34f9eee665fdbfb361, type: 3}
-  - {fileID: 2177502802241436502, guid: 1d6233ab6f40f5a4589c6589da549599, type: 3}
-  - {fileID: 1702903378179352, guid: be15ecbb739909643b25b85d32e4d7b8, type: 3}
-  - {fileID: 7986564073354878923, guid: 977df908fad954a409ef0ce8a56f8c8b, type: 3}
-  itemName: Radio
