@@ -26,7 +26,7 @@ public class ItemDisplay : MonoBehaviour {
             Inventory.AddItem(item.id, 1);
             coll.gameObject.GetComponent<AudioSource>().PlayOneShot(collectableItem.audioClip);
             if(powerUpEffect != null){
-                powerUpEffect.Apply(coll.gameObject);
+                powerUpEffect.Apply(coll.gameObject, FindObjectOfType<PlayerPowerUp>());
             }
             FindObjectOfType<GameManager>().CollectItem(this);
             Destroy(gameObject);

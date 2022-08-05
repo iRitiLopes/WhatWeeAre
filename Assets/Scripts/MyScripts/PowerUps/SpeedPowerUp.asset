@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d1db2d43d25c74abf173fdce071209, type: 3}
   m_Name: SpeedPowerUp
   m_EditorClassIdentifier: 
+  powerUpName: Speed Bonus
+  sprite: {fileID: 21300000, guid: 6ec8732ef07b82244affd50bc6f59438, type: 3}
   amount: 1
   audioClip: {fileID: 8300000, guid: 5039414d94a6e4e70a5ab9e8833e992a, type: 3}
   effectSeconds: 10

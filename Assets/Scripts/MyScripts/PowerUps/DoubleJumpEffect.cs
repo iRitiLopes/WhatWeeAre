@@ -7,8 +7,10 @@ public class DoubleJumpEffect : PowerUpEffect {
 
     [SerializeField]
     public AudioClip audioClip;
-    public override void Apply(GameObject target) {
+
+    public override void Apply(GameObject target, PlayerPowerUp playerPowerUp) {
         target.GetComponent<Jump>().enableDoubleJump();
         target.GetComponent<AudioSource>().PlayOneShot(audioClip);
+        playerPowerUp.AddPowerUp(this);
     }
 }

@@ -11,7 +11,7 @@ public class PowerUpDisplay : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D coll) {
         if (coll.CompareTag("Player")) {
             if (powerUpEffect != null) {
-                powerUpEffect.Apply(coll.gameObject);
+                powerUpEffect.Apply(coll.gameObject, FindObjectOfType<PlayerPowerUp>());
                 gameObject.GetComponent<DialogueTrigger>()?.TriggerDialogue();
             }
             Destroy(gameObject);

@@ -13,9 +13,9 @@ public class SpeedPowerUp : PowerUpEffect {
     [SerializeField]
     public float effectSeconds = 10;
 
-    public override void Apply(GameObject target) {
+    public override void Apply(GameObject target, PlayerPowerUp playerPowerUp) {
         target.GetComponent<Movement>().IncreaseSpeed(amount, effectSeconds);
         target.GetComponent<AudioSource>().PlayOneShot(audioClip);
+        playerPowerUp.AddPowerUp(this, effectSeconds);
     }
-
 }

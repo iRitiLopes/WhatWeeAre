@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844314816756e374b9750dd24638854c, type: 3}
   m_Name: HugeLifePowerUp
   m_EditorClassIdentifier: 
+  powerUpName: HugeLife
+  sprite: {fileID: 0}
   amount: 5
   audioClip: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}

@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478ef1c7ff9e4214c8994a3085192e4d, type: 3}
   m_Name: New Double Jump Effect
   m_EditorClassIdentifier: 
+  powerUpName: DoubleJump
+  sprite: {fileID: 21300000, guid: 6ec8732ef07b82244affd50bc6f59438, type: 3}
   audioClip: {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749, type: 3}
