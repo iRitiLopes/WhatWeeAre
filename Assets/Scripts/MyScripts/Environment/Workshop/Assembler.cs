@@ -24,6 +24,9 @@ public class Assembler : MonoBehaviour, Notificable {
     [SerializeField]
     GameObject slot;
 
+    [SerializeField]
+    Message messageManager;
+
     private static Assembler instance;
 
     ItemSlot actualItem = null;
@@ -103,11 +106,16 @@ public class Assembler : MonoBehaviour, Notificable {
     }
 
     private void _assemble() {
+        string message = "";
         Inventory.AddItem(actualItem.item.id, 1);
         foreach (var inputItem in inputItens.Values) {
+            message += $" - {inputItem.item.name} x{actualItem.item.RawItems.Find(x => x.id.Equals(inputItem.item.id)).quantity}\n";
             Inventory.removeItem(inputItem.item.id, actualItem.item.RawItems.Find(x => x.id.Equals(inputItem.item.id)).quantity);
             inputItem.quantity = actualItem.item.RawItems.Find(x => x.id.Equals(inputItem.item.id)).quantity;
         }
+        message += $"---------------------------- \n";
+        message += $" - {actualItem.item.name}";
+        messageManager.ShowMessage(message);
     }
 
     private void CleanDisassemble() {
