@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json.Linq;
@@ -8,7 +9,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ItemDatabase : MonoBehaviour {
-    private static ItemDatabase instance;
+    public static ItemDatabase instance;
     readonly List<Item> items = new();
 
     public static bool isInitialized = false;
@@ -36,6 +37,10 @@ public class ItemDatabase : MonoBehaviour {
             }
             items.Add(it);
         }
+    }
+
+    internal IEnumerable<Item> ItensWithRaw() {
+       return this.items.Where(x => !x.IsRaw && x.RawItems.Count > 0);
     }
 
     internal static Item findItemByComponents(List<ItemSlot> components) {

@@ -13,7 +13,7 @@ public class Item {
     public Sprite spriteInGame;
     bool isRaw;
 
-    List<RawItem> rawItems;
+    List<RawItem> rawItems = new();
 
     public List<RawItem> RawItems { get => rawItems; set => rawItems = value; }
     public bool IsRaw { get => isRaw; }
@@ -42,6 +42,10 @@ public class Item {
         this.description = item.description;
         this.icon = Resources.Load<Sprite>(basePath + item.name + ".png");
         this.spriteInGame = Img2Sprite.LoadNewSprite(spritesBasePath + item.name + ".png");
+    }
+
+    public override string ToString() {
+        return "Item[" + name + "]";
     }
 
 }

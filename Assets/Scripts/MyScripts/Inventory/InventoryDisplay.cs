@@ -23,7 +23,7 @@ public class InventoryDisplay : MonoBehaviour {
             }
             var wrapper = CreateDragDropObject.createWrapper(transform, canvas);
 
-            var children = UnityEngine.Object.Instantiate(slot, wrapper.transform) as GameObject;
+            var children = Instantiate(slot, wrapper.transform) as GameObject;
 
             wrapper.name = "InfinityItemSlotWrapper_" + i++;
             children.transform.Find("ItemSlot").GetComponent<Image>().sprite = items[item].Item.icon;
