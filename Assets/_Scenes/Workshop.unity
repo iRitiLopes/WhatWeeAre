@@ -148,7 +148,7 @@ PrefabInstance:
     - target: {fileID: 3692809360311158662, guid: 1c238fce638a5864ba6952cf9f4fe70f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3692809360311158662, guid: 1c238fce638a5864ba6952cf9f4fe70f,
         type: 3}
@@ -516,9 +516,9 @@ RectTransform:
   m_Children:
   - {fileID: 1283899026}
   - {fileID: 348984904}
-  - {fileID: 946960925}
   - {fileID: 1989775293}
   - {fileID: 1443595078698727496}
+  - {fileID: 946960925}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1448,7 +1448,7 @@ PrefabInstance:
     - target: {fileID: 6413744838212560241, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6413744838212560241, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
         type: 3}
@@ -1545,6 +1545,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Recipes
       objectReference: {fileID: 0}
+    - target: {fileID: 7976839299848923939, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7976839299848923939, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd, type: 3}
 --- !u!1001 &7896829278816516059
@@ -1567,7 +1577,7 @@ PrefabInstance:
     - target: {fileID: 7896829278440568934, guid: 7331b2465df6409468cff44803e38c68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7896829278440568934, guid: 7331b2465df6409468cff44803e38c68,
         type: 3}

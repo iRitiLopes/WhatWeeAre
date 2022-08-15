@@ -22,7 +22,7 @@ public class PlayerPowerUp : MonoBehaviour {
 
     IEnumerator Reload() {
         yield return new WaitUntil(() => PowerUpUI.isReady);
-        powerUpUI ??= FindObjectOfType<PowerUpUI>();
+        powerUpUI = FindObjectOfType<PowerUpUI>();
         powerUpEffects.ForEach(p => {
             powerUpUI.AddPowerUp(p);
             p.Apply(FindObjectOfType<Player>().gameObject, this);

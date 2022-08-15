@@ -34,7 +34,15 @@ public class GameManager : MonoBehaviour {
         items.Add(itemDisplay.hash(), true);
     }
 
+    public void CollectItem(ComplexItemDisplay itemDisplay) {
+        items.Add(itemDisplay.hash(), true);
+    }
+
     public bool AlreadyCollected(ItemDisplay itemDisplay) {
+        return items.GetValueOrDefault(itemDisplay.hash(), false);
+    }
+
+    public bool AlreadyCollected(ComplexItemDisplay itemDisplay) {
         return items.GetValueOrDefault(itemDisplay.hash(), false);
     }
 

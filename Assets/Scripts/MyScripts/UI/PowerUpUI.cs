@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.GameCenter;
 using UnityEngine.UI;
 
 public class PowerUpUI : MonoBehaviour {
@@ -32,7 +33,22 @@ public class PowerUpUI : MonoBehaviour {
     }
 
     public void AddPowerUp(PowerUpEffect powerUpEffect) {
+        this.powerUpUI_1 = gameObject.transform.Find("PowerUp1").GetComponent<PowerUpUISlot>();
+        this.powerUpUI_2 = gameObject.transform.Find("PowerUp2").GetComponent<PowerUpUISlot>();
+        this.powerUpUI_3 = gameObject.transform.Find("PowerUp3").GetComponent<PowerUpUISlot>();
+        this.powerUpUI_4 = gameObject.transform.Find("PowerUp4").GetComponent<PowerUpUISlot>();
         PowerUpUISlot emptyPowerUpUI = null;
+
+        if (powerUpUI_1.currentPowerUp.Equals(powerUpEffect.powerUpName)) {
+            return;
+        } else if (powerUpUI_2.currentPowerUp.Equals(powerUpEffect.powerUpName)) {
+            return;
+        } else if (powerUpUI_3.currentPowerUp.Equals(powerUpEffect.powerUpName)) {
+            return;
+        } else if (powerUpUI_4.currentPowerUp.Equals(powerUpEffect.powerUpName)) {
+            return;
+        }
+
         if (!powerUpUI_1.isFull) {
             emptyPowerUpUI = powerUpUI_1;
         } else if (!powerUpUI_2.isFull) {

@@ -13,6 +13,8 @@ public class AIPatrol : MonoBehaviour {
     public BoxCollider2D bodyCollider;
     public LayerMask groundLayer;
 
+    public LayerMask enemyLayer;
+
     private void Awake() {
         mustPatrol = true;
     }
@@ -30,7 +32,7 @@ public class AIPatrol : MonoBehaviour {
     }
 
     private void Patrol() {
-        if(mustTurn || bodyCollider.IsTouchingLayers(groundLayer)){
+        if(mustTurn || bodyCollider.IsTouchingLayers(groundLayer) || bodyCollider.IsTouchingLayers(enemyLayer)){
             Flip();
         }
         rigidbody2D.velocity = new Vector2(walkSpeed * Time.fixedDeltaTime, rigidbody2D.velocity.y);

@@ -6,22 +6,22 @@ public class GameEvents : MonoBehaviour {
     public static GameEvents current;
 
     private void Awake() {
-        DontDestroyOnLoad(this);
         current = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.J)){
+        if (Input.GetKeyDown(KeyCode.J)) {
             ActionPressed();
         }
-        
+
     }
 
     public event Action OnActionPressed;
-    public void ActionPressed(){
-        if(OnActionPressed == null){
+    public void ActionPressed() {
+        if (current.OnActionPressed == null) {
             Debug.Log("Tem nada");
         }
-        OnActionPressed?.Invoke();
+        current.OnActionPressed?.Invoke();
     }
 }

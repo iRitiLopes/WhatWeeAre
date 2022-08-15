@@ -221,7 +221,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 2
   knockTime: 0.6
-  render: {fileID: 0}
 --- !u!114 &1634995174898270338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,3 +297,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
