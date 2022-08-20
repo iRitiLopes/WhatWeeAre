@@ -14,4 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpName: DoubleJump
   sprite: {fileID: 21300000, guid: 6ec8732ef07b82244affd50bc6f59438, type: 3}
+  canBeCreated: 1
+  rawItems:
+  - id: 13e35ade-ef05-4143-b5a7-82b87823b83a
+    quantity: 12
+  - id: f73b3eb2-22af-4aba-879c-9c65d93cec59
+    quantity: 11
+  - id: f73b3eb2-22af-4aba-879c-9c65d93cec69
+    quantity: 7
+  description: "Permite o usu\xE1rio efetuar pulos duplos"
   audioClip: {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749, type: 3}

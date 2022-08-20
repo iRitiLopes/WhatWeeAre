@@ -6,7 +6,7 @@ public class Item {
 
     static string basePath = "./Assets/Sprites/items/";
     static string spritesBasePath = "./Assets/Sprites/items/ingame_sprites/";
-    public Guid id;
+    public string id;
     public string name;
     public string description;
     public Sprite icon;
@@ -18,16 +18,7 @@ public class Item {
     public List<RawItem> RawItems { get => rawItems; set => rawItems = value; }
     public bool IsRaw { get => isRaw; }
 
-    public Item(string name, string description, bool isRaw) {
-        this.id = Guid.NewGuid();
-        this.name = name;
-        this.description = description;
-        this.isRaw = isRaw;
-        this.icon = Resources.Load<Sprite>(basePath + name + ".png");
-        this.spriteInGame = Img2Sprite.LoadNewSprite(spritesBasePath + name + ".png");
-    }
-
-    public Item(Guid id, string name, string description, bool isRaw) {
+    public Item(string id, string name, string description, bool isRaw) {
         this.id = id;
         this.name = name;
         this.description = description;

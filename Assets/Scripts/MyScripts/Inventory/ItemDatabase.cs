@@ -19,7 +19,7 @@ public class ItemDatabase : MonoBehaviour {
             JArray.Parse(File.ReadAllText("./Assets/Sprites/items/items.json"));
         foreach (JObject item in data) {
             string name = (string?)item.GetValue("name");
-            Guid id = Guid.Parse((string)item.GetValue("id"));
+            string id = (string)item.GetValue("id");
             bool isRaw = (bool)item.GetValue("isRaw");
             string description = (string?)item.GetValue("description");
             Item it = new(id, name, description, isRaw);
@@ -28,7 +28,7 @@ public class ItemDatabase : MonoBehaviour {
                     JArray.Parse(item.GetValue("rawItems").ToString());
                 List<RawItem> rawItems = new();
                 foreach (JObject rawItem in rawItemJArray) {
-                    Guid rawId = Guid.Parse((string?)rawItem.GetValue("id"));
+                    string rawId = (string?)rawItem.GetValue("id");
                     int quantity = (int)rawItem.GetValue("quantity");
                     RawItem r = new(rawId, quantity);
                     rawItems.Add(r);
@@ -48,7 +48,7 @@ public class ItemDatabase : MonoBehaviour {
     }
 
     private Item _findItemByComponents(List<ItemSlot> components) {
-        Dictionary<Guid, ItemSlot> componentsDict = new();
+        Dictionary<string, ItemSlot> componentsDict = new();
         foreach (var component in components) {
             componentsDict.Add(component.item.id, component);
         }
@@ -81,7 +81,7 @@ public class ItemDatabase : MonoBehaviour {
         return this.items.Count;
     }
 
-    public static Item findItem(Guid id) {
+    public static Item findItem(string id) {
         return instance.items.Find(i => i.id.Equals(id));
     }
 }

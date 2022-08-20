@@ -1421,6 +1421,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5551421984216403738, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
+        type: 3}
+      propertyPath: powerUpEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5551421984216403738, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
+        type: 3}
+      propertyPath: powerUpEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: eb68ffbce92337047b47dc007c3b9f57,
+        type: 2}
     - target: {fileID: 6413744838212560241, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
         type: 3}
       propertyPath: m_Pivot.x

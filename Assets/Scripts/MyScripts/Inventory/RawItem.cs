@@ -1,13 +1,15 @@
-using UnityEngine;
 using System;
+using UnityEngine;
 
+[Serializable]
 public class RawItem {
 
-    public Guid id;
+    [SerializeField]
+    public String id;
     public int quantity;
 
 
-    public RawItem(Guid id, int quantity) {
+    public RawItem(String id, int quantity) {
         this.id = id;
         this.quantity = quantity;
     }

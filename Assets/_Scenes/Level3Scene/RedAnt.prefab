@@ -114,7 +114,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 185142209429623914, guid: aac30cce8ce0f3442b8b174ee05aa0dd, type: 3}
+  m_Sprite: {fileID: 185142209429623914, guid: ee70e4b4bad32cf499001cad9e502057, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -182,7 +182,7 @@ Animator:
   m_GameObject: {fileID: 2016143567827094575}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6fed473cd9bd9bc4c961391e1641375d, type: 2}
+  m_Controller: {fileID: 9100000, guid: d30f3d0dccef4b64a80468c939e8bcd7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKnocked: 0
   lifes: 3
-  particle: {fileID: 1995403933065894, guid: 3b8bdef30f53e5c48901b1aa1aca8629, type: 3}
+  particle: {fileID: 1995403933065894, guid: 1148481ac8e446047bd3c9e84af23201, type: 3}
 --- !u!114 &2016143567827094560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4052f3bb57865648b5ccca9b7678daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectableItem: {fileID: 2177502802241436502, guid: 2e0577d7af55eb24ea2fb873b4235179,
+  collectableItem: {fileID: 2177502802241436502, guid: 84beddf70121bf74ab3177ef579ce6bc,
     type: 3}
   odds: 1
 --- !u!61 &976507427
@@ -297,3 +297,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512

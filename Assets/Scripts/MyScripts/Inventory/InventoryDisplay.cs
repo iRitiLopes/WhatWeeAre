@@ -15,7 +15,7 @@ public class InventoryDisplay : MonoBehaviour {
         yield return new WaitUntil(() => Inventory.instance != null);
     }
 
-    public void loadItems(Dictionary<Guid, PlayerItem> items) {
+    public void loadItems(Dictionary<string, PlayerItem> items) {
         int i = 0;
         foreach (var item in items.Keys) {
             if (!items[item].show) {

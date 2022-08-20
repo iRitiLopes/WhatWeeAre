@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 public class RecipeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     public Item item;
 
+    public PowerUpEffect powerUpEffect;
+
     public int quantity = 0;
     // Start is called before the first frame update
     void Start() {
@@ -25,7 +27,9 @@ public class RecipeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
 
     public void OnPointerEnter(PointerEventData eventData) {
-        Tooltip.show(item.name);
+        string name = item != null ? item.name : powerUpEffect.name;
+        string description = item != null ? item.description : powerUpEffect.description;
+        Tooltip.show(name + " - " + description);
     }
 
     public void OnPointerExit(PointerEventData eventData) {

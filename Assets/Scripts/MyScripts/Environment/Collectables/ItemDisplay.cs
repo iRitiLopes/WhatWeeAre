@@ -12,7 +12,7 @@ public class ItemDisplay : MonoBehaviour {
 
     private IEnumerator Start() {
         yield return new WaitUntil(() => ItemDatabase.isInitialized);
-        item = ItemDatabase.findItem(Guid.Parse(collectableItem.id));
+        item = ItemDatabase.findItem(collectableItem.id);
 
         gameObject.GetComponent<SpriteRenderer>().sprite = item.spriteInGame;
 

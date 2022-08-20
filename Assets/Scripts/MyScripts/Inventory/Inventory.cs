@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
     [SerializeField]
-    public Dictionary<Guid, PlayerItem> playerItems = new();
+    public Dictionary<string, PlayerItem> playerItems = new();
     public static Inventory instance;
 
     InventoryDisplay inventoryDisplay = null;
@@ -36,7 +36,7 @@ public class Inventory : MonoBehaviour {
 
         JArray data = JArray.Parse(File.ReadAllText(INVENTORY_PATH));
         foreach (JObject item in data) {
-            Guid id = Guid.Parse((string?)item.GetValue("id"));
+            string id = (string?)item.GetValue("id");
             int quantity = ((int)item.GetValue("quantity"));
             Item it = ItemDatabase.findItem(id);
             playerItems[it.id] = new PlayerItem(it, quantity);
@@ -67,7 +67,7 @@ public class Inventory : MonoBehaviour {
         File.WriteAllText(INVENTORY_PATH, json);
     }
 
-    private void _removeItem(Guid id, int quantity) {
+    private void _removeItem(string id, int quantity) {
         var item = playerItems.GetValueOrDefault(id, null);
         if (item == null) {
             return;
@@ -83,7 +83,7 @@ public class Inventory : MonoBehaviour {
         refresh();
     }
 
-    private void _addItem(Guid id, int quantity) {
+    private void _addItem(string id, int quantity) {
         if (playerItems.ContainsKey(id)) {
             var item = playerItems[id];
             item.Quantity += quantity;
@@ -95,7 +95,7 @@ public class Inventory : MonoBehaviour {
         refresh();
     }
 
-    private void _showItem(Guid id) {
+    private void _showItem(string id) {
         var item = playerItems.GetValueOrDefault(id, null);
         if (item == null) {
             return;
@@ -104,7 +104,7 @@ public class Inventory : MonoBehaviour {
         refresh();
     }
 
-    private void _notShowItem(Guid id) {
+    private void _notShowItem(string id) {
         var item = playerItems.GetValueOrDefault(id, null);
         if (item == null) {
             return;
@@ -113,19 +113,19 @@ public class Inventory : MonoBehaviour {
         refresh();
     }
 
-    public static void AddItem(Guid id, int quantity) {
+    public static void AddItem(string id, int quantity) {
         instance._addItem(id, quantity);
     }
 
-    public static void removeItem(Guid id, int quantity) {
+    public static void removeItem(string id, int quantity) {
         instance._removeItem(id, quantity);
     }
 
-    public static void notShowItem(Guid id) {
+    public static void notShowItem(string id) {
         instance._notShowItem(id);
     }
 
-    public static void showItem(Guid id) {
+    public static void showItem(string id) {
         instance._showItem(id);
     }
 }
