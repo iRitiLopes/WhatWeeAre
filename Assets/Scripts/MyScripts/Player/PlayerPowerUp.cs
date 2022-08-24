@@ -35,9 +35,18 @@ public class PlayerPowerUp : MonoBehaviour {
     }
 
     public void AddPowerUp(PowerUpEffect powerUpEffect) {
-        if (!powerUpEffects.Contains(powerUpEffect))
+        if (!AlreadyHasPowerUp(powerUpEffect))
             powerUpEffects.Add(powerUpEffect);
         powerUpUI.AddPowerUp(powerUpEffect);
+    }
+
+    public void AddPowerUpEffect(PowerUpEffect powerUpEffect){
+        if (!AlreadyHasPowerUp(powerUpEffect))
+            powerUpEffects.Add(powerUpEffect);
+    }
+
+    public bool AlreadyHasPowerUp(PowerUpEffect powerUpEffect){
+        return powerUpEffects.Contains(powerUpEffect);
     }
 
     internal void AddPowerUp(PowerUpEffect powerUpEffect, float effectSeconds) {

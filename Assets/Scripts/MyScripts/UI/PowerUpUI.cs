@@ -19,7 +19,6 @@ public class PowerUpUI : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         isReady = true;
-        Debug.Log("start UI powerup");
         FindObjectOfType<PlayerPowerUp>().powerUpEffects.ForEach(x=> {
             Debug.Log(x);
             Debug.Log(transform.childCount);

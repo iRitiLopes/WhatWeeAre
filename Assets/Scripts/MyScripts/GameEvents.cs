@@ -12,7 +12,7 @@ public class GameEvents : MonoBehaviour {
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.J)) {
-            ActionPressed();
+            current.ActionPressed();
         }
 
     }

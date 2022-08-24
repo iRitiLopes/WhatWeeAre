@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
+public class ItemSlot : Slot {
     public Item item;
 
-    public int quantity = 0;
     // Start is called before the first frame update
     void Start() {
 
@@ -16,6 +15,14 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // Update is called once per frame
     void Update() {
 
+    }
+
+    public void SetItem(Item item, int quantity){
+        this.item = item;
+        this.name = item.name;
+        this.description = item.description;
+        this.quantity = quantity;
+        this.item = item;
     }
 
     private void FixedUpdate() {

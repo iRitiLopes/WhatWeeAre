@@ -23,6 +23,9 @@ public class Disassembly : MonoBehaviour {
     [SerializeField]
     GameObject slot;
 
+    [SerializeField]
+    Message messageManager;
+
     private static Disassembly instance;
 
     ItemSlot actualItem = null;
@@ -76,10 +79,8 @@ public class Disassembly : MonoBehaviour {
 
     private void CleanDisassemble() {
         if (isLoaded || actualItem != null) {
-            var itemSlot =
-                ChildFinder
-                    .findWithStartName(disassembleSlot.transform,
-                    "InfinityItemSlotWrapper");
+            Inventory.showItem(actualItem.item.id);
+            var itemSlot = ChildFinder.findWithStartName(disassembleSlot.transform, "InfinityItemSlotWrapper");
             Destroy(itemSlot.gameObject);
             actualItem = null;
             CleanOutputItems();
@@ -158,8 +159,7 @@ public class Disassembly : MonoBehaviour {
         wrapper.name = "InfinityItemSlotWrapper_" + outputSlot;
         children.transform.Find("ItemSlot").GetComponent<Image>().sprite =
             item.icon;
-        children.GetComponent<ItemSlot>().item = item;
-        children.GetComponent<ItemSlot>().quantity = quantity;
+        children.GetComponent<ItemSlot>().SetItem(item, quantity);
     }
 
     public static void disassemble() {
@@ -168,16 +168,12 @@ public class Disassembly : MonoBehaviour {
             return;
         }
 
-        if (instance.actualItem.quantity == 1) {
-            instance._disassemble();
-            instance.CleanDisassemble();
-            return;
-        }
-
         instance._disassemble();
+        instance.CleanDisassemble();
     }
 
     private void _disassemble() {
+        messageManager.ShowMessage("Disassembler", "Desmontando");
         Inventory.removeItem(actualItem.item.id, 1);
         actualItem.quantity = actualItem.quantity - 1;
         var itemSlot =

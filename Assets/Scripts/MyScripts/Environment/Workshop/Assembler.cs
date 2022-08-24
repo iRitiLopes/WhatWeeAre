@@ -108,8 +108,7 @@ public class Assembler : MonoBehaviour, Notificable {
         var children = UnityEngine.Object.Instantiate(slot, wrapper.transform) as GameObject;
         wrapper.name = "InfinityItemSlotWrapper_" + outputSlot;
         children.transform.Find("ItemSlot").GetComponent<Image>().sprite = item.icon;
-        children.GetComponent<ItemSlot>().item = item;
-        children.GetComponent<ItemSlot>().quantity = quantity;
+        children.GetComponent<ItemSlot>().SetItem(item, quantity);
         actualItem = children.GetComponent<ItemSlot>();
     }
 
@@ -117,8 +116,9 @@ public class Assembler : MonoBehaviour, Notificable {
         var children = UnityEngine.Object.Instantiate(slot, wrapper.transform) as GameObject;
         wrapper.name = "InfinityItemSlotWrapper_" + outputSlot;
         children.transform.Find("ItemSlot").GetComponent<Image>().sprite = powerUpEffect.sprite;
-        children.GetComponent<ItemSlot>().item = null;
-        children.GetComponent<ItemSlot>().quantity = quantity;
+        children.GetComponent<Slot>().name = powerUpEffect.name;
+        children.GetComponent<Slot>().quantity = quantity;
+        children.GetComponent<Slot>().description = powerUpEffect.description;
         actualPowerUpEffect = powerUpEffect;
     }
 
@@ -139,15 +139,19 @@ public class Assembler : MonoBehaviour, Notificable {
 
     private void _assemblePowerUp() {
         string message = "";
-        FindObjectOfType<PlayerPowerUp>().AddPowerUp(actualPowerUpEffect);
+        if (FindObjectOfType<PlayerPowerUp>().AlreadyHasPowerUp(actualPowerUpEffect)) {
+            return;
+        }
+
+        FindObjectOfType<PlayerPowerUp>().AddPowerUpEffect(actualPowerUpEffect);
         foreach (var inputItem in inputItens.Values) {
-            message += $" - {inputItem.item.name} x{actualItem.item.RawItems.Find(x => x.id.Equals(inputItem.item.id)).quantity}\n";
-            Inventory.removeItem(inputItem.item.id, actualItem.item.RawItems.Find(x => x.id.Equals(inputItem.item.id)).quantity);
-            inputItem.quantity = actualItem.item.RawItems.Find(x => x.id.Equals(inputItem.item.id)).quantity;
+            message += $" - {inputItem.item.name} x{actualPowerUpEffect.rawItems.ToList().Find(x => x.id.Equals(inputItem.item.id)).quantity}\n";
+            Inventory.removeItem(inputItem.item.id, actualPowerUpEffect.rawItems.ToList().Find(x => x.id.Equals(inputItem.item.id)).quantity);
+            inputItem.quantity = actualPowerUpEffect.rawItems.ToList().Find(x => x.id.Equals(inputItem.item.id)).quantity;
         }
         message += $"---------------------------- \n";
-        message += $" - {actualItem.item.name}";
-        messageManager.ShowMessage(message);
+        message += $" - {actualPowerUpEffect.name}";
+        messageManager.ShowMessage("Assembler", message);
     }
 
     private void _assemble() {
@@ -160,7 +164,7 @@ public class Assembler : MonoBehaviour, Notificable {
         }
         message += $"---------------------------- \n";
         message += $" - {actualItem.item.name}";
-        messageManager.ShowMessage(message);
+        messageManager.ShowMessage("Assembler", message);
     }
 
     private void CleanDisassemble() {
