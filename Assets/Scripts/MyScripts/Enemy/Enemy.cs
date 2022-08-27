@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour {
     }
 
     private bool isDead() {
-        return lifes == 0;
+        return lifes <= 0;
     }
 
     public string hash() {

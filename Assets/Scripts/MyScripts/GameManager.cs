@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public static GameObject createItem(Vector3 position, GameObject collectableItem) {
-        var collectable = UnityEngine.Object.Instantiate(
+        var collectable = Instantiate(
             collectableItem,
             parent: GameObject.FindGameObjectWithTag("ItemWrapper").transform) as GameObject;
         collectable.name = "DropableItem_";

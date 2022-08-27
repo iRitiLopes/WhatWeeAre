@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public float LoadDelay = 3f;
+    public float LoadDelay = 0.5f;
     public float actualTime = 0;
     public Scene scene;
     //public ItemDatabase database;
@@ -23,10 +23,11 @@ public class GameController : MonoBehaviour
     }
 
     public void reloadLevel(){
-        if(actualTime < LoadDelay){
-            actualTime += Time.deltaTime;
-            return;
-        }
+        StartCoroutine(reload());
+    }
+
+    IEnumerator reload(){
+        yield return new WaitForSeconds(LoadDelay);
         SceneManager.LoadScene(this.scene.name);
     }
 }
