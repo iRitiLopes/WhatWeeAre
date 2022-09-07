@@ -78,12 +78,20 @@ public class Player : MonoBehaviour {
         if (Input.GetKey(KeyCode.I)) {
             SceneHistory.LoadScene("Inventory");
         }
+
+
     }
 
     private void FixedUpdate() {
         if (game.IsGameRuning == false) {
             an.SetFloat("Velocity", 0);
             return;
+        }
+
+        if (Input.GetKey(KeyCode.Z)) {
+            Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 400, Color.yellow);
         }
     }
 

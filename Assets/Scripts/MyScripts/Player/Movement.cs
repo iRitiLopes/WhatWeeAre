@@ -20,6 +20,10 @@ public class Movement : MonoBehaviour {
         StartCoroutine(IncreaseAndDecreaseSpeed(amount, seconds));
     }
 
+    internal void IncreaseSpeed(float amount) {
+        Velocity += amount;
+    }
+
     private IEnumerator IncreaseAndDecreaseSpeed(float amount, float seconds){
         Velocity += amount;
         yield return new WaitForSeconds(seconds);
