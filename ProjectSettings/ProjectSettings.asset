@@ -597,16 +597,16 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: New Wee
-  metroPackageVersion: 
-  metroCertificatePath: 
+  metroPackageName: NewWee
+  metroPackageVersion: 1.0.0.0
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 00d0d4ab9cdcd901
   metroApplicationDescription: New Wee
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: New Wee
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0

@@ -27,6 +27,9 @@ public class DialogueManager : MonoBehaviour {
 
     private string actualSentence;
     private Coroutine actualRoutine;
+
+    [SerializeField]
+    DialogueUI dialogueUI;
     
     // Start is called before the first frame update
     void Start() {
@@ -37,6 +40,7 @@ public class DialogueManager : MonoBehaviour {
     }
 
     public void StartDialogue(Dialogue dialogue, Action action) {
+        dialogueUI.Enable();
         FindObjectOfType<GameManager>().Pause();
 
         animator.SetBool("isOpen", true);
@@ -90,6 +94,7 @@ public class DialogueManager : MonoBehaviour {
         GameEvents.current.OnActionPressed -= CompleteSentence;
         GameEvents.current.OnActionPressed -= DisplayNextSentence;
         atFinish?.Invoke();
+        dialogueUI.Disable();
     }
 
     // Update is called once per frame

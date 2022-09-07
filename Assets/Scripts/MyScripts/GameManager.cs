@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
     public int playerLife = 3;
 
     private void Start() {
-
+        Debug.Log(Application.streamingAssetsPath);
     }
 
     private void Awake() {

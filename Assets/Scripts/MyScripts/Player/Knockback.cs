@@ -9,6 +9,7 @@ public class Knockback : MonoBehaviour {
     public bool left;
     public bool right;
     public bool bottom;
+    public bool top;
 
     public AudioSource audioSource;
 
@@ -25,6 +26,11 @@ public class Knockback : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.collider.CompareTag("Enemy")) {
+
+            if (GetComponentInParent<Invulnerable>().isInvulnerable) {
+                return;
+            }
+
             audioSource.Play();
             var playerRigidBody = GetComponentInParent<Rigidbody2D>();
             var player = GetComponentInParent<Player>();
@@ -34,18 +40,35 @@ public class Knockback : MonoBehaviour {
             }
 
             Vector2 direction;
-            if (left || right) {
+            if (left || right || top) {
                 StartCoroutine(GetComponentInParent<Invulnerable>().invulnerable());
                 player.DecreaseLife();
             }
 
             direction = other.GetContact(0).normal * other.GetContact(0).normalImpulse;
-            
+
             playerRigidBody.inertia = 0;
             playerRigidBody.velocity = new Vector2(0, 0);
             var force = direction * thrust;
             playerRigidBody.AddForce(force, ForceMode2D.Impulse);
             StartCoroutine(knockCo(playerRigidBody));
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (!other.CompareTag("Enemy")) {
+            return;
+        }
+
+        if (GetComponentInParent<Invulnerable>().isInvulnerable) {
+            return;
+        }
+
+        if (left || right || top) {
+            audioSource.Play();
+            var player = GetComponentInParent<Player>();
+            StartCoroutine(GetComponentInParent<Invulnerable>().invulnerable());
+            player.DecreaseLife();
         }
     }
 

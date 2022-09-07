@@ -16,7 +16,7 @@ public class Inventory : MonoBehaviour {
     InventoryDisplay inventoryDisplay = null;
 
     [SerializeField]
-    readonly string INVENTORY_PATH = "./Assets/Sprites/items/player_items.json";
+    readonly string INVENTORY_PATH = Application.streamingAssetsPath + "/player_items.json";
 
     private void Awake() {
         instance = this;

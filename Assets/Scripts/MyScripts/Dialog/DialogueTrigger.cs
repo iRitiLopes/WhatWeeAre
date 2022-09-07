@@ -12,7 +12,7 @@ public class DialogueTrigger : MonoBehaviour {
     public bool alreadyDone = false;
 
 
-    private string path = "./Assets/Persistance/Dialogues/";
+    private string path = Application.streamingAssetsPath + "/";
     // Start is called before the first frame update
 
     private void Start() {

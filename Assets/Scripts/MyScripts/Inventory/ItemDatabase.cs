@@ -16,7 +16,7 @@ public class ItemDatabase : MonoBehaviour {
 
     public void buildDatabase() {
         JArray data =
-            JArray.Parse(File.ReadAllText("./Assets/Sprites/items/items.json"));
+            JArray.Parse(File.ReadAllText(Application.streamingAssetsPath + "/items.json"));
         foreach (JObject item in data) {
             string name = (string?)item.GetValue("name");
             string id = (string)item.GetValue("id");

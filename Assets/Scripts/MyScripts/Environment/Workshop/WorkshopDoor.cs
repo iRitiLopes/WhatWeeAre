@@ -9,7 +9,7 @@ public class WorkshopDoor : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
-        if (this.isOnTheDoor && Input.GetKey(KeyCode.W)) {
+        if (this.isOnTheDoor && Input.GetKey(KeyCode.W) && !FindObjectOfType<GameManager>().isPaused) {
             SceneHistory.LoadScene(scene);
         }
     }

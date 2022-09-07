@@ -15,6 +15,10 @@ public class GameEvents : MonoBehaviour {
             current.ActionPressed();
         }
 
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            current.EscPressed();
+        }
+
     }
 
     public event Action OnActionPressed;
@@ -23,5 +27,14 @@ public class GameEvents : MonoBehaviour {
             Debug.Log("Tem nada");
         }
         current.OnActionPressed?.Invoke();
+    }
+
+
+    public event Action OnEscPressed;
+    public void EscPressed(){
+        if(current.OnEscPressed == null) {
+            Debug.Log("Tem nada");
+        }
+        current.OnEscPressed?.Invoke();
     }
 }
