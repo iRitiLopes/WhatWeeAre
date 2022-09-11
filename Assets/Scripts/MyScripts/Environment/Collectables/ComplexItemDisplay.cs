@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 public class ComplexItemDisplay : MonoBehaviour {
     public GameObject[] dismantableItems;
@@ -10,10 +12,22 @@ public class ComplexItemDisplay : MonoBehaviour {
 
     public Collider2D other;
 
+    public string message = "Press J to dismantle";
+    public string itemName = "";
+
     private IEnumerator Start() {
+        var message = LocalizationSettings.StringDatabase.GetLocalizedStringAsync("tooltip", "dismantle_item");
+        message.Completed += (op) => {
+            this.message = op.Result;
+        };
+
+        var itemName = LocalizationSettings.StringDatabase.GetLocalizedStringAsync("complex_itens", complexItem.itemName);
+        itemName.Completed += (op) => {
+            this.itemName = itemName.Result;
+        };
         yield return new WaitUntil(() => GameEvents.current != null);
         GameEvents.current.OnActionPressed += Dismantle;
-        if(FindObjectOfType<GameManager>().AlreadyCollected(this)){
+        if (FindObjectOfType<GameManager>().AlreadyCollected(this)) {
             Destroy(gameObject);
         }
     }
@@ -25,7 +39,7 @@ public class ComplexItemDisplay : MonoBehaviour {
         if (other.CompareTag("Player")) {
             this.other = other;
             Debug.Log("Ta perto");
-            PlayerTooltip.show("Press J to dismantle " + complexItem.itemName);
+            PlayerTooltip.show(this.message + " " + this.itemName);
             GameEvents.current.OnActionPressed += this.Dismantle;
         }
     }

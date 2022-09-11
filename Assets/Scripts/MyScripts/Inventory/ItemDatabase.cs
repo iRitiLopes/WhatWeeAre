@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class ItemDatabase : MonoBehaviour {
@@ -15,14 +16,15 @@ public class ItemDatabase : MonoBehaviour {
     public static bool isInitialized = false;
 
     public void buildDatabase() {
-        JArray data =
-            JArray.Parse(File.ReadAllText(Application.streamingAssetsPath + "/items.json"));
+        JArray data = JArray.Parse(File.ReadAllText(Application.streamingAssetsPath + "/items.json"));
         foreach (JObject item in data) {
             string name = (string?)item.GetValue("name");
             string id = (string)item.GetValue("id");
             bool isRaw = (bool)item.GetValue("isRaw");
             string description = (string?)item.GetValue("description");
-            Item it = new(id, name, description, isRaw);
+            
+            Item it = new(id, name, description, isRaw, name);
+            it = localize(it);
             if (!isRaw) {
                 JArray rawItemJArray =
                     JArray.Parse(item.GetValue("rawItems").ToString());
@@ -37,6 +39,12 @@ public class ItemDatabase : MonoBehaviour {
             }
             items.Add(it);
         }
+    }
+
+    private Item localize(Item it) {
+        var item_name = LocalizationSettings.StringDatabase.GetLocalizedString("items", it.id);
+        var items_description = LocalizationSettings.StringDatabase.GetLocalizedString("items_description", it.id);
+        return new Item(it.id, item_name, items_description, it.IsRaw, it.name);
     }
 
     internal IEnumerable<Item> ItensWithRaw() {

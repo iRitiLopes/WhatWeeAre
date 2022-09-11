@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour {
     readonly Dictionary<string, bool> enemies = new();
     public Dictionary<string, bool> items = new();
 
+    public Dictionary<string, bool> dialogues = new();
+
     public int playerLife = 3;
 
     private void Start() {
@@ -44,6 +46,14 @@ public class GameManager : MonoBehaviour {
 
     public bool AlreadyCollected(ComplexItemDisplay itemDisplay) {
         return items.GetValueOrDefault(itemDisplay.hash(), false);
+    }
+
+    public void FinishDialogue(string dialogueName){
+        dialogues.Add(dialogueName, true);
+    }
+
+    public bool AlreadyDialogue(string dialogueName){
+        return dialogues.GetValueOrDefault(dialogueName, false);
     }
 
     public void KillEnemy(Enemy enemy) {

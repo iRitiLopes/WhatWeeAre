@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: talking_cricket_level_1_pt-BR
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt-BR
+  m_SharedData: {fileID: 11400000, guid: 724256532fc888e47bd3cad9f00d4f96, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 20532535296
+    m_Localized: "Ol\xE1, formiga cortadora WEEE! \xC9 melhor voc\xEA estar pronta
+      para o desafio final..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48374325248
+    m_Localized: "H\xE1 algo suspeito acontecendo na cidade ultimamente. Os n\xEDveis
+      de toxicidade est\xE3o acima dos limites de perigo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52610572288
+    m_Localized: "Relat\xF3rios sugerem que o lixo est\xE1 sendo abandonado em todos
+      os lugares e subst\xE2ncias t\xF3xicas est\xE3o vazando no meio ambiente."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55064240128
+    m_Localized: "As suspeitas sugerem que pode haver uma organiza\xE7\xE3o criminosa
+      transnacional envolvida... o Eco-InterCrim"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 407117340672
+    m_Localized: "Sua primeira miss\xE3o \xE9 explorar esta casa para descobrir exatamente
+      de onde vem todo esse lixo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427535212544
+    m_Localized: "Ao pular em certos inimigos, voc\xEA pode abri-los e desmont\xE1-los
+      para ver o que est\xE1 dentro e coletar recursos. Tamb\xE9m desmonte itens
+      pressionando o bot\xE3o J"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 480408608768
+    m_Localized: "Re\xFAna todos os recursos que encontrar, mas cuidado..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 491926167552
+    m_Localized: "perigos insidiosos podem aparecer quando voc\xEA menos espera e
+      cuidado com aquelas formigas vermelhas desagrad\xE1veis, elas trabalham para
+      o Eco-InterCrim. Eles n\xE3o v\xE3o parar por nada para conseguir o que querem."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 511584870400
+    m_Localized: "Quando voc\xEA pular em um Red Ant, ele ficar\xE1 paralisado por
+      alguns segundos, mas cuidado, ele logo acordar\xE1 e vir\xE1 atr\xE1s de voc\xEA.
+      Para derrotar um Red Ant, pule nele duas vezes. Ao derrotar um Red Ant, voc\xEA
+      recebe recursos."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 525098917888
+    m_Localized: "Agora v\xE1... Eu estarei esperando por voc\xEA no quintal."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

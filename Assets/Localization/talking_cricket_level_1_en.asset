@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: talking_cricket_level_1_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 724256532fc888e47bd3cad9f00d4f96, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 20532535296
+    m_Localized: "Hi there WEEE Cutter Ant! You better be ready for the ultimate
+      challenge...\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48374325248
+    m_Localized: "There is something fishy happening in town lately. Levels of toxicity
+      have been above hazard limits.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52610572288
+    m_Localized: Reports suggest waste is being abandoned everywhere and toxic substances
+      have been leaking into the environment.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55064240128
+    m_Localized: 'Suspicions suggest there may be a transnational criminal organization
+      involved... the Eco-InterCrim
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 407117340672
+    m_Localized: Your first mission is to explore this average household to discover
+      just where all this waste is coming from.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427535212544
+    m_Localized: By jumping on certain enemies you can open and disassemble them
+      to see what is inside and gather resources. Also dismantle items by pressing
+      J button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 480408608768
+    m_Localized: "Gather all the resources you can find, but beware... \r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 491926167552
+    m_Localized: insidious dangers may appear when you less expect it and watch out
+      for those nasty red ants, they work for Eco-InterCrim. They will stop at nothing
+      to get what they want.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 511584870400
+    m_Localized: When you jump on a Red Ant it will be paralized for a few seconds,
+      but beware it will soon wake up and come after you. To deafeat a Red Ant jump
+      on it twice. When you defeat a Red Ant you receive resources.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 525098917888
+    m_Localized: Now go... I'll be waiting for you out in the backyard.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

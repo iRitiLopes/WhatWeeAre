@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: talking_cricket_level_1_it
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: it
+  m_SharedData: {fileID: 11400000, guid: 724256532fc888e47bd3cad9f00d4f96, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 52610572288
+    m_Localized: I rapporti suggeriscono che i rifiuti vengono abbandonati ovunque
+      e le sostanze tossiche sono disperse nell'ambiente.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48374325248
+    m_Localized: "Sta succedendo qualcosa di strano in citt\xE0 ultimamente. I livelli
+      di tossicit\xE0 sono stati superiori ai limiti di pericolo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20532535296
+    m_Localized: Ciao WEEE Cutter Ant! Faresti meglio a essere pronto per la sfida
+      finale...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 525098917888
+    m_Localized: "Ora vai... ti aspetter\xF2 nel cortile sul retro."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 511584870400
+    m_Localized: "Quando salti su una formica rossa, sar\xE0 paralizzata per alcuni
+      secondi, ma fai attenzione che presto si sveglier\xE0 e ti inseguir\xE0. Per
+      assordare una formica rossa saltaci sopra due volte. Quando sconfiggi una formica
+      rossa ricevi risorse."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 491926167552
+    m_Localized: "pericoli insidiosi possono apparire quando meno te lo aspetti e
+      fai attenzione a quelle brutte formiche rosse, funzionano per Eco-InterCrim.
+      Non si fermeranno davanti a nulla per ottenere ci\xF2 che vogliono."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 480408608768
+    m_Localized: Raccogli tutte le risorse che riesci a trovare, ma attenzione...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427535212544
+    m_Localized: "Saltando su determinati nemici puoi aprirli e smontarli per vedere
+      cosa c'\xE8 dentro e raccogliere risorse. Smonta anche gli oggetti premendo
+      il pulsante J"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 407117340672
+    m_Localized: "La tua prima missione \xE8 esplorare questa famiglia media per
+      scoprire da dove provengono tutti questi rifiuti."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55064240128
+    m_Localized: I sospetti suggeriscono che potrebbe essere coinvolta un'organizzazione
+      criminale transnazionale... l'Eco-InterCrim
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
