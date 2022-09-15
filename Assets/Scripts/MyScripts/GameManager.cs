@@ -83,11 +83,14 @@ public class GameManager : MonoBehaviour {
         if (player == null) {
             return;
         }
-        playerPosition = player.playerPosition;
+        Debug.Log(player.transform.position);
+        playerPosition = player.transform.position;
     }
 
     public static void load() {
-        gameManagerInstance.loadPlayerPosition();
+        if(!gameManagerInstance.firstRun)
+            gameManagerInstance.loadPlayerPosition();
+        gameManagerInstance.firstRun = false;
     }
 
     public void loadPlayerPosition() {

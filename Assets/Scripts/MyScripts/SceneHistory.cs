@@ -27,7 +27,6 @@ public class SceneHistory : MonoBehaviour {
     //Call this whenever you want to load a new scene
     //It will add the new scene to the sceneHistory list
     public void __LoadScene(string newScene) {
-        GameManager.save();
         sceneHistory.Add(newScene);
         SceneManager.LoadScene(newScene);
     }

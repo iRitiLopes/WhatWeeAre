@@ -29,7 +29,8 @@ public class ExitPoint : MonoBehaviour {
                 }
 
                 loadNextLevel = false;
-                SceneManager.LoadScene(NextLevel);
+                GameManager.gameManagerInstance.firstRun = true;
+                SceneHistory.LoadScene(NextLevel);
             }
         }
 	}

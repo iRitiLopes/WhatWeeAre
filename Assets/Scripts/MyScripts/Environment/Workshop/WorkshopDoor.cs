@@ -22,6 +22,7 @@ public class WorkshopDoor : MonoBehaviour {
     }
     void FixedUpdate() {
         if (this.isOnTheDoor && Input.GetKey(KeyCode.W) && !FindObjectOfType<GameManager>().isPaused) {
+            FindObjectOfType<Player>().savePosition();
             SceneHistory.LoadScene(scene);
         }
     }

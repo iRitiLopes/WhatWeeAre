@@ -10,8 +10,6 @@ public class Player : MonoBehaviour {
 
     Animator an;
 
-    GameControl game;
-
     [SerializeField]
     PlayerLife playerLife;
 
@@ -29,8 +27,8 @@ public class Player : MonoBehaviour {
 
     // Use this for initialization
     private IEnumerator Start() {
-        game = GameObject.Find("Main Camera").GetComponent<GameControl>();
 
+        playerPosition = gameObject.transform.position;
         rb = GetComponent<Rigidbody2D>();
         an = GetComponent<Animator>();
 
@@ -38,10 +36,18 @@ public class Player : MonoBehaviour {
         rightHelper = GetComponentsInChildren<PlayerColliderHelper>()[1];
         leftHelper = GetComponentsInChildren<PlayerColliderHelper>()[2];
 
+        GameObject startPoint = GameObject.Find("StartPoint");
+        transform.position =
+            new Vector3(startPoint.transform.position.x,
+                startPoint.transform.position.y - 1,
+                0);
+        playerPosition = transform.position;
+
         yield return new WaitUntil(() =>
                     GameManager.gameManagerInstance != null);
 
         GameManager.load();
+        //StartCoroutine(SavePlayerPosition());
     }
 
     private void Awake() {
@@ -49,11 +55,21 @@ public class Player : MonoBehaviour {
         playerLife.updateLife(lifes);
     }
 
-    void SavePlayerPosition() {
-        playerPosition = new Vector3(
-                transform.position.x,
-                transform.position.y,
-                transform.position.z);
+    IEnumerator SavePlayerPosition() {
+        yield return new WaitForSeconds(5);
+        while (true) {
+            playerPosition = new Vector3(
+                            transform.position.x,
+                            transform.position.y,
+                            transform.position.z);
+        }
+
+    }
+
+    public void savePosition(){
+        playerPosition = transform.position;
+        GameManager.save();
+        Debug.Log(playerPosition);
     }
 
     public void LoadPlayerPosition(Vector3 playerPosition) {
@@ -61,7 +77,6 @@ public class Player : MonoBehaviour {
     }
 
     private void Update() {
-        SavePlayerPosition();
         if (IsDead()) {
             an.SetBool("Dead", true);
             GameObject
@@ -78,15 +93,9 @@ public class Player : MonoBehaviour {
         if (Input.GetKey(KeyCode.I)) {
             SceneHistory.LoadScene("Inventory");
         }
-
-
     }
 
     private void FixedUpdate() {
-        if (game.IsGameRuning == false) {
-            an.SetFloat("Velocity", 0);
-            return;
-        }
 
         if (Input.GetKey(KeyCode.Z)) {
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
