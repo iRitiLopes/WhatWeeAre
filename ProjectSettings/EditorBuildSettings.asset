@@ -12,7 +12,13 @@ EditorBuildSettings:
     path: Assets/_Scenes/Level1Scene.unity
     guid: 84bcfb72fbe844c4d8001ab1206b25b2
   - enabled: 1
-    path: Assets/_Scenes/WorkshopScene.unity
+    path: Assets/_Scenes/Level2Scene.unity
+    guid: 698b0fba97e6b044b8f2fd2822c0237f
+  - enabled: 1
+    path: Assets/_Scenes/Level3Scene.unity
+    guid: ad2cbe7d22ea73a47a9cba0e0241696a
+  - enabled: 1
+    path: Assets/_Scenes/LevelSelection.unity
     guid: 0902650a08ca9294081acac77c2f36ca
   - enabled: 1
     path: Assets/_Scenes/Workshop.unity
@@ -23,9 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Refinery.unity
     guid: fc1a7e227f1d70649b0c0fa4f1caaed5
-  - enabled: 1
-    path: Assets/_Scenes/Level2Scene.unity
-    guid: 698b0fba97e6b044b8f2fd2822c0237f
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e91abf6703ad1b142be56cf4fb8e1a1a,
       type: 2}

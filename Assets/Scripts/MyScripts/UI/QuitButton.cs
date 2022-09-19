@@ -5,6 +5,7 @@ public class QuitButton : MonoBehaviour {
 
     [SerializeField]
     GameObject button;
+
     private void Start() {
         button.GetComponent<Button>().onClick.AddListener(Quit);
     }

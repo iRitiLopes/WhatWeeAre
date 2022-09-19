@@ -119,4 +119,8 @@ public class GameManager : MonoBehaviour {
         return this.playerLife;
     }
 
+    public void loadScene(){
+        
+    }
+
 }
