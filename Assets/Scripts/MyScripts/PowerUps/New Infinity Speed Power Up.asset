@@ -20,6 +20,6 @@ MonoBehaviour:
     quantity: 14
   - id: f73b3eb2-22af-4aba-879c-9c65d93cec59
     quantity: 20
-  description: 
+  description: Increase Speed of the player
   amount: 1
   audioClip: {fileID: 0}

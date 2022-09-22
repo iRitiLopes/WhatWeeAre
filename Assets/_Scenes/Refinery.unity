@@ -1561,19 +1561,13 @@ PrefabInstance:
     - target: {fileID: 5551421984216403738, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
         type: 3}
       propertyPath: powerUpEffects.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5551421984216403738, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
         type: 3}
-      propertyPath: powerUpEffects.Array.data[0]
+      propertyPath: powerUpEffects.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: eb68ffbce92337047b47dc007c3b9f57,
-        type: 2}
-    - target: {fileID: 5551421984216403738, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
-        type: 3}
-      propertyPath: powerUpEffects.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: bed5a4a6e94386748bf1399adc9ebd5a,
+      objectReference: {fileID: 11400000, guid: e9bef7be53358344d8f44959db148ffe,
         type: 2}
     - target: {fileID: 6413744838212560241, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
         type: 3}

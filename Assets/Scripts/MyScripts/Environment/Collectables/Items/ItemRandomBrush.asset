@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdc5e1eccedb29e4894bbfab99032590, type: 3}
+  m_Name: ItemRandomBrush
+  m_EditorClassIdentifier: 
+  m_Cells:
+  - m_Tile: {fileID: 11400000, guid: e86b694193423474fb7cb77e787e6505, type: 2}
+    m_Matrix:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Pivot: {x: 0, y: 0, z: 0}
+  m_CanChangeZPosition: 0
+  m_FloodFillContiguousOnly: 1
+  m_Anchor: {x: 0.5, y: 0.5, z: 0.5}
+  m_Prefabs:
+  - {fileID: 1423197816659667000, guid: ca31c8615de7e4b408e478e28600e510, type: 3}
+  - {fileID: 2177502802241436502, guid: c8ac90f47b958c34f9eee665fdbfb361, type: 3}
+  - {fileID: 7986564073354878923, guid: 977df908fad954a409ef0ce8a56f8c8b, type: 3}
+  - {fileID: 2177502802241436502, guid: 5456aba564b027d4c949a6b7f721742a, type: 3}
+  - {fileID: 2177502802241436502, guid: 051804c644931274886e406707f23b58, type: 3}
+  - {fileID: 2177502802241436502, guid: 1d6233ab6f40f5a4589c6589da549599, type: 3}
+  m_PerlinScale: 0.5

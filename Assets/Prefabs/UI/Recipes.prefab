@@ -890,3 +890,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slot: {fileID: 5714334516296901890, guid: 121b5731255cace41bacde8c5ef7689d, type: 3}
   canvas: {fileID: 0}
+  powerUpEffects:
+  - {fileID: 11400000, guid: eb68ffbce92337047b47dc007c3b9f57, type: 2}
+  - {fileID: 11400000, guid: bed5a4a6e94386748bf1399adc9ebd5a, type: 2}

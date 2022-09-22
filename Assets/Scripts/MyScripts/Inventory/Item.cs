@@ -26,7 +26,7 @@ public class Item {
         this.description = description;
         this.isRaw = isRaw;
         this.spriteName = spriteName;
-        this.icon = Img2Sprite.LoadNewSprite(basePath + spriteName + ".png");
+        this.icon = Img2Sprite.LoadNewSprite(spritesBasePath + spriteName + ".png");
         this.spriteInGame = Img2Sprite.LoadNewSprite(spritesBasePath + spriteName + ".png");
     }
 
@@ -34,7 +34,7 @@ public class Item {
         this.id = item.id;
         this.name = item.name;
         this.description = item.description;
-        this.icon = Resources.Load<Sprite>(basePath + item.spriteName + ".png");
+        this.icon = Resources.Load<Sprite>(spritesBasePath + item.spriteName + ".png");
         this.spriteInGame = Img2Sprite.LoadNewSprite(spritesBasePath + item.spriteName + ".png");
     }
 

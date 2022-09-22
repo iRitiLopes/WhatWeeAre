@@ -14,7 +14,7 @@ public class ItemDisplay : MonoBehaviour {
         yield return new WaitUntil(() => ItemDatabase.isInitialized);
         item = ItemDatabase.findItem(collectableItem.id);
 
-        gameObject.GetComponent<SpriteRenderer>().sprite = item.spriteInGame;
+        //gameObject.GetComponent<SpriteRenderer>().sprite = item.spriteInGame;
 
         if(FindObjectOfType<GameManager>().AlreadyCollected(this)){
             Destroy(gameObject);
