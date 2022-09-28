@@ -5,7 +5,7 @@ using UnityEngine.PlayerLoop;
 public class AIPatrol : MonoBehaviour {
     public float walkSpeed;
     public bool mustPatrol = true;
-    private bool mustTurn;
+    public bool mustTurn;
 
     public  Rigidbody2D rigidbody2D;
     public Transform groundCheckPos;
@@ -15,17 +15,25 @@ public class AIPatrol : MonoBehaviour {
 
     public LayerMask enemyLayer;
 
+    public bool isEnable = true;
+
     private void Awake() {
         mustPatrol = true;
     }
 
     private void Update() {
+        if(!isEnable){
+            return;
+        }
         if (mustPatrol){
             Patrol();
         }
     }
 
     private void FixedUpdate() {
+        if(!isEnable){
+            return;
+        }
         if(mustPatrol){
             mustTurn = !Physics2D.OverlapCircle(groundCheckPos.position, 0.4f, groundLayer);
         }
@@ -43,5 +51,13 @@ public class AIPatrol : MonoBehaviour {
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         walkSpeed *= -1;
         mustPatrol = true;
+    }
+
+    public void disable(){
+        this.isEnable = false;
+    }
+
+    public void enable(){
+        this.isEnable = true;
     }
 }
