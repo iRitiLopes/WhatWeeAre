@@ -6,7 +6,6 @@ public class DialogueUI : MonoBehaviour {
 
     public static DialogueUI current;
 
-    public bool active = false;
     // Start is called before the first frame update
     void Start() {
         current = this;
@@ -18,7 +17,7 @@ public class DialogueUI : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        this.active = gameObject.active;
+
     }
 
     public void Enable() {

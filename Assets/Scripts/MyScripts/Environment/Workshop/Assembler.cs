@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class Assembler : MonoBehaviour, Notificable {
@@ -134,6 +135,7 @@ public class Assembler : MonoBehaviour, Notificable {
             instance.CleanDisassemble();
             return;
         }
+        instance.messageManager.ShowMessage("Assembler", LocalizationSettings.StringDatabase.GetLocalizedString("messages", "no_item"));
         Debug.Log("This item doesnt provide");
     }
 

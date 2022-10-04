@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager gameManagerInstance;
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour {
     public bool isPaused = false;
 
     public Vector3 playerPosition;
+
+
+
     readonly Dictionary<string, bool> enemies = new();
     public Dictionary<string, bool> items = new();
 
@@ -18,8 +22,9 @@ public class GameManager : MonoBehaviour {
 
     public int playerLife = 3;
 
+    public Dictionary<string, bool> levelsCompleted = new();
+
     private void Start() {
-        Debug.Log(Application.streamingAssetsPath);
     }
 
     private void Awake() {
@@ -28,8 +33,22 @@ public class GameManager : MonoBehaviour {
         if (gameManagerInstance == null) {
             gameManagerInstance = this;
         } else {
+
             Destroy(gameObject);
         }
+    }
+
+    public static void unlockLevel(string level) {
+        if (!gameManagerInstance.levelsCompleted.ContainsKey(level)) {
+            gameManagerInstance.levelsCompleted.Add(level, true);
+        }else{
+            gameManagerInstance.levelsCompleted[level] = true;
+        }
+
+    }
+
+    public static bool isLevelReached(string level) {
+        return gameManagerInstance.levelsCompleted.GetValueOrDefault(level, false);
     }
 
     public void CollectItem(ItemDisplay itemDisplay) {
@@ -48,11 +67,11 @@ public class GameManager : MonoBehaviour {
         return items.GetValueOrDefault(itemDisplay.hash(), false);
     }
 
-    public void FinishDialogue(string dialogueName){
+    public void FinishDialogue(string dialogueName) {
         dialogues.Add(dialogueName, true);
     }
 
-    public bool AlreadyDialogue(string dialogueName){
+    public bool AlreadyDialogue(string dialogueName) {
         return dialogues.GetValueOrDefault(dialogueName, false);
     }
 
@@ -64,7 +83,7 @@ public class GameManager : MonoBehaviour {
         return enemies.GetValueOrDefault(enemy.hash(), false);
     }
 
-    
+
 
     public void Pause() {
         isPaused = true;
@@ -88,7 +107,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public static void load() {
-        if(!gameManagerInstance.firstRun)
+        if (!gameManagerInstance.firstRun)
             gameManagerInstance.loadPlayerPosition();
         gameManagerInstance.firstRun = false;
     }
@@ -119,8 +138,8 @@ public class GameManager : MonoBehaviour {
         return this.playerLife;
     }
 
-    public void loadScene(){
-        
+    public void loadScene() {
+
     }
 
 }

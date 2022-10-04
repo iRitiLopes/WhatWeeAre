@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Item {
 
-    static string basePath = "./Assets/Sprites/items/";
     static string spritesBasePath = "./Assets/Sprites/items/ingame_sprites/";
     public string id;
     public string name;

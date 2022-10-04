@@ -26,8 +26,17 @@ public class GameController : MonoBehaviour
         StartCoroutine(reload());
     }
 
+    public void reloadLevelWithCustomDelay(float delay){
+        StartCoroutine(reloadWithCustomDelay(delay));
+    }
+
     IEnumerator reload(){
         yield return new WaitForSeconds(LoadDelay);
+        SceneManager.LoadScene(this.scene.name);
+    }
+
+    IEnumerator reloadWithCustomDelay(float delay){
+        yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(this.scene.name);
     }
 }

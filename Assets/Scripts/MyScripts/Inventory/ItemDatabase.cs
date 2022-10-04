@@ -68,7 +68,7 @@ public class ItemDatabase : MonoBehaviour {
             var allMatch = false;
             allMatch = item.RawItems.All(x =>
                         componentsDict.ContainsKey(x.id) &&
-                        componentsDict[x.id].quantity >= x.quantity);
+                        componentsDict[x.id].quantity >= x.quantity && item.RawItems.Count == components.Count);
 
             if (allMatch) {
                 return item;

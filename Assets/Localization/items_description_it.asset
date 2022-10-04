@@ -42,6 +42,18 @@ MonoBehaviour:
     m_Localized: Una scheda elettronica utilizzata come componente di algum utensilio
     m_Metadata:
       m_Items: []
+  - m_Id: 8361445005041664
+    m_Localized: una lega di acciaio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8361546704330752
+    m_Localized: una bottiglia di plastica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8361712790380544
+    m_Localized: "Una piccola quantit\xE0 di mercurio liquido"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

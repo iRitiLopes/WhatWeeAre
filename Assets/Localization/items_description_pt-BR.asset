@@ -42,6 +42,18 @@ MonoBehaviour:
     m_Localized: "Uma placa eletr\xF4nica usada como componente de algum utens\xEDlio"
     m_Metadata:
       m_Items: []
+  - m_Id: 8361445005041664
+    m_Localized: "uma liga de a\xE7o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8361546704330752
+    m_Localized: uma garrafa de plastico
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8361712790380544
+    m_Localized: Uma pequena quantidade de mercurio liquido
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
