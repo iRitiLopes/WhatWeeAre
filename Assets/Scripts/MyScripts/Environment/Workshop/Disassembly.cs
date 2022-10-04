@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class Disassembly : MonoBehaviour {
@@ -164,6 +165,7 @@ public class Disassembly : MonoBehaviour {
 
     public static void disassemble() {
         if (instance.outputItems.Count < 1 || instance.actualItem == null) {
+            instance.messageManager.ShowMessage("Disassembler", LocalizationSettings.StringDatabase.GetLocalizedString("messages", "no_item"));
             Debug.Log("This item doesnt provide");
             return;
         }
