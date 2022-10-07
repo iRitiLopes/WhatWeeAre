@@ -82,7 +82,7 @@ public class Player : MonoBehaviour {
             GameObject
                 .FindGameObjectWithTag("MainCamera")
                 .GetComponent<GameController>()
-                .reloadLevel();
+                .reloadLevelWithCustomDelay(3);
 
             FindObjectOfType<GameManager>().SetLife(3);
             return;
@@ -91,6 +91,7 @@ public class Player : MonoBehaviour {
         }
 
         if (Input.GetKey(KeyCode.I)) {
+            FindObjectOfType<Player>().savePosition();
             SceneHistory.LoadScene("Inventory");
         }
     }

@@ -42,6 +42,18 @@ MonoBehaviour:
     m_Localized: Copper
     m_Metadata:
       m_Items: []
+  - m_Id: 8361910463733760
+    m_Localized: Plastic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8362062112989184
+    m_Localized: Mercurio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8362186289553408
+    m_Localized: "A\xE7o"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
