@@ -35,7 +35,7 @@ MonoBehaviour:
   m_Size: {x: 1, y: 1, z: 1}
   m_Pivot: {x: 0, y: 0, z: 0}
   m_CanChangeZPosition: 0
-  m_FloodFillContiguousOnly: 1
+  m_FloodFillContiguousOnly: 0
   m_Anchor: {x: 0.5, y: 0.5, z: 0.5}
   m_Prefabs:
   - {fileID: 1423197816659667000, guid: ca31c8615de7e4b408e478e28600e510, type: 3}
@@ -43,5 +43,6 @@ MonoBehaviour:
   - {fileID: 7986564073354878923, guid: 977df908fad954a409ef0ce8a56f8c8b, type: 3}
   - {fileID: 2177502802241436502, guid: 5456aba564b027d4c949a6b7f721742a, type: 3}
   - {fileID: 2177502802241436502, guid: 051804c644931274886e406707f23b58, type: 3}
+  - {fileID: 2177502802241436502, guid: 1d6233ab6f40f5a4589c6589da549599, type: 3}
   - {fileID: 2177502802241436502, guid: 1d6233ab6f40f5a4589c6589da549599, type: 3}
   m_PerlinScale: 0.5
