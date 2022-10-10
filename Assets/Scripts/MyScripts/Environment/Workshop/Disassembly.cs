@@ -33,6 +33,8 @@ public class Disassembly : MonoBehaviour {
 
     List<RawItem> outputItems;
 
+    [SerializeField] private RadialIndicator loading;
+
     private void Awake() {
         instance = this;
         outputItems = new List<RawItem>();
@@ -170,8 +172,9 @@ public class Disassembly : MonoBehaviour {
             return;
         }
 
-        instance._disassemble();
-        instance.CleanDisassemble();
+        Action finalAction = instance._disassemble;
+        finalAction += instance.CleanDisassemble;
+        instance.loading.load(finalAction);
     }
 
     private void _disassemble() {

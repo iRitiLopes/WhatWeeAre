@@ -8,11 +8,14 @@ public class Tooltip : MonoBehaviour {
     [SerializeField]
     private Camera uiCamera;
 
+    private float minWidth = 197;
+    private float minHeight = 121;
+
     private static Tooltip instance;
 
     private void Awake() {
         backgroundRectTransform = transform.Find("Background").GetComponent<RectTransform>();
-        tooltipText = transform.Find("Text").GetComponent<TMPro.TextMeshProUGUI>();
+        tooltipText = backgroundRectTransform.Find("Text").GetComponent<TMPro.TextMeshProUGUI>();
         instance = this;
         HideTooltip();
     }
@@ -28,7 +31,10 @@ public class Tooltip : MonoBehaviour {
         gameObject.SetActive(true);
         tooltipText.text = tooltipString;
         float textPaddingSize = 4f;
-        Vector2 bgSize = new Vector2(tooltipText.preferredWidth + textPaddingSize * 2f, tooltipText.preferredHeight + textPaddingSize * 2f);
+        Vector2 bgSize;
+        bgSize = new Vector2(minWidth + textPaddingSize, minHeight + textPaddingSize);
+        tooltipText.transform.localPosition = new Vector3(bgSize.x / 2, bgSize.y / 2, 0);
+
         backgroundRectTransform.sizeDelta = bgSize;
     }
 
@@ -36,11 +42,11 @@ public class Tooltip : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
-    public static void hide(){
+    public static void hide() {
         instance.HideTooltip();
     }
 
-    public static void show(string txt){
+    public static void show(string txt) {
         instance.ShowTooltip(txt);
     }
 }

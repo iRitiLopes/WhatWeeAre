@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -37,6 +38,8 @@ public class Assembler : MonoBehaviour, Notificable {
     List<PowerUpEffect> powerUpEffects = new();
 
     Dictionary<string, ItemSlot> inputItens = new();
+
+    [SerializeField] private RadialIndicator loading;
 
     private void Awake() {
         instance = this;
@@ -124,6 +127,10 @@ public class Assembler : MonoBehaviour, Notificable {
     }
 
     public static void assemble() {
+        instance.loading.load(instance.__assemble);
+    }
+
+    public void __assemble(){
         if (instance.actualItem != null) {
             instance._assemble();
             instance.CleanDisassemble();
