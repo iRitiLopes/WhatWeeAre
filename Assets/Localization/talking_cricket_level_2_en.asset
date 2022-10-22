@@ -19,15 +19,41 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 17344864256
-    m_Localized: You reach to the backyard
+    m_Localized: Look, I see you made it out here in the garden. Was it very difficult
+      in the kitchen?
     m_Metadata:
       m_Items: []
   - m_Id: 122538008576
-    m_Localized: Congratulations
+    m_Localized: I hope you are having fun on this adventure of ours and our fight
+      against the abandonment of e-waste toxic substances
     m_Metadata:
       m_Items: []
   - m_Id: 216473640960
-    m_Localized: Perfect
+    m_Localized: My reports point out that there are indications of leaks and more
+      pollution here in this garden. It can only be Eco-InterCrim, those criminals,
+      always harming the environment. Please help us.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14896294974767104
+    m_Localized: Beware that some acid drops have now appeared that will run through
+      your circuits if they touch you.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14896319935070208
+    m_Localized: 'A tip: at this level, maybe you will need the Double Jump, enter
+      the Assembler to create the Double Jump, which to use it just press space TWICE.
+      Collect the following items if needed to create your new upgrade.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14896335789539328
+    m_Localized: Necessary case. You can return to the kitchen and collect the items
+      to finally build your upgrades, be free to return elsewhere and explore them
+      again.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14896362196877312
+    m_Localized: See you on the metro. Take care Weee, our enemies are getting more
+      and more prepared.
     m_Metadata:
       m_Items: []
   references:

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: talking_cricket_level_4_pt-BR
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt-BR
+  m_SharedData: {fileID: 11400000, guid: e2c36359c0ddb0643ae6015e6a7e61f8, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 19372490752
+    m_Localized: "Estamos no Vulc\xE3o Goo, realmente a base da Eco-InterCrim \xE9
+      aqui. \xC9 a nossa chance de desmanchar este plano de destrui\xE7\xE3o do meio-ambiente"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53887418368
+    m_Localized: "Todo esse desperd\xEDcio e lixo eletr\xF4nico jogado por eles,
+      por todo esse tempo, todo o dano causado, n\xE3o podemos deixar ficar impune"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 65170096128
+    m_Localized: "Weee, voc\xEA \xE9 um her\xF3i. Estamos a um passo de conseguir
+      nosso objetivo. "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74988961792
+    m_Localized: "Tome cuidado, e vai l\xE1 derrota-los"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

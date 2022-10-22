@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: talking_cricket_level_3_pt-BR
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt-BR
+  m_SharedData: {fileID: 11400000, guid: 5fae53b018296a340945c7a47a96fbcb, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 18076450816
+    m_Localized: "Ufa. Esta foi por pouco. Chegamos no metr\xF4. Que complicado Weee."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40574697472
+    m_Localized: "A Eco-InterCrim est\xE1 tomando controle da cidade a partir do
+      metr\xF4 e levando sua toxicidade para as outras cidades, est\xE3o chamando
+      de plano Toxicity"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53837086720
+    m_Localized: "tomaram controle  do subterraneo, jogando lixo eletr\xF4nico, PILHAS,
+      que perigo, imagina se isso chega aos len\xE7ois fre\xE1ticos, \xE9 cont\xE1mina\xE7\xE3o
+      na certa!!!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64775831552
+    m_Localized: "Conto com voc\xEA para coletar tudo o quanto antes, para que o
+      pior n\xE3o aconte\xE7a. Vamos juntos parar o que eles est\xE3o causando com
+      o planeta."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79644639232
+    m_Localized: "N\xE3o se esque\xE7a de usar os itens que voc\xEA coleta a criar
+      seus upgrades, criar vidas para voc\xEA."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101039783936
+    m_Localized: "Alguns relat\xF3rios que acabaram de chegar, est\xE3o me dizendo
+      que a base da Eco-InterCrim fica no Vulc\xE3o Goo. Ao sair daqui siga para
+      l\xE1 e nos falaremos. Boa sorte. Vamos destru\xED-los"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

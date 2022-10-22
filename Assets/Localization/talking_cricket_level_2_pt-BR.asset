@@ -19,15 +19,42 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 17344864256
-    m_Localized: "Voc\xEA chegou ao quintal"
+    m_Localized: "Olha s\xF3, vejo que voc\xEA conseguiu chegar aqui fora no jardim.
+      Foi muito dif\xEDcil l\xE1 na cozinha?"
     m_Metadata:
       m_Items: []
   - m_Id: 122538008576
-    m_Localized: "Parab\xE9ns"
+    m_Localized: "Espero que esteja se divertindo nessa nossa aventura e nosso combate
+      ao combate ao abandono de lixo eletr\xF4nico subst\xE2ncias t\xF3xicas"
     m_Metadata:
       m_Items: []
   - m_Id: 216473640960
-    m_Localized: Perfeito
+    m_Localized: "Meus relat\xF3rios apontam que h\xE1 ind\xEDcios de vazamentos
+      e mais polui\xE7\xE3o aqui neste jardim. S\xF3 podem ser a Eco-InterCrim, aqueles
+      criminosos, sempre prejudicando o meio-ambiente. Por favor, nos ajude."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14896294974767104
+    m_Localized: "Cuidado que agora apareceram algumas gotas \xE1cidas que ir\xE3o
+      correr seus circuitos se tocarem em voc\xEA."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14896319935070208
+    m_Localized: "Uma dica: neste n\xEDvel, talvez voc\xEA ir\xE1 precisar do Pulo
+      Duplo, entre no Assembler para criar o Pulo Duplo, que para usa-lo basta apertar
+      espa\xE7o DUAS VEZES. Colete alguns itens a seguir caso seja necess\xE1rio
+      para a cria\xE7\xE3o deste seu novo upgrade."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14896335789539328
+    m_Localized: "Caso necess\xE1rio. Voc\xEA pode retornar \xE0 cozinha e coletar
+      os itens para finalmente construir seus upgrades, fique livre para retornar
+      em outros lugares e explora-los novamente."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14896362196877312
+    m_Localized: "Vejo voc\xEA no metr\xF4. Tome cuidado Weee, nossos inimigos est\xE3o
+      cada vez mais preparados."
     m_Metadata:
       m_Items: []
   references:

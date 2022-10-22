@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: talking_cricket_level_3
+  m_EditorClassIdentifier: 
+  m_SharedTableData: {fileID: 11400000, guid: 5fae53b018296a340945c7a47a96fbcb, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: cb7252220bb24e046be4ace8824f16d8, type: 2}
+  - {fileID: 11400000, guid: 21c40bc6fa787c549978872e15ca2a83, type: 2}
+  - {fileID: 11400000, guid: d74a623bf48911e4b8705e32b14a4f3e, type: 2}
+  m_Extensions: []
+  m_Group: String Table
+  references:
+    version: 2
+    RefIds: []
