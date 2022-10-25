@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,6 +9,8 @@ public class GameController : MonoBehaviour
     public float LoadDelay = 0.5f;
     public float actualTime = 0;
     public Scene scene;
+
+    private bool reloading = false;
     //public ItemDatabase database;
     // Start is called before the first frame update
     void Start()
@@ -22,17 +25,23 @@ public class GameController : MonoBehaviour
         
     }
 
-    public void reloadLevel(){
-        StartCoroutine(reload());
+    public void reloadLevel(Action<Collider2D> action, Collider2D other){
+        if(!reloading)
+            StartCoroutine(reload(action, other));
     }
 
     public void reloadLevelWithCustomDelay(float delay){
         StartCoroutine(reloadWithCustomDelay(delay));
     }
 
-    IEnumerator reload(){
+    IEnumerator reload(Action<Collider2D> action, Collider2D other){
+        reloading = true;
+        GameManager.gameManagerInstance.Pause();
         yield return new WaitForSeconds(LoadDelay);
         SceneManager.LoadScene(this.scene.name);
+        GameManager.gameManagerInstance.Unpause();
+        action?.Invoke(other);
+        reloading = false;
     }
 
     IEnumerator reloadWithCustomDelay(float delay){

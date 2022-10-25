@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,12 +17,16 @@ public class Fall : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other) {
 
         if (other.CompareTag("Player")) {
+            Action<Collider2D> action = postFall;
             GameObject
                 .FindGameObjectWithTag("MainCamera")
                 .GetComponent<GameController>()
-                .reloadLevel();
-
-            other.GetComponent<Player>().DecreaseLife();
+                .reloadLevel(postFall, other);
         }
+    }
+
+    void postFall(Collider2D other){
+        other.GetComponent<Player>().DecreaseLife();
+        StartCoroutine(other.GetComponent<Invulnerable>().invulnerable());
     }
 }

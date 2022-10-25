@@ -23,7 +23,7 @@ public class Lava : MonoBehaviour {
 
     void loadChildObjects(GameObject obj) {
         float objectWitdh = obj.GetComponent<SpriteRenderer>().bounds.size.x;
-        int childsNeeded = (int)Mathf.Ceil(screenBounds.x * 2 / objectWitdh);
+        int childsNeeded = (int)Mathf.Ceil(screenBounds.x * 4 / objectWitdh);
         GameObject clone = Instantiate(obj) as GameObject;
         for (int i = 0; i <= childsNeeded; i++) {
             GameObject c = Instantiate(clone) as GameObject;

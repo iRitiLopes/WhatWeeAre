@@ -65,11 +65,15 @@ public class Knockback : MonoBehaviour {
         }
 
         if (left || right || top) {
-            audioSource.Play();
-            var player = GetComponentInParent<Player>();
-            StartCoroutine(GetComponentInParent<Invulnerable>().invulnerable());
-            player.DecreaseLife();
+            hurt();
         }
+    }
+    
+    public void hurt(){
+        audioSource.Play();
+        var player = GetComponentInParent<Player>();
+        StartCoroutine(GetComponentInParent<Invulnerable>().invulnerable());
+        player.DecreaseLife();
     }
 
     private IEnumerator knockCo(Rigidbody2D player) {
