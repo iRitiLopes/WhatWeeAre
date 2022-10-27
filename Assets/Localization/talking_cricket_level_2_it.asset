@@ -19,15 +19,43 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 17344864256
-    m_Localized: Hai raggiunto il cortile
+    m_Localized: "Toh guarda! Vedo che ce l'hai fatta ad arrivare qui in giardino.
+      \xE9 stato difficile superare la cucina?"
     m_Metadata:
       m_Items: []
   - m_Id: 122538008576
-    m_Localized: Congratulazioni
+    m_Localized: Spero che tu ti stia divertendo in questa nostra avventura nella
+      lotta contro lo smaltimento illegale di sostanze tossiche da rifiuti elettronici.
     m_Metadata:
       m_Items: []
   - m_Id: 216473640960
-    m_Localized: Perfetto
+    m_Localized: "Le investigazioni hanno rilevato che ci sono sversamenti e altri
+      inquinanti qui fuori in giardino. Non pu\xF2 che trattarsi di Eco-InterCrim,
+      quei criminali continuano a danneggiare l'ambiente. Aiutaci per favore."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14896362196877312
+    m_Localized: "Ci vediamo nella metro. Stai attento Weee, i nostri nemici stanno
+      diventando ogni giorno pi\xF9 forti"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14896335789539328
+    m_Localized: "Raccogli le risorse necessarie per creare la nuova abilit\xE0.
+      Se non hai risorse a sufficienza, puoi ritornare in cucina e raccogliere altre
+      risorse in casa in modo da poter costruire nuove abilit\xE0 e potenziamenti.
+      Sentiti libero di ritoranrre in cucina ed esplorare meglio."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14896319935070208
+    m_Localized: "Un suggerimento: per superare questo livello potresti aver bisogno
+      dell'abilit\xE0 \"Doppio Salto\". Vai al Centro di Assemblaggio e crea l'abilit\xE0
+      \"Doppio Salto\". Una volta equipaggiata, ti baster\xE0 premere spazio DUE
+      VOLTE per usare la tua nuova abilit\xE0. "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14896294974767104
+    m_Localized: Occhio alle gocce d'acido, se le tocchi ti corroderanno i circuiti
+      e perderai punti vita.
     m_Metadata:
       m_Items: []
   references:

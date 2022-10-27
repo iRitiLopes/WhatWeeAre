@@ -11,20 +11,23 @@ public class ExitPoint : MonoBehaviour {
     private float counter = 0;
     private bool loadNextLevel = false;
 
-	GameObject gameData;
+    public bool isFinalLevel = false;
 
-	void Start(){
-		gameData = GameObject.Find("GameData");
-	}
+    public Dialogue finalDialogue;
 
-	// Update is called once per frame
-	void Update () {
-		if(loadNextLevel == true)
-        {
+    GameObject gameData;
+
+    void Start() {
+        finalDialogue.localize();
+        gameData = GameObject.Find("GameData");
+    }
+
+    // Update is called once per frame
+    void Update() {
+        if (loadNextLevel == true) {
             counter += Time.deltaTime;
-            if(counter >= LoadDelay)
-            {
-                if(gameData != null){
+            if (counter >= LoadDelay) {
+                if (gameData != null) {
                     gameData.GetComponent<DataControl>().Save();
                 }
 
@@ -33,21 +36,26 @@ public class ExitPoint : MonoBehaviour {
                 SceneHistory.LoadScene(NextLevel);
             }
         }
-	}
+    }
 
-    void OnTriggerEnter2D(Collider2D coll)
-    {
-        if (coll.CompareTag("Player"))
-        {
-            GameControl game = GameObject.Find("Main Camera").GetComponent<GameControl>();
-            if (game.IsGameRuning)
-            {
-                game.IsGameRuning = false;
-                if(string.IsNullOrEmpty(NextLevel) == false)
-                {
-                    loadNextLevel = true;
-                }
+    void Finish() {
+        GameControl game = GameObject.Find("Main Camera").GetComponent<GameControl>();
+        if (game.IsGameRuning) {
+            game.IsGameRuning = false;
+            if (string.IsNullOrEmpty(NextLevel) == false) {
+                loadNextLevel = true;
             }
+        }
+        FindObjectOfType<GameManager>().FinishDialogue(finalDialogue.dialogueName);
+        SceneHistory.LoadScene(NextLevel);
+    }
+
+    void OnTriggerEnter2D(Collider2D coll) {
+        if (coll.CompareTag("Player")) {
+            if (isFinalLevel && finalDialogue != null) {
+                FindObjectOfType<DialogueManager>().StartDialogue(finalDialogue, Finish);
+            }
+
         }
     }
 

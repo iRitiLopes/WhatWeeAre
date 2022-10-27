@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: talking_cricket_final_dialogue_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 77360453741c4c04a897e9fcfd2f51ca, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 68949164032
+    m_Localized: Now we have a lot of work to do to reduce the damage caused along
+      the years by Eco-InterCrim's illegal dumping practices. But this will be a
+      very easy job for you, after this adventure, anything is possible from now
+      on. Come on Weee!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51022708736
+    m_Localized: Thank you for your effort. E-waste sometimes ends up being ignored
+      when discarded and year after year it's growing more and more!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41799434240
+    m_Localized: I'm very happy, you managed to defeat the criminals. We saved the
+      world from the clutches of these polluters, the ToxiCity plan was not completed.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -17,7 +17,26 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: e2c36359c0ddb0643ae6015e6a7e61f8, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 74988961792
+    m_Localized: Stai attento e fagliela pagare!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 65170096128
+    m_Localized: Weee, tu sei un vero eroe! Siamo ad un passo dal nostro obiettivo.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53887418368
+    m_Localized: Tutti questi rifiuti che hanno smaltito illegalmente per tutto questo
+      tempo... tutto il danno fatto... non possiamo lasciare che la facciano franca!!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19372490752
+    m_Localized: "Eccoci arrivati nel Vulcano Goo dove si trova la base di Eco-InterCrim.
+      Questa \xE8 la nostra opportunit\xE0 per smantellare il loro piano malvagio
+      per distruggere l'ambiente."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

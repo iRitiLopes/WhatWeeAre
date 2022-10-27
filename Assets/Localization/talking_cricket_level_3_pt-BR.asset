@@ -51,6 +51,10 @@ MonoBehaviour:
       l\xE1 e nos falaremos. Boa sorte. Vamos destru\xED-los"
     m_Metadata:
       m_Items: []
+  - m_Id: 1485118437900288
+    m_Localized: Destroy them!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

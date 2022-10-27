@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: talking_cricket_final_dialogue_pt-BR
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt-BR
+  m_SharedData: {fileID: 11400000, guid: 77360453741c4c04a897e9fcfd2f51ca, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 41799434240
+    m_Localized: "Estou muito feliz, voc\xEA conseguiu derrotar os criminosos. Salvamos
+      o mundo das garras destes poluidores, o plano Toxicity n\xE3o se concluiu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51022708736
+    m_Localized: "Obrigado pelo seu empenho. O lixo eletr\xF4nico as vezes acaba
+      sendo ignorado quando descartado, e ano ap\xF3s ano vem crescendo cada vez
+      mais!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68949164032
+    m_Localized: "Agora temos bastante trabalho a ser feito, reduzir os danos causados
+      por todos estes anos de polui\xE7\xE3o causados pelo Eco-InterCrim. Mas isso
+      vai ser um trabalho bem f\xE1cil pra voc\xEA, depois dessa aventura, qualquer
+      coisa fica simples daqui pra frente. Vamos l\xE1 Weee!"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -17,7 +17,45 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 5fae53b018296a340945c7a47a96fbcb, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 1485118437900288
+    m_Localized: Distruggiamoli!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101039783936
+    m_Localized: 'Le ultime notizie ricevute indicano che la base di Eco-InterCrim
+      si trova nel Vulcano Goo. Quando esci di qui raggiungimi sul vulcano e buona
+      fortuna!. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79644639232
+    m_Localized: "Non ti dimenticare di usare le risorse che raccogli per creare
+      nuove abilit\xE0 e  potenziamenti aumntando anche i tuoi punti vita."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64775831552
+    m_Localized: "Conto su di te per raccogliere tutto il pi\xF9 in fretta possibile
+      in modo da prevenire il peggio. Fermiamoli insieme dal distruggere il pianeta."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53837086720
+    m_Localized: Hanno preso controllo della metro, raccogliendo e sciogliendo i
+      rifiuti elettronici, BATTERIE e altri rifiuti nell'acido... che pericolo! Pensa
+      se quelle sostanze chimiche percolassero nelle falde acquifere, la contaminazione
+      sarebbe assicurata!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40574697472
+    m_Localized: "Eco-InterCrim sta sfruttando la metropolitana per prendere controllo
+      della citt\xE0 intera, stanno anche esportando sostanze tossiche in altre citt\xE0,
+      lo chiamano il progetto ToxyCity."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18076450816
+    m_Localized: "Wow. ce l'hai fatta per un soffio! Eccoci ora nella metropolitana.
+      Quanto \xE8 stata dura?!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

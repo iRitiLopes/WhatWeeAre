@@ -49,6 +49,10 @@ MonoBehaviour:
       luck. let's destroy them
     m_Metadata:
       m_Items: []
+  - m_Id: 1485118437900288
+    m_Localized: Destrua eles!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
