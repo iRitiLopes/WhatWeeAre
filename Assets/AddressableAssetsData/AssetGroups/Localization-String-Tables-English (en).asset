@@ -77,6 +77,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     - Preload
+  - m_GUID: a68e23bcc6adfff4c91c643db232ff60
+    m_Address: talking_cricket_level_1_2_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 32da35a9843d79e4b85cd927afec0fd4, type: 2}
   m_SchemaSet:

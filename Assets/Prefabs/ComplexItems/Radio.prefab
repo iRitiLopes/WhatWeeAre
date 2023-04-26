@@ -298,4 +298,8 @@ MonoBehaviour:
   - {fileID: 2177502802241436502, guid: 1d6233ab6f40f5a4589c6589da549599, type: 3}
   - {fileID: 2177502802241436502, guid: c8ac90f47b958c34f9eee665fdbfb361, type: 3}
   - {fileID: 2177502802241436502, guid: 051804c644931274886e406707f23b58, type: 3}
+  complexItem: {fileID: 0}
   particle: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  other: {fileID: 0}
+  message: Press J to dismantle
+  itemName: 

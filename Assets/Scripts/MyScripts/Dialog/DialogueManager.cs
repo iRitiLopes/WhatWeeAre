@@ -76,7 +76,7 @@ public class DialogueManager : MonoBehaviour {
         yield return new WaitForSecondsRealtime(3.0f);
         GameEvents.current.OnActionPressed -= CompleteSentence;
         GameEvents.current.OnActionPressed += DisplayNextSentence;
-        DisplayNextSentence();
+        //DisplayNextSentence();
     }
 
     private void CompleteSentence(){

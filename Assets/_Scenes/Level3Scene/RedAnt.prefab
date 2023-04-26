@@ -119,7 +119,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 5.28}
+  m_Size: {x: 0.71, y: 0.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -143,7 +143,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.71, y: 0.56}
-    newSize: {x: 5.12, y: 5.28}
+    newSize: {x: 0.71, y: 0.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -269,7 +269,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.71, y: 0.56}
-    newSize: {x: 5.12, y: 5.28}
+    newSize: {x: 0.71, y: 0.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -291,6 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 200
   mustPatrol: 0
+  mustTurn: 0
   rigidbody2D: {fileID: 2016143567827094572}
   groundCheckPos: {fileID: 243750592}
   bodyCollider: {fileID: 2016143567827094563}
@@ -300,3 +301,4 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
+  isEnable: 1

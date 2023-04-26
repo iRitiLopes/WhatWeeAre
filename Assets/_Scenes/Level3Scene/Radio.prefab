@@ -300,3 +300,6 @@ MonoBehaviour:
   - {fileID: 2177502802241436502, guid: 62ebd2d029b4f8049bfcd635cbe77dd2, type: 3}
   complexItem: {fileID: 0}
   particle: {fileID: 1995403933065894, guid: 3b8bdef30f53e5c48901b1aa1aca8629, type: 3}
+  other: {fileID: 0}
+  message: Press J to dismantle
+  itemName: 

@@ -27,6 +27,10 @@ public class PauseMenu : MonoBehaviour {
 
     }
 
+    public void pause(){
+        PauseGame();
+    }
+
     private void PauseGame() {
         gameObject.transform.GetChild(0).gameObject.SetActive(true);
         FindObjectOfType<GameManager>().Pause();

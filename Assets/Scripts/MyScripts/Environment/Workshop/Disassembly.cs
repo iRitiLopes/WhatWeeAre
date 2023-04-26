@@ -178,7 +178,7 @@ public class Disassembly : MonoBehaviour {
     }
 
     private void _disassemble() {
-        messageManager.ShowMessage("Disassembler", "Desmontando");
+        messageManager.ShowMessage("Disassembler", LocalizationSettings.StringDatabase.GetLocalizedString("messages", "disassemble"));
         Inventory.removeItem(actualItem.item.id, 1);
         actualItem.quantity = actualItem.quantity - 1;
         var itemSlot =

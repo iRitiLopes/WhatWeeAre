@@ -140,3 +140,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableItem: {fileID: 11400000, guid: 5cc47a0ea348f5f4a805428d3ab69f34, type: 2}
+  powerUpEffect: {fileID: 0}

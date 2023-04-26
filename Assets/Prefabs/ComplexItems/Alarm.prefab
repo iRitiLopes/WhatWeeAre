@@ -80,7 +80,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.8244433, y: 4.69}
+  m_Size: {x: 25, y: 25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -104,7 +104,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 25, y: 25}
-    newSize: {x: 6.8244433, y: 4.69}
+    newSize: {x: 25, y: 25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -130,3 +130,6 @@ MonoBehaviour:
   - {fileID: 2177502802241436502, guid: 051804c644931274886e406707f23b58, type: 3}
   complexItem: {fileID: 11400000, guid: d8d5e7e01436f0e40ae17d88b89380b6, type: 2}
   particle: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  other: {fileID: 0}
+  message: Press J to dismantle
+  itemName: 

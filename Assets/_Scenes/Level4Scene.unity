@@ -6401,7 +6401,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.12178, y: 1}
+    m_SensorSize: {x: 2.0409837, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6418,7 +6418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623592935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9199061, y: -0.54, z: 96.200005}
+  m_LocalPosition: {x: -2.1057372, y: -0.54, z: 96.200005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13105,7 +13105,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: da6af7e1f6e3ef442b21f1f5cf5c9a7b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 45a23515e8f92af4ca20fecdbd4630ca, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.184
   m_Pitch: 1
@@ -13261,7 +13261,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.875, g: 0.82525253, b: 0.7398897, a: 0}
+  m_BackGroundColor: {r: 0.34509805, g: 0.29411766, b: 0.29803923, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -13302,7 +13302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450759229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9199061, y: -0.54, z: 96.200005}
+  m_LocalPosition: {x: -2.1057372, y: -0.54, z: 96.200005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

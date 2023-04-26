@@ -35,6 +35,10 @@ MonoBehaviour:
     m_Key: language_button
     m_Metadata:
       m_Items: []
+  - m_Id: 49973051800993792
+    m_Key: disassemble
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

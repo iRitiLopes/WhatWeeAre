@@ -218,6 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOnTheDoor: 0
   scene: 
+  message: Press W to enter
 --- !u!61 &7302854919587781513
 BoxCollider2D:
   m_ObjectHideFlags: 0

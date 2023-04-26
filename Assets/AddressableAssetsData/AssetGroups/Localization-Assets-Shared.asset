@@ -57,6 +57,10 @@ MonoBehaviour:
     m_Address: Assets/Localization/talking_cricket_final_dialogue Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+  - m_GUID: b0869b4408a71e849a85cdd8c82b02f4
+    m_Address: Assets/Localization/talking_cricket_level_1_2 Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 32da35a9843d79e4b85cd927afec0fd4, type: 2}
   m_SchemaSet:

@@ -88,7 +88,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 5.28}
+  m_Size: {x: 6.0115657, y: 4.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -112,7 +112,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 6.0115657, y: 4.3}
-    newSize: {x: 5.12, y: 5.28}
+    newSize: {x: 6.0115657, y: 4.3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -188,10 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863d24e8ab7579e4b9f0f394c7f527ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
   thrust: 5
   knockTime: 0.75
-  render: {fileID: 0}
 --- !u!114 &1634995174898270338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,7 +238,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 6.0115657, y: 4.3}
-    newSize: {x: 5.12, y: 5.28}
+    newSize: {x: 6.0115657, y: 4.3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -262,12 +260,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 350
   mustPatrol: 1
+  mustTurn: 0
   rigidbody2D: {fileID: 2016143567827094572}
   groundCheckPos: {fileID: 1651654427296953709}
   bodyCollider: {fileID: 2016143567827094563}
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  isEnable: 1
 --- !u!1 &3331970574006506306
 GameObject:
   m_ObjectHideFlags: 0

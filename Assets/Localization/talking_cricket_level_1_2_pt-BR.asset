@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: talking_cricket_level_1_2_pt-BR
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt-BR
+  m_SharedData: {fileID: 11400000, guid: b0869b4408a71e849a85cdd8c82b02f4, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 38360104960
+    m_Localized: "Vejo que chegou at\xE9 este ponto e tem um pared\xE3o para escalar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54789193728
+    m_Localized: "Vou te dar uma dica. Volte at\xE9 a refinaria e fa\xE7a um upgrade
+      em suas habilidades. Crie o Pulo Duplo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 69754470400
+    m_Localized: "Voc\xEA ir\xE1 precisar de: 12 Placas, 11 Engrenagens e 7 Cobres"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80525443072
+    m_Localized: "Ainda n\xE3o tem tudo?\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90822459392
+    m_Localized: "Colete os itens restantes e derrote os inimigos que ir\xE1 ajuda-lo"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

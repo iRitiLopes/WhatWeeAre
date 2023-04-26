@@ -185,3 +185,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NextLevel: WorkshopScene
   LoadDelay: 3
+  isFinalLevel: 0
+  finalDialogue:
+    dialogueName: 
+    name: 
+    language: ptbr/eng/ita
+    sentences: []
+    isDone: 0

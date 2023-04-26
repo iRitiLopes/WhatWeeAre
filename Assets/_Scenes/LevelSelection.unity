@@ -195,7 +195,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level 4 - Quintal
+  m_Text: "Level 4 - Vulc\xE3o"
 --- !u!222 &49901123
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -828,7 +828,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level 3 - Subway
+  m_Text: "Level 3 - Metr\xF4"
 --- !u!222 &1519097090
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1217,7 +1217,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Level 2 - Backyard
+  m_Text: 'Level 2 - Jardim
 
 '
 --- !u!222 &2058626194
