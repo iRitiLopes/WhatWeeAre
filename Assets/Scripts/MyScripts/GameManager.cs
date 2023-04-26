@@ -4,7 +4,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
     public static GameManager gameManagerInstance;
 
     public bool firstRun = true;
@@ -24,103 +25,130 @@ public class GameManager : MonoBehaviour {
 
     public Dictionary<string, bool> levelsCompleted = new();
 
-    private void Start() {
+    private void Start()
+    {
     }
 
-    private void Awake() {
+    private void Awake()
+    {
         DontDestroyOnLoad(this);
-
-        if (gameManagerInstance == null) {
+        if (gameManagerInstance == null)
+        {
             gameManagerInstance = this;
-        } else {
 
+        }
+        else
+        {
             Destroy(gameObject);
         }
     }
 
-    public static void unlockLevel(string level) {
-        if (!gameManagerInstance.levelsCompleted.ContainsKey(level)) {
+    public static void unlockLevel(string level)
+    {
+        if (!gameManagerInstance.levelsCompleted.ContainsKey(level))
+        {
             gameManagerInstance.levelsCompleted.Add(level, true);
-        }else{
+        }
+        else
+        {
             gameManagerInstance.levelsCompleted[level] = true;
         }
 
     }
 
-    public static bool isLevelReached(string level) {
+    public static bool isLevelReached(string level)
+    {
+        Debug.Log(level);
         return gameManagerInstance.levelsCompleted.GetValueOrDefault(level, false);
     }
 
-    public void CollectItem(ItemDisplay itemDisplay) {
+    public void CollectItem(ItemDisplay itemDisplay)
+    {
         items.Add(itemDisplay.hash(), true);
     }
 
-    public void CollectItem(ComplexItemDisplay itemDisplay) {
+    public void CollectItem(ComplexItemDisplay itemDisplay)
+    {
         items.Add(itemDisplay.hash(), true);
     }
 
-    public bool AlreadyCollected(ItemDisplay itemDisplay) {
+    public bool AlreadyCollected(ItemDisplay itemDisplay)
+    {
         return items.GetValueOrDefault(itemDisplay.hash(), false);
     }
 
-    public bool AlreadyCollected(ComplexItemDisplay itemDisplay) {
+    public bool AlreadyCollected(ComplexItemDisplay itemDisplay)
+    {
         return items.GetValueOrDefault(itemDisplay.hash(), false);
     }
 
-    public void FinishDialogue(string dialogueName) {
+    public void FinishDialogue(string dialogueName)
+    {
         dialogues.Add(dialogueName, true);
     }
 
-    public bool AlreadyDialogue(string dialogueName) {
+    public bool AlreadyDialogue(string dialogueName)
+    {
         return dialogues.GetValueOrDefault(dialogueName, false);
     }
 
-    public void KillEnemy(Enemy enemy) {
+    public void KillEnemy(Enemy enemy)
+    {
         enemies.Add(enemy.hash(), true);
     }
 
-    public bool EnemyAlreadyDead(Enemy enemy) {
+    public bool EnemyAlreadyDead(Enemy enemy)
+    {
         return enemies.GetValueOrDefault(enemy.hash(), false);
     }
 
 
 
-    public void Pause() {
+    public void Pause()
+    {
         isPaused = true;
     }
 
-    public void Unpause() {
+    public void Unpause()
+    {
         isPaused = false;
     }
 
-    public static void save() {
+    public static void save()
+    {
         gameManagerInstance.savePlayerPosition();
     }
 
-    public void savePlayerPosition() {
+    public void savePlayerPosition()
+    {
         var player = FindObjectOfType<Player>();
-        if (player == null) {
+        if (player == null)
+        {
             return;
         }
         Debug.Log(player.transform.position);
         playerPosition = player.transform.position;
     }
 
-    public static void load() {
+    public static void load()
+    {
         if (!gameManagerInstance.firstRun)
             gameManagerInstance.loadPlayerPosition();
         gameManagerInstance.firstRun = false;
     }
 
-    public void loadPlayerPosition() {
+    public void loadPlayerPosition()
+    {
         var player = FindObjectOfType<Player>();
-        if (player == null) {
+        if (player == null)
+        {
             return;
         }
         player.LoadPlayerPosition(playerPosition);
     }
 
-    public static GameObject createItem(Vector3 position, GameObject collectableItem) {
+    public static GameObject createItem(Vector3 position, GameObject collectableItem)
+    {
         var collectable = Instantiate(
             collectableItem,
             parent: GameObject.FindGameObjectWithTag("ItemWrapper").transform) as GameObject;
@@ -130,15 +158,18 @@ public class GameManager : MonoBehaviour {
         return collectable;
     }
 
-    internal void SetLife(int lifes) {
+    internal void SetLife(int lifes)
+    {
         this.playerLife = lifes;
     }
 
-    internal int GetLifes() {
+    internal int GetLifes()
+    {
         return this.playerLife;
     }
 
-    public void loadScene() {
+    public void loadScene()
+    {
 
     }
 

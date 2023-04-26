@@ -12,9 +12,7 @@ public class ChangeLanguage : MonoBehaviour {
     public bool loadScene = true;
     // Start is called before the first frame update
     void Start() {
-        if(LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[((int)lang)]){
-            changeButtonColor();
-        }
+   
     }
 
     // Update is called once per frame
@@ -30,12 +28,14 @@ public class ChangeLanguage : MonoBehaviour {
             return;
         }
 
+        FindObjectOfType<GameManager>().Pause();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.gameManagerInstance.Unpause();
     }
 
     public void changeButtonColor(){
         GetComponent<UnityEngine.UI.Button>().colors = new UnityEngine.UI.ColorBlock() {
-            normalColor = Color.yellow,
+            normalColor = new Color(0.5f, 0.5f, 0.5f, 1),
             highlightedColor = new Color(0.5f, 0.5f, 0.5f, 1),
             pressedColor = new Color(0.5f, 0.5f, 0.5f, 1),
             selectedColor = new Color(0.5f, 0.5f, 0.5f, 1),

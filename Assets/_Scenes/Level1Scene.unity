@@ -1488,7 +1488,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219741450}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.724448, y: -2.01, z: -10}
+  m_LocalPosition: {x: -6.1109514, y: -2.01, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3646,6 +3646,11 @@ PrefabInstance:
         type: 3}
       propertyPath: scene
       value: Refinery
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302854919587781512, guid: ac8c3673c1a4eb141a8dcc5c283955e7,
+        type: 3}
+      propertyPath: key_name
+      value: enter_door_refinery
       objectReference: {fileID: 0}
     - target: {fileID: 7302854919587781513, guid: ac8c3673c1a4eb141a8dcc5c283955e7,
         type: 3}
@@ -23411,7 +23416,7 @@ MonoBehaviour:
   m_YDamping: 1
   m_ZDamping: 1
   m_TargetMovementOnly: 1
-  m_ScreenX: 0.4811095
+  m_ScreenX: 0.5000466
   m_ScreenY: 0.5
   m_CameraDistance: 10
   m_DeadZoneWidth: 0.13
@@ -25665,7 +25670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315627657}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.724448, y: -2.01, z: -10}
+  m_LocalPosition: {x: -6.1109514, y: -2.01, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30457,11 +30462,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7302854919587781512, guid: ac8c3673c1a4eb141a8dcc5c283955e7,
-        type: 3}
-      propertyPath: scene
-      value: Workshop
       objectReference: {fileID: 0}
     - target: {fileID: 7302854919587781513, guid: ac8c3673c1a4eb141a8dcc5c283955e7,
         type: 3}

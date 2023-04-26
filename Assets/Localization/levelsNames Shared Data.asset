@@ -10,32 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: tooltip Shared Data
+  m_Name: levelsNames Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: tooltip
-  m_TableCollectionNameGuidString: d670d2b1940cb56429c38c4af0952451
+  m_TableCollectionName: levelsNames
+  m_TableCollectionNameGuidString: cde370ba1bd0905498bd6aae3b9618b0
   m_Entries:
-  - m_Id: 47447384064
-    m_Key: enter_door_refinery
+  - m_Id: 7750074368
+    m_Key: level1
     m_Metadata:
       m_Items: []
-  - m_Id: 17694268432384
-    m_Key: dismantle_item
+  - m_Id: 23034118144
+    m_Key: level2
     m_Metadata:
       m_Items: []
-  - m_Id: 82314100800012288
-    m_Key: enter_door_disassemble
+  - m_Id: 35147268096
+    m_Key: level3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52058701824
+    m_Key: level4
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 538364039616266857
+    rid: 8962842266619085266
   references:
     version: 2
     RefIds:
-    - rid: 538364039616266857
+    - rid: 8962842266619085266
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
         asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1662917958611
+        m_CustomEpoch: 1682546529910

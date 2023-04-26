@@ -56,7 +56,7 @@ public class Movement : MonoBehaviour {
             var val = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX;
             if(val > 0.5) {
                 StartCoroutine(changeValueOverTime(val, 1 - initialMScreenX, 0.5f));
-                cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX *= m_ScreenX;
+                cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = initialMScreenX;
             }
         }
 

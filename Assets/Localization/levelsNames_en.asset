@@ -10,24 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: tooltip_en
+  m_Name: levelsNames_en
   m_EditorClassIdentifier: 
   m_LocaleId:
     m_Code: en
-  m_SharedData: {fileID: 11400000, guid: d670d2b1940cb56429c38c4af0952451, type: 2}
+  m_SharedData: {fileID: 11400000, guid: cde370ba1bd0905498bd6aae3b9618b0, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 47447384064
-    m_Localized: Press W to enter in the refninery and build your itens
+  - m_Id: 52058701824
+    m_Localized: Level 4 - Volcano
     m_Metadata:
       m_Items: []
-  - m_Id: 17694268432384
-    m_Localized: Press J to dismantle
+  - m_Id: 35147268096
+    m_Localized: Level 3 - Subway
     m_Metadata:
       m_Items: []
-  - m_Id: 82314100800012288
-    m_Localized: Press W to enter the Scrapping Lab and dismantle your items.
+  - m_Id: 23034118144
+    m_Localized: Level 2 - Garden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7750074368
+    m_Localized: Level 1 - Kitchen
     m_Metadata:
       m_Items: []
   references:

@@ -19,11 +19,16 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 47447384064
-    m_Localized: Premi W per entrare
+    m_Localized: Premi W per entrare nella raffineria e creare i tuoi oggetti.
     m_Metadata:
       m_Items: []
   - m_Id: 17694268432384
     m_Localized: Premi J per smontare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82314100800012288
+    m_Localized: Premi W per entrare nel laboratorio di demolizione e smantellare
+      i tuoi oggetti.
     m_Metadata:
       m_Items: []
   references:

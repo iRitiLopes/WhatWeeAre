@@ -19,11 +19,16 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 47447384064
-    m_Localized: Pressione W para entrar
+    m_Localized: "Pressione W para entrar na refin\xE1ria e criar seus itens"
     m_Metadata:
       m_Items: []
   - m_Id: 17694268432384
     m_Localized: Pressione J para desmontar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82314100800012288
+    m_Localized: Aperte W para entrar no laboratorio de desmanche e desmontar seus
+      itens
     m_Metadata:
       m_Items: []
   references:

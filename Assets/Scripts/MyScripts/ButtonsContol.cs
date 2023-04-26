@@ -23,7 +23,7 @@ public class ButtonsContol : MonoBehaviour {
 	}
 
     
-    public void ChangeScene(int indexNewScene)
+    public void ChangeScene(string indexNewScene)
     {
 		//float fadeTime = GameObject.Find ("_GM").GetComponent<Fading>().BeginFade(1);
 		//yield return new WaitForSeconds (fadeTime);

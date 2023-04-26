@@ -13,9 +13,12 @@ public class WorkshopDoor : MonoBehaviour {
     [SerializeField]
     string message = "Press W to enter";
 
+    [SerializeField]
+    string key_name = "enter_door_refinery";
+
     // Update is called once per frame
     void Start() {
-        var op = LocalizationSettings.StringDatabase.GetLocalizedStringAsync("tooltip", "enter_door");
+        var op = LocalizationSettings.StringDatabase.GetLocalizedStringAsync("tooltip", key_name);
         op.Completed += (op) => {
             message = op.Result;
         };

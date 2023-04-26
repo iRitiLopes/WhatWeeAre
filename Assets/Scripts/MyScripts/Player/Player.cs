@@ -77,19 +77,24 @@ public class Player : MonoBehaviour {
     }
 
     private void Update() {
+        //Check if the player is dead
         if (IsDead()) {
+            //If the player is dead, the animation is triggered and the level is reloaded
             an.SetBool("Dead", true);
             GameObject
                 .FindGameObjectWithTag("MainCamera")
                 .GetComponent<GameController>()
                 .reloadLevelWithCustomDelay(3);
 
+            //The life is reset
             FindObjectOfType<GameManager>().SetLife(3);
             return;
         } else {
+            //If the player is not dead, the animation is set to false
             an.SetBool("Dead", false);
         }
 
+        //If the inventory button is pressed, the player position is saved and the inventory scene is loaded
         if (Input.GetKey(KeyCode.I)) {
             FindObjectOfType<Player>().savePosition();
             SceneHistory.LoadScene("Inventory");
