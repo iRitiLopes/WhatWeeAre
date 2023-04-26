@@ -94,7 +94,6 @@ public class Movement : MonoBehaviour {
 
         float val = Mathf.Lerp(fromVal, toVal, counter / duration);
         m_ScreenX = val;
-        Debug.Log("Val: " + val);
         yield return null;
     }
 }

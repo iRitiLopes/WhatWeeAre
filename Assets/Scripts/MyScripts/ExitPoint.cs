@@ -54,6 +54,8 @@ public class ExitPoint : MonoBehaviour {
         if (coll.CompareTag("Player")) {
             if (isFinalLevel && finalDialogue != null) {
                 FindObjectOfType<DialogueManager>().StartDialogue(finalDialogue, Finish);
+            } else {
+                Finish();
             }
 
         }
