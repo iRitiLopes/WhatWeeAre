@@ -26,5 +26,6 @@ public class BackButton : MonoBehaviour {
 
     public void Back() {
         SceneHistory.PreviousScene();
+        GameManager.gameManagerInstance.Unpause();
     }
 }

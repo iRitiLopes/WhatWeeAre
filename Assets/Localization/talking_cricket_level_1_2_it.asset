@@ -17,7 +17,28 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: b0869b4408a71e849a85cdd8c82b02f4, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 38360104960
+    m_Localized: Vedo che sei arrivato fin qui e hai un muro da scalare.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54789193728
+    m_Localized: "Ti dar\xF2 un consiglio. Torna alla raffineria e migliora le tue
+      abilit\xE0. Crea il doppio salto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 69754470400
+    m_Localized: 'Avrai bisogno di: 12 piatti, 11 ingranaggi e 7 rame'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80525443072
+    m_Localized: Non hai ancora tutto?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90822459392
+    m_Localized: Raccogli gli oggetti rimanenti e sconfiggi i nemici che ti aiuteranno.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

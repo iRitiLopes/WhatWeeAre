@@ -33,7 +33,7 @@ public class ExitPoint : MonoBehaviour {
 
                 loadNextLevel = false;
                 GameManager.gameManagerInstance.firstRun = true;
-                SceneHistory.LoadScene(NextLevel);
+                SceneHistory.LoadScene(NextLevel, true);
             }
         }
     }
@@ -46,8 +46,10 @@ public class ExitPoint : MonoBehaviour {
                 loadNextLevel = true;
             }
         }
-        FindObjectOfType<GameManager>().FinishDialogue(finalDialogue.dialogueName);
-        SceneHistory.LoadScene(NextLevel);
+
+        if(finalDialogue.dialogueName != null )
+            FindObjectOfType<GameManager>().FinishDialogue(finalDialogue.dialogueName);
+        SceneHistory.LoadScene(NextLevel, true);
     }
 
     void OnTriggerEnter2D(Collider2D coll) {

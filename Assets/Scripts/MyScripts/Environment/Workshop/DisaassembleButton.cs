@@ -19,11 +19,11 @@ public class DisaassembleButton : MonoBehaviour, IPointerEnterHandler, IPointerE
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
-        //Tooltip.show("Disassemble");
+        Tooltip.show("Disassemble");
     }
 
     public void OnPointerExit(PointerEventData eventData) {
-        //Tooltip.hide();
+        Tooltip.hide();
     }
 
     public void OnPointerClick(PointerEventData eventData) {

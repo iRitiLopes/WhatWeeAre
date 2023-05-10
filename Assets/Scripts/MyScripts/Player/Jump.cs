@@ -22,7 +22,9 @@ public class Jump : MonoBehaviour, Notificable {
 
     public PlayerColliderHelper bottomHelper { get; private set; }
 
-    bool jumpKeyHeld;
+    public bool jumpKeyHeld;
+    public bool isJumping = false;
+
     // Start is called before the first frame update
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -33,6 +35,7 @@ public class Jump : MonoBehaviour, Notificable {
     }
 
     private float jump() {
+        jumpCount++;
         return Mathf.Sqrt(2 * Physics2D.gravity.magnitude * jumpForce);
     }
 
@@ -46,24 +49,35 @@ public class Jump : MonoBehaviour, Notificable {
             return;
         }
 
-        if (isOnFloor() || (doubleJump && jumpCount < 2)) {
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                ++jumpCount;
+        // Keep apply jump force while space is pressed
+        if(Input.GetKeyDown(KeyCode.Space)) {
+            isJumping = true;
+            if(isOnFloor() || (doubleJump && jumpCount < 2)){
+                Debug.Log("Jump");
                 jumpKeyHeld = true;
-                rb.AddForce(Vector2.up * jump() * rb.mass, ForceMode2D.Impulse);
+                //rb.AddForce(Vector2.up * jump() * rb.mass, ForceMode2D.Impulse);
+                rb.velocity = new Vector2(rb.velocity.x, jump());
                 an.SetBool("Jump", true);
-            } else if (Input.GetKeyUp(KeyCode.Space)) {
+            } else if (doubleJump && jumpCount < 2) {
+                Debug.Log("Double Jump");
+                jumpKeyHeld = true;
+                //rb.AddForce(Vector2.up * jump() * rb.mass, ForceMode2D.Impulse);
+                rb.velocity = new Vector2(rb.velocity.x, jump());
+                an.SetBool("Jump", true);
+            }
+        } else if (Input.GetKeyUp(KeyCode.Space)) {
+                Debug.Log("Stop Jump");
                 jumpKeyHeld = false;
-            } else {
-                an.SetBool("Jump", false);
-                an.SetBool("Walk", true);
-            }
-        } else {
-            an.SetBool("Jump", true);
-            an.SetBool("Walk", false);
-            if (!jumpKeyHeld && Vector2.Dot(rb.velocity, Vector2.up) > 0) {
-                rb.AddForce(Vector2.down * rb.mass * Physics2D.gravity.magnitude);
-            }
+                isJumping = false;
+        } 
+        
+        {
+            an.SetBool("Jump", isOnFloor() == false);
+            an.SetBool("Walk", isOnFloor());
+        }
+
+        if(isJumping && rb.velocity.y > 0){
+            rb.AddForce(Vector2.up * jumpForce * 2 * Time.deltaTime, ForceMode2D.Force);
         }
     }
 
@@ -72,13 +86,19 @@ public class Jump : MonoBehaviour, Notificable {
     }
 
     public void notify(GameObject go) {
-        var isOnFloor = go.GetComponent<PlayerColliderHelper>().isColliding;
-        if(isOnFloor){
-            resetJumps();
+        if(isOnFloor()){
+            
         }
     }
 
     void resetJumps(){
         jumpCount = 0;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.CompareTag("Platform")){
+            Debug.Log("On Floor");
+            resetJumps();
+        }
     }
 }

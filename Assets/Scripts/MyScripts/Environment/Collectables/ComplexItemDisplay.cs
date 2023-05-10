@@ -71,7 +71,7 @@ public class ComplexItemDisplay : MonoBehaviour {
 
     private void DropItem(GameObject item) {
         float x = transform.position.x + UnityEngine.Random.Range(-2.0f, 2.0f);
-        float y = transform.position.y + UnityEngine.Random.Range(-2.0f, 2.0f);
+        float y = transform.position.y + UnityEngine.Random.Range(0f, 1.0f);
         GameManager.createItem(position: new Vector3(x, y, 0), collectableItem: item);
     }
 

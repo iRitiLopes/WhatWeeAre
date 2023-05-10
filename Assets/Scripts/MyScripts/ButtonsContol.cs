@@ -27,7 +27,8 @@ public class ButtonsContol : MonoBehaviour {
     {
 		//float fadeTime = GameObject.Find ("_GM").GetComponent<Fading>().BeginFade(1);
 		//yield return new WaitForSeconds (fadeTime);
-        SceneManager.LoadScene(indexNewScene);
+		SceneHistory.LoadScene(indexNewScene,true);
+		GameManager.gameManagerInstance.Unpause();
 
     }
     

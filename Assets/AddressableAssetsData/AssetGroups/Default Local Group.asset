@@ -16,7 +16,11 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 7d808dc2843580c4eb9cc717e4067176
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 28599d77a39154240bdca656252464f3
+    m_Address: Assets/Fonts/Comic_Neue,Prompt/Prompt/Prompt-Light.ttf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 32da35a9843d79e4b85cd927afec0fd4, type: 2}
   m_SchemaSet:

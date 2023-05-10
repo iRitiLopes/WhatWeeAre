@@ -19,11 +19,11 @@ public class AssembleButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
-        //Tooltip.show("Assemble!");
+        Tooltip.show("Assemble!");
     }
 
     public void OnPointerExit(PointerEventData eventData) {
-        //Tooltip.hide();
+        Tooltip.hide();
     }
 
     public void OnPointerClick(PointerEventData eventData) {

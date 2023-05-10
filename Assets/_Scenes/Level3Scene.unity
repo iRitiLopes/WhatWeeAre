@@ -665,6 +665,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8d42ac56ee82774491208e818533ba6, type: 3}
+--- !u!1 &139377691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1265228888967764, guid: 883b18dd919aaae45bcd11df019dd817,
+    type: 3}
+  m_PrefabInstance: {fileID: 850195964}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &139377695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139377691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e79e8e90b39fe142b11c8fcd7d12bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &177645666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1669,7 +1687,7 @@ PrefabInstance:
     - target: {fileID: 114356397594619588, guid: 175f34f3d69ef564f9bae57c1065e7d4,
         type: 3}
       propertyPath: NextLevel
-      value: Level3Scene
+      value: Level4Scene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 175f34f3d69ef564f9bae57c1065e7d4, type: 3}
@@ -2874,7 +2892,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0409837, y: 1}
+    m_SensorSize: {x: 2.1241217, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2891,7 +2909,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623592935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1057372, y: -1.2900001, z: 96.200005}
+  m_LocalPosition: {x: -1.9145203, y: -1.2900001, z: 96.200005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6366,7 +6384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450759229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1057372, y: -1.2900001, z: 96.200005}
+  m_LocalPosition: {x: -1.9145203, y: -1.2900001, z: 96.200005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

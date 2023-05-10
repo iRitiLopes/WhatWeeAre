@@ -742,7 +742,7 @@ MonoBehaviour:
   m_text: Reports suggest waste is being abandoned everywhere and toxic substances
     have been leaking into the environment.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3388b359da0d7cf4aa794dd46053a52b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 10a24d03ad444a345bde092bd044a2c4, type: 2}
   m_sharedMaterial: {fileID: 595266462214097613, guid: 3388b359da0d7cf4aa794dd46053a52b,
     type: 2}
   m_fontSharedMaterials: []

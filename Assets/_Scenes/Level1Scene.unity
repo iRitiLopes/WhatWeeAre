@@ -1488,7 +1488,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219741450}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.1109514, y: -2.01, z: -10}
+  m_LocalPosition: {x: -1.2245207, y: -2.01, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23416,7 +23416,7 @@ MonoBehaviour:
   m_YDamping: 1
   m_ZDamping: 1
   m_TargetMovementOnly: 1
-  m_ScreenX: 0.5000466
+  m_ScreenX: 0.27
   m_ScreenY: 0.5
   m_CameraDistance: 10
   m_DeadZoneWidth: 0.13
@@ -23425,7 +23425,7 @@ MonoBehaviour:
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.8
   m_SoftZoneHeight: 0.8
-  m_BiasX: -0.00000002224054
+  m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
   m_GroupFramingMode: 2
@@ -25653,7 +25653,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0409837, y: 1}
+    m_SensorSize: {x: 2.1241217, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -25670,7 +25670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315627657}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.1109514, y: -2.01, z: -10}
+  m_LocalPosition: {x: -1.2245207, y: -2.01, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30070,6 +30070,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 777788379}
     m_Modifications:
+    - target: {fileID: 1490942105382288787, guid: 77b9ab23a5950bf47877401803ed3807,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 4104264187652289668, guid: 77b9ab23a5950bf47877401803ed3807,
         type: 3}
       propertyPath: m_Pivot.x
@@ -30185,6 +30190,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 193306864}
+    - target: {fileID: 4104264188663074331, guid: 77b9ab23a5950bf47877401803ed3807,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 19.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104264188950026725, guid: 77b9ab23a5950bf47877401803ed3807,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104264189274475199, guid: 77b9ab23a5950bf47877401803ed3807,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 47
+      objectReference: {fileID: 0}
     - target: {fileID: 6612261695633033537, guid: 77b9ab23a5950bf47877401803ed3807,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -30493,6 +30513,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 777788379}
     m_Modifications:
+    - target: {fileID: 7879339632154520181, guid: b86d8f1f44743934cad3b97eb43fd97d,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 23.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879339632154520181, guid: b86d8f1f44743934cad3b97eb43fd97d,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a24d03ad444a345bde092bd044a2c4,
+        type: 2}
+    - target: {fileID: 7879339632154520181, guid: b86d8f1f44743934cad3b97eb43fd97d,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8199667253213285376, guid: 10a24d03ad444a345bde092bd044a2c4,
+        type: 2}
     - target: {fileID: 7879339632409183685, guid: b86d8f1f44743934cad3b97eb43fd97d,
         type: 3}
       propertyPath: m_Name
@@ -30603,6 +30640,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7879339632671393701, guid: b86d8f1f44743934cad3b97eb43fd97d,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8199667253213285376, guid: 10a24d03ad444a345bde092bd044a2c4,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b86d8f1f44743934cad3b97eb43fd97d, type: 3}
 --- !u!1001 &7985996484458879143

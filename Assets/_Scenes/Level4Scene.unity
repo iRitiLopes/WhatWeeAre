@@ -6401,7 +6401,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0409837, y: 1}
+    m_SensorSize: {x: 2.1241217, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6418,7 +6418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623592935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1057372, y: -0.54, z: 96.200005}
+  m_LocalPosition: {x: -1.9145203, y: -0.54, z: 96.200005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7652,6 +7652,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e9b0e05ef3d9ef4fa4fb151c5a2eb2f, type: 3}
+--- !u!1 &723481770 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1265228888967764, guid: 0e9b0e05ef3d9ef4fa4fb151c5a2eb2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 723481769}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &723481771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723481770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e79e8e90b39fe142b11c8fcd7d12bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &754558570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13302,7 +13320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450759229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1057372, y: -0.54, z: 96.200005}
+  m_LocalPosition: {x: -1.9145203, y: -0.54, z: 96.200005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13736,8 +13754,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Talking Cricket
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3388b359da0d7cf4aa794dd46053a52b, type: 2}
-  m_sharedMaterial: {fileID: 595266462214097613, guid: 3388b359da0d7cf4aa794dd46053a52b,
+  m_fontAsset: {fileID: 11400000, guid: 10a24d03ad444a345bde092bd044a2c4, type: 2}
+  m_sharedMaterial: {fileID: -8199667253213285376, guid: 10a24d03ad444a345bde092bd044a2c4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -13762,7 +13780,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.3
+  m_fontSize: 23.5
   m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -15359,8 +15377,8 @@ MonoBehaviour:
   m_text: Reports suggest waste is being abandoned everywhere and toxic substances
     have been leaking into the environment.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3388b359da0d7cf4aa794dd46053a52b, type: 2}
-  m_sharedMaterial: {fileID: 595266462214097613, guid: 3388b359da0d7cf4aa794dd46053a52b,
+  m_fontAsset: {fileID: 11400000, guid: 10a24d03ad444a345bde092bd044a2c4, type: 2}
+  m_sharedMaterial: {fileID: -8199667253213285376, guid: 10a24d03ad444a345bde092bd044a2c4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

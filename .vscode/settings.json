@@ -57,7 +57,9 @@
     "[csharp]": {
         "editor.defaultFormatter": "ms-dotnettools.csharp"
      },
+    "csharp.referencesCodeLens.enabled": true,
+    "csharpier.enableDebugLogs": false,
     "omnisharp.enableMsBuildLoadProjectsOnDemand": true,
-    "omnisharp.enableEditorConfigSupport": true,
+    "omnisharp.enableEditorConfigSupport": false,
     "omnisharp.enableRoslynAnalyzers": true,
 }

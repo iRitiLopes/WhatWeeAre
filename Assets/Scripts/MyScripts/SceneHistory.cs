@@ -27,8 +27,18 @@ public class SceneHistory : MonoBehaviour {
     //Call this whenever you want to load a new scene
     //It will add the new scene to the sceneHistory list
     public void __LoadScene(string newScene) {
-        sceneHistory.Add(newScene);
+        if(newScene != "LevelSelection"){
+            sceneHistory.Add(newScene);
+        }
         SceneManager.LoadScene(newScene);
+    }
+
+    public void __LoadScene(string newScene, bool startFromStartPoint) {
+        __LoadScene(newScene);
+        if (startFromStartPoint) {
+            Debug.Log("Start from start point");
+            GameManager.gameManagerInstance.startFromStartPoint();
+        }
     }
 
     //Call this whenever you want to load the previous scene
@@ -52,6 +62,10 @@ public class SceneHistory : MonoBehaviour {
 
     public static void LoadScene(string newScene) {
         instance.__LoadScene(newScene);
+    }
+
+    public static void LoadScene(string newScene, bool startFromStartPoint = false) {
+        instance.__LoadScene(newScene, startFromStartPoint);
     }
 
 }

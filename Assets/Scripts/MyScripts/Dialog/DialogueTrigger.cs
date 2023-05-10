@@ -25,6 +25,7 @@ public class DialogueTrigger : MonoBehaviour {
 
     void Finish() {
         dialogue.isDone = true;
+        alreadyDone = true;
         FindObjectOfType<GameManager>().FinishDialogue(dialogue.dialogueName);
     }
 }

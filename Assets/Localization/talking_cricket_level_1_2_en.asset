@@ -17,7 +17,29 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: b0869b4408a71e849a85cdd8c82b02f4, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 38360104960
+    m_Localized: I see you've come this far and have a wall to climb.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54789193728
+    m_Localized: I will give you a tip. Go back to the refinery and upgrade your
+      skills. Create the Double Jump
+    m_Metadata:
+      m_Items: []
+  - m_Id: 69754470400
+    m_Localized: 'You will need: 12 Plates, 11 Gears and 7 Coppers'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80525443072
+    m_Localized: Don't have everything yet?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90822459392
+    m_Localized: Collect the remaining items and defeat the enemies that will help
+      you.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

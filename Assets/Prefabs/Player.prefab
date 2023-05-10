@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isColliding: 0
+  boxCollider2D: {fileID: 0}
 --- !u!114 &1425696123955531243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isColliding: 0
+  boxCollider2D: {fileID: 0}
 --- !u!114 &2217606209004300734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,6 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isColliding: 0
+  boxCollider2D: {fileID: 0}
 --- !u!114 &2217606209338453961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,6 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isColliding: 0
+  boxCollider2D: {fileID: 0}
 --- !u!114 &2217606209534988970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1043,9 +1047,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6045b99a93683ec43b07ec8873045c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 1.5
+  jumpForce: 1.77
   doubleJump: 0
   jumpCount: 0
+  jumpKeyHeld: 0
+  isJumping: 0
 --- !u!114 &2217606209863297341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1075,3 +1081,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKnocked: 0
   Velocity: 5
+  m_ScreenX: 0.22
+  initialMScreenX: 0.22
