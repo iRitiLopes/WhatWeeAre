@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Localization.Settings;
 
 public class AssembleButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler {
     // Start is called before the first frame update
@@ -19,7 +20,7 @@ public class AssembleButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
-        Tooltip.show("Assemble!");
+        Tooltip.show(LocalizationSettings.StringDatabase.GetLocalizedString("tooltip", "assemble"));
     }
 
     public void OnPointerExit(PointerEventData eventData) {

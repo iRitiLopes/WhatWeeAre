@@ -27,14 +27,30 @@ MonoBehaviour:
     m_Key: enter_door_disassemble
     m_Metadata:
       m_Items: []
+  - m_Id: 89556125597351936
+    m_Key: assemble
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89556144371056640
+    m_Key: disassemble
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89558162477203456
+    m_Key: recipe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89558231645470720
+    m_Key: inventory
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 538364039616266857
+    rid: 3002161905591124879
   references:
     version: 2
     RefIds:
-    - rid: 538364039616266857
+    - rid: 3002161905591124879
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
         asm: Unity.Localization}
       data:

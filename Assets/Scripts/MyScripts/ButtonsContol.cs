@@ -39,7 +39,9 @@ public class ButtonsContol : MonoBehaviour {
 		}
 
 		gameData.GetComponent<DataControl> ().Save ();
+		SceneManager.LoadScene("Level1Scene");
 	}
+	
 
 
 }

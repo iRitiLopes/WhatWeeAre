@@ -194,7 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1033,10 +1033,40 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3223480521127840280, guid: ab541e6b32117754d949687506bf2e10,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3223480521127840280, guid: ab541e6b32117754d949687506bf2e10,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3223480521127840280, guid: ab541e6b32117754d949687506bf2e10,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 111
+      objectReference: {fileID: 0}
     - target: {fileID: 5052244024644993589, guid: ab541e6b32117754d949687506bf2e10,
         type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102945638926907332, guid: ab541e6b32117754d949687506bf2e10,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -7.3463287
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102945638926907332, guid: ab541e6b32117754d949687506bf2e10,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 20.03534
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294609748568718353, guid: ab541e6b32117754d949687506bf2e10,
+        type: 3}
+      propertyPath: m_Name
+      value: Plaquinha
       objectReference: {fileID: 0}
     - target: {fileID: 6377568007213235258, guid: ab541e6b32117754d949687506bf2e10,
         type: 3}
@@ -1661,6 +1691,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 712484366}
     m_Modifications:
+    - target: {fileID: 1618262481728611984, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
+        type: 3}
+      propertyPath: m_Name
+      value: Plaquinha
+      objectReference: {fileID: 0}
     - target: {fileID: 4805959488084030376, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1686,6 +1721,16 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 712484365}
+    - target: {fileID: 5825380133738210278, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -14.292458
+      objectReference: {fileID: 0}
+    - target: {fileID: 5825380133738210278, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 29.425621
+      objectReference: {fileID: 0}
     - target: {fileID: 6413744838212560241, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1795,6 +1840,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Recipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239106844556405388, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239106844556405388, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239106844556405388, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 7976839299848923939, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
         type: 3}

@@ -167,7 +167,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 4f18eff0557861547b9d60db869b412b, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -291,6 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 200
   mustPatrol: 0
+  mustTurn: 0
   rigidbody2D: {fileID: 2016143567827094572}
   groundCheckPos: {fileID: 243750592}
   bodyCollider: {fileID: 2016143567827094563}
@@ -300,3 +301,4 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
+  isEnable: 1

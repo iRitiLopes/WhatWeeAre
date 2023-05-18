@@ -30,6 +30,22 @@ MonoBehaviour:
     m_Localized: Press W to enter the Scrapping Lab and dismantle your items.
     m_Metadata:
       m_Items: []
+  - m_Id: 89556125597351936
+    m_Localized: Assemble!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89556144371056640
+    m_Localized: Disassemble!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89558162477203456
+    m_Localized: Recipes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89558231645470720
+    m_Localized: Inventory
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

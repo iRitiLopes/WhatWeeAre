@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Localization.Settings;
 
 public class DisaassembleButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler {
     // Start is called before the first frame update
@@ -19,7 +20,7 @@ public class DisaassembleButton : MonoBehaviour, IPointerEnterHandler, IPointerE
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
-        Tooltip.show("Disassemble");
+        Tooltip.show(LocalizationSettings.StringDatabase.GetLocalizedString("tooltip", "disassemble"));
     }
 
     public void OnPointerExit(PointerEventData eventData) {

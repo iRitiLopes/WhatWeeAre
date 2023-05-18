@@ -31,6 +31,22 @@ MonoBehaviour:
       itens
     m_Metadata:
       m_Items: []
+  - m_Id: 89556125597351936
+    m_Localized: Montar!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89556144371056640
+    m_Localized: Desmontar!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89558162477203456
+    m_Localized: Receitas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89558231645470720
+    m_Localized: Inventario
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -31,6 +31,22 @@ MonoBehaviour:
       i tuoi oggetti.
     m_Metadata:
       m_Items: []
+  - m_Id: 89556125597351936
+    m_Localized: Assemblare!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89556144371056640
+    m_Localized: Smontare!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89558162477203456
+    m_Localized: Ricavi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89558231645470720
+    m_Localized: Inventario
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
