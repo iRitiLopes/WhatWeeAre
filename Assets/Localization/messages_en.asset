@@ -42,6 +42,15 @@ MonoBehaviour:
     m_Localized: All disassembled
     m_Metadata:
       m_Items: []
+  - m_Id: 82947376661184512
+    m_Localized: Select a level to replay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82948404047560704
+    m_Localized: Return to the world of What Weee Are and collect items that once
+      seemed inaccessible
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

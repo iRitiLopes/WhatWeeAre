@@ -17,7 +17,7 @@ public class EnemyKnockback : MonoBehaviour {
         if (other.collider.CompareTag("PlayerColliderBottom")) {
             ApplyEffects(other);
             var enemy = gameObject.GetComponent<Enemy>();
-            enemy.decreaseLife();
+            enemy.decreaseLife(FindObjectOfType<Player>().damage);
         }
     }
 

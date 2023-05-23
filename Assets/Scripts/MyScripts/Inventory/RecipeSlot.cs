@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using UnityEngine.Localization.Settings;
 
 public class RecipeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     public Item item;
@@ -27,8 +27,8 @@ public class RecipeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
 
     public void OnPointerEnter(PointerEventData eventData) {
-        string name = item != null ? item.name : powerUpEffect.name;
-        string description = item != null ? item.description : powerUpEffect.description;
+        string name = item != null ? item.name : LocalizationSettings.StringDatabase.GetLocalizedString("power_names", powerUpEffect.powerUpName);
+        string description = item != null ? item.description : LocalizationSettings.StringDatabase.GetLocalizedString("power_descriptions", powerUpEffect.powerUpName);
         Tooltip.show(name + " - " + description);
     }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour {
 
     SpriteRenderer render;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private Animator an;
     public bool isKnocked = false;
     public float Velocity = 1f;
@@ -66,6 +66,10 @@ public class Movement : MonoBehaviour {
 
 
     private void Update() {
+        if(GameManager.gameManagerInstance.isPaused) {
+            rb.velocity = Vector2.zero;
+            return;
+        }
         if (FindObjectOfType<GameManager>().isPaused) {
             return;
         }

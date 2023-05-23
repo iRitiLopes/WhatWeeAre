@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour {
 
     readonly Dictionary<string, bool> enemies = new();
     public Dictionary<string, bool> items = new();
+    public Dictionary<string, bool> pwups = new();
 
     public Dictionary<string, bool> dialogues = new();
 
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour {
     public Dictionary<string, bool> levelsCompleted = new();
 
     StartPoint startPoint;
+    public bool endGame = false;
 
     private void Start() { }
 
@@ -37,6 +40,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public static void unlockLevel(string level) {
+        
         if (!gameManagerInstance.levelsCompleted.ContainsKey(level)) {
             gameManagerInstance.levelsCompleted.Add(level, true);
         } else {
@@ -45,11 +49,14 @@ public class GameManager : MonoBehaviour {
     }
 
     public static bool isLevelReached(string level) {
-        Debug.Log(level);
         return gameManagerInstance.levelsCompleted.GetValueOrDefault(level, false);
     }
 
     public void CollectItem(ItemDisplay itemDisplay) {
+        items.Add(itemDisplay.hash(), true);
+    }
+
+    public void CollectItem(PowerUpDisplay itemDisplay) {
         items.Add(itemDisplay.hash(), true);
     }
 
@@ -62,6 +69,10 @@ public class GameManager : MonoBehaviour {
     }
 
     public bool AlreadyCollected(ComplexItemDisplay itemDisplay) {
+        return items.GetValueOrDefault(itemDisplay.hash(), false);
+    }
+
+    public bool AlreadyCollected(PowerUpDisplay itemDisplay) {
         return items.GetValueOrDefault(itemDisplay.hash(), false);
     }
 
@@ -155,5 +166,15 @@ public class GameManager : MonoBehaviour {
 
     internal static void setStartPoint(StartPoint startPoint) {
         gameManagerInstance.startPoint = startPoint;
+    }
+
+    internal void finishGame() {
+        gameManagerInstance.levelsCompleted["Level1Scene"] = true;
+        gameManagerInstance.levelsCompleted["Level2Scene"] = true;
+        gameManagerInstance.levelsCompleted["Level3Scene"] = true;
+        gameManagerInstance.levelsCompleted["Level4Scene"] = true;
+ 
+        SceneHistory.instance.cleanHistory();
+        this.endGame = true;
     }
 }

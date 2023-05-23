@@ -8,7 +8,7 @@ public class SceneHistory : MonoBehaviour {
 
     public static SceneHistory instance;
     [SerializeField]
-    private readonly List<string> sceneHistory = new();  //running history of scenes
+    public List<string> sceneHistory = new();  //running history of scenes
                                                              //The last string in the list is always the current scene running
 
     private void Awake() {
@@ -24,12 +24,33 @@ public class SceneHistory : MonoBehaviour {
         sceneHistory.Add(SceneManager.GetActiveScene().name);
     }
 
+
+    public void cleanHistory(){
+        sceneHistory.Clear();
+        sceneHistory.Add(SceneManager.GetActiveScene().name);
+    }
+
     //Call this whenever you want to load a new scene
     //It will add the new scene to the sceneHistory list
     public void __LoadScene(string newScene) {
+        Debug.Log("Loading scene: " + newScene);
+        Debug.Log("Current scene: " + SceneManager.GetActiveScene().name);
         if(newScene != "LevelSelection"){
             sceneHistory.Add(newScene);
         }
+
+        if(newScene == "LevelSelection"){
+            cleanHistory();
+
+            if(GameManager.gameManagerInstance.endGame){
+                //GameManager.gameManagerInstance.firstRun = true;
+                //GameManager.gameManagerInstance.endGame = false;
+            }else{
+                sceneHistory.Add(SceneManager.GetActiveScene().name);
+            }
+            
+        }
+        
         SceneManager.LoadScene(newScene);
     }
 
@@ -51,6 +72,7 @@ public class SceneHistory : MonoBehaviour {
             returnValue = true;
             sceneHistory.RemoveAt(sceneHistory.Count - 1);
             SceneManager.LoadScene(sceneHistory[sceneHistory.Count - 1]);
+            //GameManager.gameManagerInstance.startFromStartPoint();
         }
 
         return returnValue;

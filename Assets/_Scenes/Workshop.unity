@@ -1651,6 +1651,7 @@ MonoBehaviour:
   isPaused: 0
   playerPosition: {x: 0, y: 0, z: 0}
   playerLife: 3
+  endGame: 0
 --- !u!4 &2027852808
 Transform:
   m_ObjectHideFlags: 0
@@ -1721,6 +1722,16 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 712484365}
+    - target: {fileID: 5551421984216403738, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5551421984216403738, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
+        type: 3}
+      propertyPath: powerUpEffects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5825380133738210278, guid: 0db6b8d738aeb5b4dbc6c8cf3139c1fd,
         type: 3}
       propertyPath: m_margin.x

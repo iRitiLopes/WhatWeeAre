@@ -39,6 +39,11 @@ MonoBehaviour:
     m_Localized: "Colete os itens restantes e derrote os inimigos que ir\xE1 ajuda-lo"
     m_Metadata:
       m_Items: []
+  - m_Id: 9782158544650240
+    m_Localized: "Se ja possui, ignore esta ajuda, voc\xEA est\xE1 indo melhor do
+      que eu imaginava"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

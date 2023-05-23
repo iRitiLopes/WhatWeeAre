@@ -35,14 +35,18 @@ MonoBehaviour:
     m_Key: 4
     m_Metadata:
       m_Items: []
+  - m_Id: 9782158544650240
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 8962842246413287964
+    rid: 3002162036527858520
   references:
     version: 2
     RefIds:
-    - rid: 8962842246413287964
+    - rid: 3002162036527858520
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
         asm: Unity.Localization}
       data:

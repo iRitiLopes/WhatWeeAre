@@ -11,7 +11,7 @@ public class LifePowerUp : PowerUpEffect
     [SerializeField]
     public AudioClip audioClip;
 
-    public override void Apply(GameObject target, PlayerPowerUp playerPowerUp) {
+    public override void Apply(GameObject target, PlayerPowerUp playerPowerUp) {        
         target.GetComponent<Player>().IncreaseLife(amount);
         target.GetComponent<AudioSource>().PlayOneShot(audioClip);
     }

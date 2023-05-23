@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour {
 
     public GameObject particle;
 
-    float walkingTimeInSeconds = 0;
 
     // Use this for initialization
     void Start() {
@@ -33,14 +32,12 @@ public class Enemy : MonoBehaviour {
         an.SetBool("isKnocked", isKnocked);
     }
 
-    internal void decreaseLife() {
-        lifes--;
+    internal void decreaseLife(int damage = 1) {
+        lifes -= damage;
     }
 
 
     private void FixedUpdate() {
-        walkingTimeInSeconds += Time.fixedDeltaTime;
-
         if (isDead()) {
             var drop = GetComponent<DropItem>();
             if (drop) {

@@ -13,6 +13,9 @@ public class Lava : MonoBehaviour {
 
     [SerializeField]
     Sprite lavaSprite;
+
+    [SerializeField]
+    int lavaQuantityWidth = 4;
     // Start is called before the first frame update
     void Start() {
         screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
@@ -23,7 +26,7 @@ public class Lava : MonoBehaviour {
 
     void loadChildObjects(GameObject obj) {
         float objectWitdh = obj.GetComponent<SpriteRenderer>().bounds.size.x;
-        int childsNeeded = (int)Mathf.Ceil(screenBounds.x * 4 / objectWitdh);
+        int childsNeeded = (int)Mathf.Ceil(screenBounds.x * 4 / objectWitdh) + lavaQuantityWidth;
         GameObject clone = Instantiate(obj) as GameObject;
         for (int i = 0; i <= childsNeeded; i++) {
             GameObject c = Instantiate(clone) as GameObject;
@@ -53,7 +56,7 @@ public class Lava : MonoBehaviour {
             GameObject firstChildren = children[1].gameObject;
             GameObject lastChild = children[children.Length - 1].gameObject;
             float halfObjectWidth = lastChild.GetComponent<SpriteRenderer>().bounds.extents.x;
-            if (transform.position.x + screenBounds.x > lastChild.transform.position.x + halfObjectWidth) {
+            if (transform.position.x + screenBounds.x > lastChild.transform.position.x + halfObjectWidth * 0.5f) {
                 firstChildren.transform.SetAsLastSibling();
                 firstChildren.transform.position = new Vector3(lastChild.transform.position.x + halfObjectWidth * 2, lastChild.transform.position.y, lastChild.transform.position.z);
             } else if (transform.position.x - screenBounds.x < firstChildren.transform.position.x - halfObjectWidth) {

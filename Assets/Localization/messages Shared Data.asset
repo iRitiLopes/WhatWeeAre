@@ -39,14 +39,22 @@ MonoBehaviour:
     m_Key: disassemble
     m_Metadata:
       m_Items: []
+  - m_Id: 82947376661184512
+    m_Key: level_selection
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82948404047560704
+    m_Key: level_selection_description
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 1335735214283686177
+    rid: 3002162016372130740
   references:
     version: 2
     RefIds:
-    - rid: 1335735214283686177
+    - rid: 3002162016372130740
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
         asm: Unity.Localization}
       data:

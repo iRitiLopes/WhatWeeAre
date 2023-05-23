@@ -65,6 +65,14 @@ MonoBehaviour:
     m_Address: Assets/Localization/levelsNames Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+  - m_GUID: 4f659857b3f7fff4791fa691703e2f8e
+    m_Address: Assets/Localization/power_names Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 33e207b986a218c4da8f68847007c653
+    m_Address: Assets/Localization/power_descriptions Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 32da35a9843d79e4b85cd927afec0fd4, type: 2}
   m_SchemaSet:

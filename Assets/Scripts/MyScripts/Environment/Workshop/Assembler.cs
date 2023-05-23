@@ -49,10 +49,11 @@ public class Assembler : MonoBehaviour, Notificable {
         powerUpEffects = FindObjectOfType<RecipesDisplay>().powerUpEffects;
     }
 
+    private void FixedUpdate() {
+        notify(null);
+    }
+
     public void notify(GameObject go) {
-        Debug.Log("Notified");
-
-
         var i1 = input1.transform.childCount > 0 ? input1.transform.GetChild(0).GetChild(0)?.GetComponent<ItemSlot>() : null;
         var n1 = input1.name;
 
@@ -61,6 +62,12 @@ public class Assembler : MonoBehaviour, Notificable {
 
         var i3 = input3.transform.childCount > 0 ? input3.transform.GetChild(0).GetChild(0)?.GetComponent<ItemSlot>() : null;
         var n3 = input3.name;
+
+        if(i1 == null && i2 == null && i3 == null){
+            CleanOutput();
+            CleanDisassemble();
+            return;
+        }
 
         AddInputItem(i1, n1);
         AddInputItem(i2, n2);
@@ -77,11 +84,17 @@ public class Assembler : MonoBehaviour, Notificable {
             Debug.Log(powerUpFound[0].name);
             AddPowerUpInput(powerUpFound[0]);
         } else {
+            CleanOutput();
             CleanDisassemble();
         }
     }
 
     private void AddPowerUpInput(PowerUpEffect powerUpEffect) {
+        if(actualPowerUpEffect != null && actualPowerUpEffect.name.Equals(powerUpEffect.name)){
+            return;
+        } else {
+            CleanOutput();
+        }
         GameObject wrapper;
         wrapper = CreateDragDropObject.createWrapper(outputSlot.transform, canvas, false);
         putItem(wrapper, powerUpEffect, 1);
@@ -100,6 +113,9 @@ public class Assembler : MonoBehaviour, Notificable {
     }
 
     private void AddOutputItem(Item item) {
+        if(actualItem != null && actualItem.item.name.Equals(item.name)){
+            return;
+        }
         GameObject wrapper;
         wrapper = CreateDragDropObject.createWrapper(outputSlot.transform, canvas, false);
         putItem(wrapper, item, 1);
@@ -177,14 +193,21 @@ public class Assembler : MonoBehaviour, Notificable {
     }
 
     private void CleanDisassemble() {
-        if (actualItem != null) {
-            var itemSlot = ChildFinder.findWithStartName(outputSlot.transform, "InfinityItemSlotWrapper");
-            inputItens = new();
-            Destroy(itemSlot.gameObject);
-            actualItem = null;
-            actualPowerUpEffect = null;
+        if (actualItem != null || actualPowerUpEffect != null) {
+            CleanOutput();
             CleanInputItems();
         }
+    }
+
+    private void CleanOutput(){
+        
+            var itemSlot = ChildFinder.findWithStartName(outputSlot.transform, "InfinityItemSlotWrapper");
+            inputItens = new();
+
+            if(itemSlot != null)
+                Destroy(itemSlot.gameObject);
+            actualItem = null;
+            actualPowerUpEffect = null;
     }
 
     private void CleanInputItems() {

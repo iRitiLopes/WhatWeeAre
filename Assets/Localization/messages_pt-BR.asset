@@ -42,6 +42,15 @@ MonoBehaviour:
     m_Localized: Tudo desmontado
     m_Metadata:
       m_Items: []
+  - m_Id: 82947376661184512
+    m_Localized: "Selecione um n\xEDvel para voltar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82948404047560704
+    m_Localized: "Volte ao mundo de What Weee Are e colete itens que antes pareciam
+      inacess\xEDveis"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

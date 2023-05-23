@@ -73,6 +73,12 @@
     "id": "c107a907-0a0c-4e95-a18f-309d53b7ed93",
     "name": "Mercury",
     "description": "Mercury element",
-    "isRaw": true
+    "isRaw": false,
+    "rawItems": [
+      {
+        "id": "67638d7f-14f8-4b31-9ac1-19284d1c1beb",
+        "quantity": 8
+      }
+    ]
   }
 ]

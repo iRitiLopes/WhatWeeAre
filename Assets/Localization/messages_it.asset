@@ -42,6 +42,15 @@ MonoBehaviour:
     m_Localized: Tutto smontato
     m_Metadata:
       m_Items: []
+  - m_Id: 82947376661184512
+    m_Localized: Seleziona un livello da rigiocare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82948404047560704
+    m_Localized: Torna nel mondo di What Weee Are e raccogli oggetti che una volta
+      sembravano inaccessibili
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

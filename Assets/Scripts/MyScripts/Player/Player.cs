@@ -24,6 +24,7 @@ public class Player : MonoBehaviour {
     public bool isKnocked = false;
 
     public Vector3 playerPosition;
+    public int damage = 1;
 
     // Use this for initialization
     private IEnumerator Start() {

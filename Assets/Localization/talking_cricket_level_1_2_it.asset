@@ -39,6 +39,11 @@ MonoBehaviour:
     m_Localized: Raccogli gli oggetti rimanenti e sconfiggi i nemici che ti aiuteranno.
     m_Metadata:
       m_Items: []
+  - m_Id: 9782158544650240
+    m_Localized: "Se lo hai gi\xE0 fatto, ignora questo aiuto, stai andando meglio
+      di quanto pensassi"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

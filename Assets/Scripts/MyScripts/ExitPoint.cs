@@ -39,6 +39,7 @@ public class ExitPoint : MonoBehaviour {
     }
 
     void Finish() {
+        
         GameControl game = GameObject.Find("Main Camera").GetComponent<GameControl>();
         if (game.IsGameRuning) {
             game.IsGameRuning = false;
@@ -55,6 +56,7 @@ public class ExitPoint : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D coll) {
         if (coll.CompareTag("Player")) {
             if (isFinalLevel && finalDialogue != null) {
+                GameManager.gameManagerInstance.finishGame();
                 FindObjectOfType<DialogueManager>().StartDialogue(finalDialogue, Finish);
             } else {
                 Finish();

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: power_names_pt-BR
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt-BR
+  m_SharedData: {fileID: 11400000, guid: 4f659857b3f7fff4791fa691703e2f8e, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 123730968576
+    m_Localized: Aumento de vida
+    m_Metadata:
+      m_Items: []
+  - m_Id: 147693027328
+    m_Localized: Aumentar dano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 187773796352
+    m_Localized: Aumento de velocidade 1x
+    m_Metadata:
+      m_Items: []
+  - m_Id: 204848807936
+    m_Localized: Aumento de velocidade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167473364992
+    m_Localized: Pulo duplo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20460623413248
+    m_Localized: "Aumento de for\xE7a de pulo"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

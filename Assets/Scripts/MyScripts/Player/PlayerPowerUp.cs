@@ -11,6 +11,8 @@ public class PlayerPowerUp : MonoBehaviour {
     [SerializeField]
     public List<PowerUpEffect> powerUpEffects = new();
 
+    public Dictionary<PowerUpEffect, bool> powerUpEffectsDict = new();
+
     private void Start() {
         SceneManager.sceneLoaded += Reload;
     }
@@ -25,7 +27,10 @@ public class PlayerPowerUp : MonoBehaviour {
         powerUpUI = FindObjectOfType<PowerUpUI>();
         powerUpEffects.ForEach(p => {
             powerUpUI.AddPowerUp(p);
-            p.Apply(FindObjectOfType<Player>().gameObject, this);
+            if(!(typeof(LifePowerUp) == p.GetType() && powerUpEffectsDict.ContainsKey(p) && powerUpEffectsDict[p] == true))
+                p.Apply(FindObjectOfType<Player>().gameObject, this);
+            
+            powerUpEffectsDict[p] = true;
         });
     }
 
@@ -54,8 +59,7 @@ public class PlayerPowerUp : MonoBehaviour {
     }
 
     IEnumerator AddAndRemove(PowerUpEffect powerUpEffect, float seconds) {
-        powerUpEffects.Add(powerUpEffect);
-        powerUpUI.AddPowerUp(powerUpEffect);
+        AddPowerUp(powerUpEffect);
         yield return new WaitForSeconds(seconds);
         powerUpEffects.Remove(powerUpEffect);
         powerUpUI.RemovePowerUp(powerUpEffect);

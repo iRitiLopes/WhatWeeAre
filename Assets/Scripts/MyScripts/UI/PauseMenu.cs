@@ -32,6 +32,7 @@ public class PauseMenu : MonoBehaviour {
     }
 
     private void PauseGame() {
+        GameManager.gameManagerInstance.savePlayerPosition();
         gameObject.transform.GetChild(0).gameObject.SetActive(true);
         FindObjectOfType<GameManager>().Pause();
         GameEvents.current.OnEscPressed -= PauseGame;

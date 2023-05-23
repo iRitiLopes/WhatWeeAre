@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f22ac45199f4cca42ae037ba2e93c8b1, type: 3}
+  m_Name: New Double Damage
+  m_EditorClassIdentifier: 
+  powerUpName: Double Damage
+  sprite: {fileID: 21300000, guid: a85497ca2d782714e9800e80a27b9d44, type: 3}
+  canBeCreated: 1
+  rawItems:
+  - id: c107a907-0a0c-4e95-a18f-309d53b7ed93
+    quantity: 14
+  description: Increase the whole damage of the user
+  amount: 4
+  audioClip: {fileID: 8300000, guid: 79180f511d89441b9aa23ccae1992fe0, type: 3}
