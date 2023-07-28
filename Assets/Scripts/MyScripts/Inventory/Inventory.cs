@@ -64,7 +64,16 @@ public class Inventory : MonoBehaviour {
         }
         String json = String.Join(",", jsonElements);
         json = "[" + json + "]";
-        File.WriteAllText(INVENTORY_PATH, json);
+
+        try {
+            File.WriteAllText(INVENTORY_PATH, json);
+        } catch (UnauthorizedAccessException e) {
+            Debug.Log(e);
+            using FileStream fs = File.OpenWrite(INVENTORY_PATH);
+            fs.SetLength(0);
+            using StreamWriter sw = new(fs);
+            sw.Write(json);
+        }
     }
 
     private void _removeItem(string id, int quantity) {
